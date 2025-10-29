@@ -5,6 +5,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #151515;
 }
 
 .animated-underline {
@@ -68,14 +69,15 @@ body {
   width: 0;
   height: 1em;
   margin-left: 0;
-  background-image: url('/arrow-up-right.svg');
+  background-image: url("/arrow-up-right.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   vertical-align: middle;
   opacity: 0;
   transform: translateY(-0.1em) translateX(-4px);
-  transition: opacity 0.4s ease, transform 0.4s ease, width 0.4s ease, margin-left 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease, width 0.4s ease,
+    margin-left 0.4s ease;
 }
 
 .animated-link:hover::before {
@@ -121,14 +123,15 @@ body {
   width: 0;
   height: 1em;
   margin-left: 0;
-  background-image: url('/hash.svg');
+  background-image: url("/hash.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   vertical-align: middle;
   opacity: 0;
   transform: translateY(-0.1em) translateX(-4px);
-  transition: opacity 0.4s ease, transform 0.4s ease, width 0.4s ease, margin-left 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease, width 0.4s ease,
+    margin-left 0.4s ease;
 }
 
 .animated-anchor:hover::before {
