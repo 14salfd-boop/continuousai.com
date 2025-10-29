@@ -70,8 +70,8 @@ export default function Home() {
           <span>
             Continuous AI is a practice that encourages teams to build these
             guiderails and get out of the way of their background agents so they
-            can drastically increase throughput while remaining focused on their
-            toughest problems.
+            can increase throughput while remaining focused on their toughest
+            problems.
           </span>
         </p>
 
