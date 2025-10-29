@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Continuous AI",
-  description: "As AI capabilities grow exponentially, we're shifting from just-in-time prompting to spec-driven development.",
+  description: "The practice of developing software with background agents",
 };
 
 export default function RootLayout({
@@ -15,12 +15,17 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Molengo&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body className="font-['Molengo',sans-serif]">
-        {children}
-      </body>
+      <body className="font-['Molengo',sans-serif]">{children}</body>
     </html>
   );
 }
