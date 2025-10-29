@@ -40,7 +40,7 @@ export default function Home() {
           Continuous AI
         </p>
 
-        <p className="font-['Molengo',sans-serif] text-[18px] text-white mb-16 leading-normal max-w-[1393px]">
+        <p className="font-['Molengo',sans-serif] text-[18px] text-white mb-8 leading-normal max-w-[1393px]">
           <span>LLMs are capable of completing </span>
           <a
             href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/"
@@ -66,7 +66,16 @@ export default function Home() {
           </span>
         </p>
 
-        <div className="space-y-16">
+        <p className="font-['Molengo',sans-serif] text-[18px] text-white mb-16 leading-normal max-w-[1393px]">
+          <span>
+            Continuous AI is a practice that encourages teams to build these
+            guiderails and get out of the way of their background agents so they
+            can drastically increase throughput while remaining focused on their
+            toughest problems.
+          </span>
+        </p>
+
+        <div className="space-y-12">
           {/* Shift left, systematically */}
           <div
             id="shift-left-systematically"
@@ -177,8 +186,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        <p className="font-['Molengo',sans-serif] text-[18px] text-white mt-16 leading-normal max-w-[1393px]"></p>
       </div>
     </div>
   );
