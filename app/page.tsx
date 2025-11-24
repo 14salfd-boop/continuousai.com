@@ -37,11 +37,11 @@ export default function Home() {
     <div className="min-h-screen px-8 sm:px-20 flex flex-col">
       <div className="flex-1 flex items-center justify-center">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-['Molengo',sans-serif] text-[56px] sm:text-[72px] text-white mb-12 leading-tight">
+          <h1 className="font-['Molengo',sans-serif] text-[48px] sm:text-[56px] text-white mb-12 leading-tight">
             Continuous AI
           </h1>
 
-          <p className="font-['Molengo',sans-serif] text-[24px] sm:text-[32px] text-white leading-relaxed text-balance">
+          <p className="font-['Molengo',sans-serif] text-[20px] sm:text-[26px] text-white leading-relaxed text-balance">
             Developers are drowning in AI-generated code. Continuous AI addresses this by automating the workflows around code, not just the code itself. The role of the software engineer is shifting from prompting AI to designing processes that run automatically.
           </p>
         </div>
@@ -59,7 +59,7 @@ export default function Home() {
             <img 
               src="/continue-logo-white.svg" 
               alt="Continue" 
-              className="h-5"
+              className="h-4"
             />
           </a>
         </div>
