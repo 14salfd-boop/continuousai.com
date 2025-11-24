@@ -49,17 +49,17 @@ export default function Home() {
 
       <footer className="pb-8 pt-4">
         <div className="flex items-center justify-center gap-2">
-          <span className="font-['Molengo',sans-serif] text-white text-sm">Powered by</span>
+          <span className="font-['Molengo',sans-serif] text-white text-sm opacity-70">Powered by</span>
           <a 
             href="https://continue.dev" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-block hover:opacity-80 transition-opacity"
+            className="flex items-center hover:opacity-80 transition-opacity"
           >
             <img 
               src="/continue-logo-white.svg" 
               alt="Continue" 
-              className="h-4"
+              className="h-5 w-auto"
             />
           </a>
         </div>
