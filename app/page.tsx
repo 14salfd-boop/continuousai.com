@@ -50,7 +50,7 @@ export default function Home() {
         </div>
       </div>
 
-      <footer className="pb-8 pt-4">
+      <footer className="pb-12 sm:pb-8 pt-4">
         <div className="flex flex-col items-center justify-center gap-0.5">
           <span className="font-['Molengo',sans-serif] text-white text-base tracking-wider opacity-50">Powered by</span>
           <a 
