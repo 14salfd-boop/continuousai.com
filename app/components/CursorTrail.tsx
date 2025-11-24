@@ -5,7 +5,9 @@ import { useEffect, useRef } from "react";
 interface Particle {
   x: number;
   y: number;
-  size: number;
+  sizeX: number;
+  sizeY: number;
+  rotation: number;
   speedX: number;
   speedY: number;
   life: number;
@@ -52,21 +54,23 @@ export default function CursorTrail() {
     const handleMouseMove = (e: MouseEvent) => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
       
-      // Slowly transition between colors
+      // Transition between colors faster
       colorTransitionRef.current++;
-      if (colorTransitionRef.current > 30) { // Change color every 30 particles
+      if (colorTransitionRef.current > 15) { // Change color every 15 particles
         colorTransitionRef.current = 0;
         colorIndexRef.current = (colorIndexRef.current + 1) % COLORS.length;
       }
       
-      // Create fewer, larger particles for smoke effect
-      const maxLife = Math.random() * 80 + 60; // Longer life
+      // Create wispy, elongated particles for smoke effect
+      const maxLife = Math.random() * 100 + 80; // Longer life
       particlesRef.current.push({
-        x: e.clientX + (Math.random() - 0.5) * 5,
-        y: e.clientY + (Math.random() - 0.5) * 5,
-        size: Math.random() * 40 + 30, // Larger particles
-        speedX: (Math.random() - 0.5) * 0.5, // Slower drift
-        speedY: (Math.random() - 0.5) * 0.5 - 0.3, // Slight upward drift for smoke
+        x: e.clientX + (Math.random() - 0.5) * 8,
+        y: e.clientY + (Math.random() - 0.5) * 8,
+        sizeX: Math.random() * 60 + 40, // Elongated width
+        sizeY: Math.random() * 25 + 15, // Thinner height for wisps
+        rotation: Math.random() * Math.PI * 2, // Random rotation
+        speedX: (Math.random() - 0.5) * 0.8, // More drift
+        speedY: (Math.random() - 0.5) * 0.6 - 0.5, // More upward drift
         life: maxLife,
         maxLife: maxLife,
         colorIndex: colorIndexRef.current,
@@ -85,7 +89,9 @@ export default function CursorTrail() {
         particle.x += particle.speedX;
         particle.y += particle.speedY;
         particle.life--;
-        particle.size *= 0.995; // Grow slightly for smoke expansion
+        particle.sizeX *= 1.01; // Grow and stretch out
+        particle.sizeY *= 0.98; // Get thinner
+        particle.rotation += 0.01; // Slight rotation
 
         // Calculate opacity based on life
         const opacity = particle.life / particle.maxLife;
@@ -97,27 +103,38 @@ export default function CursorTrail() {
         // Get color for this particle
         const color = COLORS[particle.colorIndex];
         
-        // Create gradient for smoky effect with softer edges
+        // Save context state
+        ctx.save();
+        
+        // Move to particle position and rotate
+        ctx.translate(particle.x, particle.y);
+        ctx.rotate(particle.rotation);
+        
+        // Create elliptical gradient for wispy smoke
         const gradient = ctx.createRadialGradient(
-          particle.x,
-          particle.y,
           0,
-          particle.x,
-          particle.y,
-          particle.size
+          0,
+          0,
+          0,
+          0,
+          particle.sizeX * 0.8
         );
 
-        // Softer, more diffuse smoke effect
-        const alpha = opacity * 0.3; // Lower opacity for smoke
+        // Very soft, wispy smoke effect
+        const alpha = opacity * 0.25;
         gradient.addColorStop(0, `${color}${Math.floor(alpha * 255).toString(16).padStart(2, '0')}`);
-        gradient.addColorStop(0.4, `${color}${Math.floor(alpha * 0.5 * 255).toString(16).padStart(2, '0')}`);
+        gradient.addColorStop(0.3, `${color}${Math.floor(alpha * 0.6 * 255).toString(16).padStart(2, '0')}`);
+        gradient.addColorStop(0.7, `${color}${Math.floor(alpha * 0.2 * 255).toString(16).padStart(2, '0')}`);
         gradient.addColorStop(1, `${color}00`);
 
-        // Draw particle
+        // Draw elongated ellipse for wisp effect
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.ellipse(0, 0, particle.sizeX, particle.sizeY, 0, 0, Math.PI * 2);
         ctx.fill();
+        
+        // Restore context state
+        ctx.restore();
 
         return true;
       });
