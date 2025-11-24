@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import CursorTrail from "./components/CursorTrail";
+import MobiusStrip from "./components/MobiusStrip";
 
 const ICON_SUFFIX = "-boxes";
 export default function Home() {
@@ -43,6 +44,10 @@ export default function Home() {
           <h1 className="font-['Molengo',sans-serif] text-[48px] sm:text-[56px] text-white mb-12 leading-tight">
             Continuous AI
           </h1>
+
+          <div className="mb-12">
+            <MobiusStrip />
+          </div>
 
           <p className="font-['Molengo',sans-serif] text-[20px] sm:text-[26px] text-white leading-relaxed text-balance">
             Developers are drowning in AI-generated code. Continuous AI addresses this by automating the workflows around code, not just the code itself. The role of the software engineer is shifting from prompting AI to designing processes that run automatically.
