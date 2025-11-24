@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import CursorTrail from "./components/CursorTrail";
 
 const ICON_SUFFIX = "-boxes";
 export default function Home() {
@@ -34,7 +35,9 @@ export default function Home() {
     }
   };
   return (
-    <div className="min-h-screen px-8 sm:px-20 flex flex-col">
+    <>
+      <CursorTrail />
+      <div className="min-h-screen px-8 sm:px-20 flex flex-col">
       <div className="flex-1 flex items-center justify-center">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-['Molengo',sans-serif] text-[48px] sm:text-[56px] text-white mb-12 leading-tight">
@@ -48,22 +51,23 @@ export default function Home() {
       </div>
 
       <footer className="pb-8 pt-4">
-        <div className="flex items-center justify-center gap-2">
-          <span className="font-['Molengo',sans-serif] text-white text-sm opacity-70">Powered by</span>
+        <div className="flex flex-col items-center justify-center gap-2">
+          <span className="font-['Molengo',sans-serif] text-white text-xs tracking-wider opacity-50 uppercase">Powered by</span>
           <a 
             href="https://continue.dev" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center hover:opacity-80 transition-opacity"
+            className="hover:opacity-80 transition-opacity"
           >
             <img 
               src="/continue-logo-white.svg" 
               alt="Continue" 
-              className="h-7 w-auto"
+              className="h-12 w-auto"
             />
           </a>
         </div>
       </footer>
     </div>
+    </>
   );
 }
