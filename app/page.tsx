@@ -59,7 +59,7 @@ export default function Home() {
             <img 
               src="/continue-logo-white.svg" 
               alt="Continue" 
-              className="h-5 w-auto"
+              className="h-7 w-auto"
             />
           </a>
         </div>
