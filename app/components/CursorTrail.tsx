@@ -120,7 +120,7 @@ export default function CursorTrail() {
         ctx.fill();
 
         return true;
-      });}
+      });
 
       animationFrameRef.current = requestAnimationFrame(animate);
     };
