@@ -52,14 +52,15 @@ export default function CursorTrail() {
       
       // Create new particles
       for (let i = 0; i < 3; i++) {
+        const maxLife = Math.random() * 60 + 40;
         particlesRef.current.push({
           x: e.clientX + (Math.random() - 0.5) * 10,
           y: e.clientY + (Math.random() - 0.5) * 10,
           size: Math.random() * 20 + 10,
           speedX: (Math.random() - 0.5) * 2,
           speedY: (Math.random() - 0.5) * 2,
-          life: 1,
-          maxLife: Math.random() * 60 + 40,
+          life: maxLife,
+          maxLife: maxLife,
           colorIndex: Math.floor(Math.random() * COLORS.length),
         });
       }

@@ -51,8 +51,8 @@ export default function Home() {
       </div>
 
       <footer className="pb-8 pt-4">
-        <div className="flex flex-col items-center justify-center gap-2">
-          <span className="font-['Molengo',sans-serif] text-white text-xs tracking-wider opacity-50 uppercase">Powered by</span>
+        <div className="flex flex-col items-center justify-center gap-1">
+          <span className="font-['Molengo',sans-serif] text-white text-sm tracking-wider opacity-50">powered by</span>
           <a 
             href="https://continue.dev" 
             target="_blank" 
