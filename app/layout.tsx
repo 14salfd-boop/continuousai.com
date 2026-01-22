@@ -26,11 +26,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Molengo&display=swap"
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="font-['Molengo',sans-serif]">{children}</body>
+      <body className="font-['DM_Sans',sans-serif]">{children}</body>
     </html>
   );
 }
