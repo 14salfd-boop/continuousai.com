@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuous AI - January Dinner</title>
+    
+    
+    <!-- Open Graph / Social Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="You're Invited — Continuous AI January Dinner">
+    <meta property="og:description" content="San Francisco · January 2025">
+    <meta property="og:image" content="og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="You're Invited — Continuous AI January Dinner">
+    <meta name="twitter:description" content="San Francisco · January 2025">
+    <meta name="twitter:image" content="og-image.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0a0a0b;
+            --bg-card: #111113;
+            --border: #1f1f22;
+            --border-light: #2a2a2d;
+            --text: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .header-eyebrow {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(42px, 10vw, 72px);
+            font-weight: 400;
+            line-height: 1.05;
+            margin-bottom: 8px;
+        }
+
+        .header h1 em {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .header-meta {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 12px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .section-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .tool-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 16px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tool-btn:hover {
+            border-color: var(--border-light);
+            color: var(--text);
+        }
+
+        .tool-btn.selected {
+            border-color: var(--text-secondary);
+            color: var(--text);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .tool-btn svg, .tool-btn img {
+            width: 16px;
+            height: 16px;
+            min-width: 16px;
+            min-height: 16px;
+            flex-shrink: 0;
+            object-fit: contain;
+            fill: currentColor;
+            opacity: 0.7;
+        }
+
+        .tool-btn.selected svg, .tool-btn.selected img {
+            opacity: 1;
+        }
+
+        /* Question Card */
+        .question-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px 16px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .question-text {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(17px, 3vw, 20px);
+            font-weight: 400;
+            line-height: 1.5;
+            text-align: center;
+            margin: 0;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+
+        /* Ask AI Section */
+        .ask-section {
+            margin: 32px auto 0;
+            text-align: center;
+        }
+
+        .ask-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .ask-bar {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 16px 20px;
+        }
+
+        .ask-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 22px;
+            font-weight: 400;
+            white-space: nowrap;
+        }
+
+        .ask-title em {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .ai-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: nowrap;
+        }
+
+        .ai-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .ai-btn:hover {
+            border-color: var(--border-light);
+            color: var(--text);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .ai-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .ai-btn.copy-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+        }
+
+        .ai-btn.claude:hover { border-color: #D97757; color: #D97757; background: rgba(217, 119, 87, 0.15); }
+        .ai-btn.openai:hover { border-color: #19C37D; color: #19C37D; background: rgba(25, 195, 125, 0.15); }
+        .ai-btn.gemini:hover { border-color: #669DF6; color: #669DF6; background: rgba(102, 157, 246, 0.15); }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 32px;
+            margin-bottom: 0;
+        }
+
+        .footer p {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            font-size: 13px;
+        }
+
+        .footer-links a {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        /* Copy button success state */
+        .ai-btn.copy-btn.copied {
+            border-color: #fafafa;
+            color: #fafafa;
+            background: rgba(250, 250, 250, 0.15);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header { animation: fadeIn 0.7s ease-out; }
+        .section:nth-of-type(1) { animation: fadeIn 0.7s ease-out 0.1s both; }
+        .section:nth-of-type(2) { animation: fadeIn 0.7s ease-out 0.2s both; }
+        .section:nth-of-type(3) { animation: fadeIn 0.7s ease-out 0.3s both; }
+        .footer { animation: fadeIn 0.7s ease-out 0.4s both; }
+
+        @media (max-width: 540px) {
+            .container { padding: 24px 16px 32px; }
+            
+            /* Tighter header */
+            .header { margin-bottom: 20px; }
+            .header-eyebrow { 
+                font-size: 10px; 
+                margin-bottom: 10px; 
+            }
+            .header h1 { 
+                font-size: 38px; 
+                margin-bottom: 4px; 
+            }
+            .header-meta { 
+                font-size: 13px; 
+                margin-top: 8px; 
+            }
+            
+            /* Tighter sections */
+            .section { margin-bottom: 20px; }
+            .section-label { 
+                font-size: 10px; 
+                margin-bottom: 12px; 
+            }
+
+            /* Mobile tool buttons */
+            .tools-grid {
+                gap: 6px;
+            }
+            .tool-btn {
+                padding: 6px 10px;
+                font-size: 11px;
+                gap: 4px;
+            }
+            .tool-btn img {
+                width: 13px;
+                height: 13px;
+                min-width: 13px;
+                min-height: 13px;
+            }
+            
+            /* Smaller question card */
+            .question-card { 
+                padding: 14px 12px; 
+                height: 80px;
+                border-radius: 12px;
+            }
+            .question-text {
+                font-size: 15px;
+                line-height: 1.4;
+            }
+
+            /* Mobile ask section */
+            .ask-section { margin-top: 20px; }
+            .ask-label { 
+                font-size: 10px; 
+                margin-bottom: 10px; 
+            }
+            .ask-bar {
+                flex-direction: column;
+                padding: 12px 16px;
+                gap: 10px;
+                border-radius: 12px;
+            }
+            .ask-title {
+                font-size: 18px;
+            }
+            .ai-buttons {
+                gap: 8px;
+            }
+            .ai-btn {
+                width: 40px;
+                height: 40px;
+            }
+            .ai-btn svg {
+                width: 18px;
+                height: 18px;
+            }
+            .ai-btn.copy-btn svg {
+                width: 16px;
+                height: 16px;
+            }
+            
+            /* Tighter footer */
+            .footer { margin-top: 24px; }
+            .footer p { font-size: 12px; margin-bottom: 6px; }
+            .footer-links { font-size: 12px; gap: 12px; }
+        }
+
+        /* iPhone SE and smaller screens */
+        @media (max-width: 375px) {
+            .container { padding: 16px 12px 24px; }
+            
+            /* Even tighter header */
+            .header { margin-bottom: 14px; }
+            .header-eyebrow { 
+                font-size: 9px; 
+                margin-bottom: 6px;
+                letter-spacing: 0.15em;
+            }
+            .header h1 { 
+                font-size: 32px; 
+                margin-bottom: 2px; 
+            }
+            .header-meta { 
+                font-size: 12px; 
+                margin-top: 6px; 
+            }
+            
+            /* Even tighter sections */
+            .section { margin-bottom: 14px; }
+            .section-label { 
+                font-size: 9px; 
+                margin-bottom: 10px;
+                letter-spacing: 0.1em;
+            }
+
+            /* Smaller tool buttons */
+            .tools-grid {
+                gap: 5px;
+            }
+            .tool-btn {
+                padding: 5px 8px;
+                font-size: 10px;
+                gap: 3px;
+            }
+            .tool-btn img {
+                width: 12px;
+                height: 12px;
+                min-width: 12px;
+                min-height: 12px;
+            }
+            
+            /* Smaller question card */
+            .question-card { 
+                padding: 10px; 
+                height: 70px;
+                border-radius: 10px;
+            }
+            .question-text {
+                font-size: 13px;
+                line-height: 1.35;
+            }
+
+            /* Tighter ask section */
+            .ask-section { margin-top: 14px; }
+            .ask-label { 
+                font-size: 9px; 
+                margin-bottom: 8px; 
+            }
+            .ask-bar {
+                padding: 10px 14px;
+                gap: 8px;
+                border-radius: 10px;
+            }
+            .ask-title {
+                font-size: 16px;
+            }
+            .ai-buttons {
+                gap: 6px;
+            }
+            .ai-btn {
+                width: 36px;
+                height: 36px;
+            }
+            .ai-btn svg {
+                width: 16px;
+                height: 16px;
+            }
+            .ai-btn.copy-btn svg {
+                width: 14px;
+                height: 14px;
+            }
+            
+            /* Tighter footer */
+            .footer { margin-top: 16px; }
+            .footer p { font-size: 11px; margin-bottom: 4px; }
+            .footer-links { font-size: 11px; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-eyebrow">You're Invited</div>
+            <h1>Continuous AI<br><em>January Dinner</em></h1>
+            <p class="header-meta">San Francisco · January 2025</p>
+        </header>
+
+        <section class="section">
+            <div class="section-label">Which tools do you use?</div>
+            <div class="tools-grid">
+                <button class="tool-btn" data-tool="linear">
+                    <img src="icons/linear.svg" alt="">
+                    Linear
+                </button>
+                <button class="tool-btn" data-tool="launchdarkly">
+                    <img src="icons/launchdarkly.svg" alt="">
+                    LaunchDarkly
+                </button>
+                <button class="tool-btn" data-tool="snyk">
+                    <img src="icons/snyk.svg" alt="">
+                    Snyk
+                </button>
+                <button class="tool-btn" data-tool="notion">
+                    <img src="icons/notion.svg" alt="">
+                    Notion
+                </button>
+                <button class="tool-btn" data-tool="continue">
+                    <img src="icons/continue.svg" alt="">
+                    Continue
+                </button>
+                <button class="tool-btn" data-tool="devin">
+                    <img src="icons/devin.svg" alt="">
+                    Devin
+                </button>
+                <button class="tool-btn" data-tool="jules">
+                    <img src="icons/jules.svg" alt="">
+                    Jules
+                </button>
+                <button class="tool-btn" data-tool="sentry">
+                    <img src="icons/sentry.svg" alt="">
+                    Sentry
+                </button>
+                <button class="tool-btn" data-tool="datadog">
+                    <img src="icons/datadog.svg" alt="">
+                    Datadog
+                </button>
+                <button class="tool-btn" data-tool="posthog">
+                    <img src="icons/posthog.svg" alt="">
+                    PostHog
+                </button>
+                <button class="tool-btn" data-tool="vercel">
+                    <img src="icons/vercel.svg" alt="">
+                    Vercel
+                </button>
+                <button class="tool-btn" data-tool="confluent">
+                    <img src="icons/confluent.svg" alt="">
+                    Confluent
+                </button>
+                <button class="tool-btn" data-tool="cognee">
+                    <img src="icons/cognee.svg" alt="">
+                    Cognee
+                </button>
+                <button class="tool-btn" data-tool="graphene">
+                    <img src="icons/graphene.svg" alt="">
+                    Graphene
+                </button>
+                <button class="tool-btn" data-tool="github">
+                    <img src="icons/github.svg" alt="">
+                    GitHub
+                </button>
+                <button class="tool-btn" data-tool="sanity">
+                    <img src="icons/sanity.svg" alt="">
+                    Sanity
+                </button>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-label">A question to consider</div>
+            <div class="question-card">
+                <p class="question-text" id="questionText">In 5 years, will AI agents be making more business decisions than humans?</p>
+            </div>
+        </section>
+
+        <section class="ask-section">
+            <div class="ask-label">Bring your answer to dinner</div>
+            <div class="ask-bar">
+                <span class="ask-title">Ask your <em>AI</em></span>
+                <div class="ai-buttons">
+                <a href="#" class="ai-btn claude" data-ai="claude" title="Ask Claude">
+                    <svg viewBox="0 0 24 24"><path d="M4.709 15.955l4.72-2.647.08-.23-.08-.128H8.2l-.927-.463-2.258-.695-.463-.231-.231-.463.115-.58.348-.347.463-.116 2.026.347 2.373.811h.116l.162-.208v-.115l-.046-.116-1.042-1.389-1.62-1.967-.347-.579v-.463l.231-.463.463-.232h.116l.463.116.463.348 1.736 2.083 1.041 1.389.116.115.194-.034.07-.081v-.116l.116-1.736.231-2.778.116-.463.347-.347.58-.116.463.232.231.463-.115 2.894-.232 2.2v.115l.058.088.09.028h.083l.115-.116 1.968-1.852 1.967-1.62.463-.232.579.116.348.348.115.579-.231.463-1.736 1.62-1.852 1.62-.116.115v.168l.046.078.07.058 2.315.348 2.778.463.463.231.231.463-.115.58-.348.347-.463.116-2.894-.348-2.199-.347h-.116l-.087.057-.07.09v.084l.116.115.926.695 2.315 1.852.347.463v.579l-.347.348-.58.115-.462-.231-2.2-1.62-1.157-.927-.116-.115h-.168l-.078.046-.058.07v.199l.347 2.43.232 2.315v.463l-.348.463-.463.116-.579-.116-.347-.463-.464-2.894-.231-2.083v-.116l-.058-.087-.09-.028h-.083l-.116.115-1.273 1.968-1.736 2.315-.463.347h-.579l-.347-.347-.116-.58.232-.462 1.157-1.736 1.505-2.084.115-.115v-.168l-.046-.078-.07-.058h-.199l-2.778.695-2.083.347-.463-.115-.347-.348-.116-.579z"/></svg>
+                </a>
+                <a href="#" class="ai-btn openai" data-ai="openai" title="Ask ChatGPT">
+                    <svg viewBox="0 0 24 24"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/></svg>
+                </a>
+                <a href="#" class="ai-btn gemini" data-ai="gemini" title="Ask Gemini">
+                    <svg viewBox="0 0 24 24"><path d="M12 24A14.304 14.304 0 0 0 0 12 14.304 14.304 0 0 0 12 0a14.305 14.305 0 0 0 12 12 14.305 14.305 0 0 0-12 12"/></svg>
+                </a>
+                <button class="ai-btn copy-btn" data-ai="copy" title="Copy prompt">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                </button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Looking forward to seeing you there</p>
+            <div class="footer-links">
+                <a href="https://www.continuousai.com" target="_blank">Continuous AI</a>
+                <a href="https://blog.continue.dev/ai-is-glue" target="_blank">AI is Glue</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Partner context for the generated prompt
+        const partners = {
+            linear: { name: 'Linear', role: 'issue tracking', desc: 'Issues can trigger AI workflows, get auto-triaged, and dispatch to coding agents', category: 'planning' },
+            launchdarkly: { name: 'LaunchDarkly', role: 'feature flags & AI configs', desc: 'Manage AI model configs, prompts, and rollouts with the same controls you use for feature flags', category: 'release' },
+            snyk: { name: 'Snyk', role: 'security scanning', desc: 'Vulnerability alerts can trigger automated patching, testing, and PR creation', category: 'security' },
+            notion: { name: 'Notion', role: 'documentation', desc: 'Block-based architecture gives AI structured context—every paragraph, task, and property is queryable', category: 'knowledge' },
+            continue: { name: 'Continue', role: 'AI coding assistant', desc: 'IDE-integrated AI that helps you code, with tools to measure and improve AI effectiveness over time', category: 'agents' },
+            devin: { name: 'Devin', role: 'async AI engineer', desc: 'Cloud coding agent that can work on tasks asynchronously and push PRs', category: 'agents' },
+            jules: { name: 'Jules', role: 'proactive coding agent', desc: 'Suggests tasks, runs scheduled jobs, integrates with deployments—AI that works without being asked', category: 'agents' },
+            sentry: { name: 'Sentry', role: 'error monitoring', desc: 'Errors can trigger automated investigation, fixes, and deploys', category: 'observability' },
+            datadog: { name: 'Datadog', role: 'observability', desc: 'AI agents can query logs, traces, metrics, and incidents through natural language', category: 'observability' },
+            posthog: { name: 'PostHog', role: 'product analytics', desc: 'Track AI feature usage: token costs, latency, and user satisfaction', category: 'analytics' },
+            vercel: { name: 'Vercel', role: 'deployment platform', desc: 'AI can investigate anomalies, review code, and create PRs from production insights', category: 'deployment' },
+            confluent: { name: 'Confluent', role: 'data streaming', desc: 'Event-driven AI that perceives, reasons, and acts as events unfold in real-time', category: 'data' },
+            cognee: { name: 'Cognee', role: 'context engineering', desc: 'Knowledge graphs and vector search give AI the right information at the right time', category: 'data' },
+            graphene: { name: 'Graphene', role: 'AI-native BI', desc: 'BI with semantic layers that lives in your repo and AI agents can query via CLI', category: 'analytics' },
+            github: { name: 'GitHub', role: 'code hosting', desc: 'PRs, issues, actions, and Codespaces can all be automated by AI', category: 'code' },
+            supabase: { name: 'Supabase', role: 'backend platform', desc: 'Real-time subscriptions and row-level security enable AI workflows with proper data access', category: 'data' },
+            sanity: { name: 'Sanity', role: 'content platform', desc: 'Structured content with schemas AI can understand—typed, relational data', category: 'content' },
+            netlify: { name: 'Netlify', role: 'web platform', desc: 'Git-to-edge pipeline with AI-powered build optimization and instant rollbacks', category: 'deployment' },
+            atlassian: { name: 'Atlassian', role: 'team collaboration', desc: 'Jira, Confluence, and Bitbucket can all be automated by AI', category: 'planning' }
+        };
+
+        // Category-based questions for tool combinations
+        const categoryQuestions = {
+            'agents': {
+                question: 'How do we give AI coding agents enough context to work autonomously?',
+                option1: 'Invest in context infrastructure like knowledge graphs, structured documentation, and codebase indexing so AI understands the full picture before acting.',
+                option2: 'Full autonomy is the wrong goal. The focus should be on tighter human-AI collaboration where AI amplifies human judgment rather than replacing it.'
+            },
+            'observability': {
+                question: 'How should AI use production data to close the loop from alert to fix?',
+                option1: 'Give AI access to logs, traces, and metrics so it can detect patterns and act on clear signals automatically, escalating only novel issues to humans.',
+                option2: 'AI should surface insights and correlations, but the decision about what actions to take in production environments should remain with humans.'
+            },
+            'deployment': {
+                question: 'What\'s needed to make fully automated deployments safe?',
+                option1: 'Feature flags for instant rollback, comprehensive test coverage, staged rollouts with automatic promotion, and clear metrics that trigger pauses.',
+                option2: 'Human checkpoints will always be essential for deployment safety. The focus should be on making review and approval faster, not eliminating them.'
+            },
+            'data': {
+                question: 'How do we make data systems accessible to AI workflows?',
+                option1: 'Build natural language interfaces over data systems and let AI generate pipelines and queries, with humans reviewing outputs before execution.',
+                option2: 'Data work requires precision and auditability that AI struggles to provide reliably. Keep AI in an assistive role while humans drive.'
+            },
+            'planning': {
+                question: 'How should AI help triage and route incoming issues?',
+                option1: 'AI should gather context from linked systems, assess priority based on historical patterns, and route to the right team, with humans reviewing assignments.',
+                option2: 'Triage requires judgment about business priorities and team capacity that AI can\'t grasp. AI should surface information but humans make decisions.'
+            },
+            'agents,observability': {
+                question: 'How do we safely automate the error-to-fix loop?',
+                option1: 'Start with well-understood error patterns where fixes are deterministic, then gradually expand automation scope as the system builds a track record.',
+                option2: 'Every fix carries risk of making things worse. Keep humans in the loop for all code changes, even if it means slower resolution times.'
+            },
+            'agents,deployment': {
+                question: 'What guardrails let AI agents ship code safely to production?',
+                option1: 'Feature flags to limit blast radius, staged rollouts that pause on anomalies, automated rollback when metrics degrade, and comprehensive test coverage.',
+                option2: 'Human review before merge is the essential guardrail that no amount of automation should bypass. A human must look at code before it ships.'
+            },
+            'agents,data': {
+                question: 'What\'s the bottleneck for AI coding: context or model capability?',
+                option1: 'Context is the bottleneck. Current models are capable enough, but they lack information about your specific codebase, conventions, and architecture.',
+                option2: 'Model capability is the bottleneck. Even with perfect context, current AI makes too many reasoning errors. Smarter models will need less help.'
+            },
+            'agents,planning': {
+                question: 'Should AI start investigating issues automatically, or wait to be asked?',
+                option1: 'Proactive investigation adds value. AI should monitor issue queues and begin gathering context, identifying related code, and drafting approaches immediately.',
+                option2: 'Humans should control what gets AI attention. Proactive AI wastes compute on low-priority issues and creates noise that obscures important work.'
+            },
+            'agents,security': {
+                question: 'How do we automate security patching without introducing new risks?',
+                option1: 'Build a library of known vulnerability patterns with verified fixes. AI applies these automatically for high-confidence matches, escalating novel issues.',
+                option2: 'Security patches are too high-stakes for full automation. A bad patch can introduce new vulnerabilities. Humans should review every security change.'
+            },
+            'agents,code': {
+                question: 'What types of AI-generated code can skip human review?',
+                option1: 'Low-risk changes with high test coverage and high model confidence. Dependency updates, simple refactors, and boilerplate are good candidates.',
+                option2: 'No code should skip human review. Accountability requires a human to sign off on every change, regardless of how simple it appears to be.'
+            },
+            'agents,knowledge': {
+                question: 'How do we keep documentation current as code changes?',
+                option1: 'AI monitors code changes, detects when documentation becomes stale, and drafts updates that humans can review and approve with minimal effort.',
+                option2: 'Good documentation requires human judgment about what matters and why. AI-generated docs describe what changed without explaining why it matters.'
+            },
+            'agents,analytics': {
+                question: 'How should AI workflows learn from their own performance data?',
+                option1: 'Automated feedback loops where outcomes feed back into behavior. If suggestions get rejected often, the system learns to adjust its approach.',
+                option2: 'Human analysis should drive improvements to AI workflows. Automated adjustment risks optimizing for metrics that don\'t capture what matters.'
+            },
+            'agents,release': {
+                question: 'How much of the release process can AI manage end-to-end?',
+                option1: 'AI can manage rollout percentages, watch metrics for anomalies, pause or accelerate based on signals, and trigger rollbacks. Humans set policies.',
+                option2: 'Releases directly affect users and revenue. Each step in the release process should have explicit human oversight rather than running on autopilot.'
+            },
+            'agents,content': {
+                question: 'What guardrails make AI-generated content safe to publish automatically?',
+                option1: 'Enforce style guides and brand rules programmatically, with approval workflows that trigger for edge cases or content touching sensitive topics.',
+                option2: 'Brand risk is too high for automated publishing. A single off-brand post can cause real damage. Humans should approve all public-facing content.'
+            },
+            'observability,deployment': {
+                question: 'When should systems auto-rollback versus alert a human?',
+                option1: 'Auto-rollback on unambiguous signals like error rate spikes or latency degradation. Alert humans for ambiguous cases where the right action is unclear.',
+                option2: 'Always alert humans first before rolling back. Automated rollbacks can mask underlying issues and cause their own problems when triggered incorrectly.'
+            },
+            'observability,data': {
+                question: 'How do we enable AI to respond to streaming data in real-time?',
+                option1: 'Build event-driven AI that processes streams continuously, detects patterns as they emerge, and takes action within seconds of anomalies appearing.',
+                option2: 'Batch analysis is safer and more predictable than real-time reaction. Real-time AI action needs much stronger guardrails before production use.'
+            },
+            'observability,planning': {
+                question: 'How should alerts automatically route to the right person?',
+                option1: 'AI understands alert context, maps it to service ownership, considers on-call schedules and expertise, and routes directly without human triage.',
+                option2: 'Humans should filter and route alerts. Auto-routing without full context creates alert fatigue and sends issues to the wrong people too often.'
+            },
+            'observability,security': {
+                question: 'How do we balance speed vs. control in automated incident response?',
+                option1: 'Isolate threats immediately and automatically to limit blast radius. Investigation and careful remediation can happen after containment.',
+                option2: 'Security incidents need human judgment before any automated action. Automated responses can cause outages, destroy evidence, or escalate situations.'
+            },
+            'observability,release': {
+                question: 'Should metrics automatically control feature flag state?',
+                option1: 'Automated metric-based controls can disable problematic flags faster than any human could respond, limiting user impact during incidents.',
+                option2: 'Disabling features has business impact that metrics alone can\'t capture. Humans need to make the call on whether to kill a feature.'
+            },
+            'observability,analytics': {
+                question: 'How do we connect infrastructure issues to product impact?',
+                option1: 'Build a unified data layer that lets AI correlate infrastructure metrics with product analytics, showing how backend issues affect user experience.',
+                option2: 'Keep infrastructure and product analytics separate. Combining domains creates noise and correlation without causation that misleads investigations.'
+            },
+            'observability,code': {
+                question: 'How do we automate the path from error to root cause to fix?',
+                option1: 'AI traces errors back through deployments to identify causal commits, then generates patches based on error context and code history.',
+                option2: 'Root cause analysis requires human judgment about system behavior and intent. AI should assist investigation but not drive it autonomously.'
+            },
+            'observability,knowledge': {
+                question: 'How should runbooks evolve based on incident patterns?',
+                option1: 'AI analyzes incident patterns, identifies gaps in existing runbooks, and suggests updates based on what actually worked during resolution.',
+                option2: 'Runbooks are critical operational knowledge that humans should curate directly. AI suggestions risk introducing errors into trusted procedures.'
+            },
+            'observability,content': {
+                question: 'When should status pages update automatically vs. need human approval?',
+                option1: 'Auto-update status pages when metrics cross clear thresholds. Reserve human approval for nuanced communications about complex ongoing incidents.',
+                option2: 'External communication always needs human judgment about tone, timing, and framing. Automated status updates often say the wrong thing.'
+            },
+            'deployment,data': {
+                question: 'How do we safely automate database migrations with deploys?',
+                option1: 'AI validates migration safety, checks backwards compatibility, and runs low-risk changes automatically while flagging destructive operations for review.',
+                option2: 'Schema changes are too risky to automate. Data loss is irreversible. Every migration should have human review and explicit approval before running.'
+            },
+            'deployment,planning': {
+                question: 'Should ticket completion trigger deployment automatically?',
+                option1: 'When a ticket is marked done, the code should ship. Automate the full workflow so "done" actually means the change is live in production.',
+                option2: 'Deploy timing requires coordination that ticket status can\'t capture. Teams need to batch changes, time releases, and pick deployment windows.'
+            },
+            'deployment,analytics': {
+                question: 'How do we close the deploy-measure-adjust loop automatically?',
+                option1: 'AI watches key metrics after each deploy and triggers automatic rollback when it detects statistically significant regression in any tracked metric.',
+                option2: 'Metrics need human interpretation before action. A dip might be expected, seasonal, or caused by external factors unrelated to the deploy.'
+            },
+            'deployment,content': {
+                question: 'Should content and code follow the same deployment process?',
+                option1: 'Content is lower risk than code and a good place to prove automation works. Use the same pipeline, review process, and monitoring for both.',
+                option2: 'Content affects brand and SEO in ways code doesn\'t. It needs its own workflow with different stakeholders and different approval criteria.'
+            },
+            'deployment,security': {
+                question: 'Should security scans have the power to block deploys automatically?',
+                option1: 'Security gates should be absolute. If a scan finds a critical vulnerability, the deploy stops with no exceptions and no bypass buttons.',
+                option2: 'Urgent situations require human override capability. A blocking security gate with no escape hatch will eventually cause a serious business incident.'
+            },
+            'deployment,code': {
+                question: 'What\'s needed to make merge-to-deploy the default?',
+                option1: 'Feature flags for safe rollout, comprehensive test coverage to catch issues early, and automated rollback for when things go wrong anyway.',
+                option2: 'Deploy coordination will always require human timing decisions. Merging code and deploying it are fundamentally different concerns.'
+            },
+            'deployment,knowledge': {
+                question: 'How should release notes be generated from development activity?',
+                option1: 'AI drafts release notes from commits, PRs, and linked tickets. Humans edit to frame changes for the right audience and add business context.',
+                option2: 'Release notes need human curation to be useful. AI drafts describe what changed technically without explaining why users should care.'
+            },
+            'deployment,release': {
+                question: 'Are feature flags essential infrastructure for automated deployment?',
+                option1: 'Feature flags make deploys reversible, which enables safe automation. Ship code dark, enable incrementally, and roll back instantly if needed.',
+                option2: 'Good testing matters more than flags. Feature flags add complexity and technical debt. Invest in catching problems before deploy instead.'
+            },
+            'data,planning': {
+                question: 'How do we help AI learn from project history without context going stale?',
+                option1: 'Build systems that automatically refresh context, weight recent patterns more heavily, and prune information that\'s no longer relevant.',
+                option2: 'Historical context goes stale too fast to be reliably useful. Fresh evaluation of current state beats trying to learn from outdated patterns.'
+            },
+            'data,knowledge': {
+                question: 'Knowledge graphs vs. vector search: which gives AI better context?',
+                option1: 'Knowledge graphs provide structured relationships that help AI understand how concepts connect. Explicit links capture meaning vectors miss.',
+                option2: 'Vector search is simpler, scales better, and is good enough for most use cases. Knowledge graphs add complexity without proportional benefit.'
+            },
+            'data,security': {
+                question: 'How do we use AI for security analysis without creating new risks?',
+                option1: 'AI excels at pattern detection at scale. Use it for anomaly detection, log analysis, and identifying suspicious behavior across large datasets.',
+                option2: 'Security analysis needs human expertise to understand attacker intent and context. AI should flag anomalies but humans must interpret and act.'
+            },
+            'data,code': {
+                question: 'Should AI coding agents have direct access to production data?',
+                option1: 'Real schema access dramatically improves AI-generated queries and data code. Read-only access to production metadata is worth the security effort.',
+                option2: 'Production access is too risky regardless of permissions. Types, mocks, and documentation should provide enough context for AI coding.'
+            },
+            'data,analytics': {
+                question: 'How much data transformation can AI handle reliably?',
+                option1: 'Schema mapping and ETL generation is where AI adds the most value. Let it handle tedious transformation work with human review of outputs.',
+                option2: 'Data pipelines need deterministic correctness. AI-generated transformations introduce subtle bugs that are hard to catch and harder to debug.'
+            },
+            'data,release': {
+                question: 'Should past rollout patterns inform AI release decisions?',
+                option1: 'AI should learn from historical rollout data to predict which releases need more caution and which can move faster based on risk signals.',
+                option2: 'Each release is different enough that historical patterns don\'t transfer. Rollout decisions need fresh judgment, not pattern matching.'
+            },
+            'data,content': {
+                question: 'How do we enable real-time content personalization with AI?',
+                option1: 'AI selects and adapts content based on user behavior and segment data in real-time, personalizing experiences without requiring manual curation.',
+                option2: 'Personalization at scale needs human curation to maintain quality and brand consistency. AI should assist selection but not drive it autonomously.'
+            },
+            'planning,knowledge': {
+                question: 'How do we keep docs in sync with issue completion?',
+                option1: 'When issues close, AI drafts documentation updates based on the work done. Humans review and refine, but the initial drafting is automated.',
+                option2: 'Good documentation needs narrative and context that AI can\'t provide. Automated summaries describe what changed without explaining why.'
+            },
+            'planning,code': {
+                question: 'Should commits automatically update linked ticket status?',
+                option1: 'Automate the connection between code and tickets. When commits reference issues, status should update automatically based on branch and merge state.',
+                option2: 'Developers should explicitly control when tickets change status. Automatic updates based on commits create noise and incorrect transitions.'
+            },
+            'planning,security': {
+                question: 'How should security vulnerabilities flow into issue tracking?',
+                option1: 'Auto-create tickets from vulnerability alerts with severity-based priority, suggested owners based on code ownership, and remediation guidance.',
+                option2: 'Security triage requires human judgment about exploitability and business context. Create tickets manually after proper risk assessment.'
+            },
+            'planning,analytics': {
+                question: 'When should analytics anomalies automatically create tickets?',
+                option1: 'AI detects significant anomalies in product metrics and creates tickets with context about what changed, potential causes, and investigation steps.',
+                option2: 'Auto-created tickets become noise that teams learn to ignore. Humans should filter anomalies and create tickets only for issues worth investigating.'
+            },
+            'planning,release': {
+                question: 'How much of the feature flag lifecycle can be automated?',
+                option1: 'Automate flag creation from code, gradual rollout based on metrics, and cleanup of stale flags. AI manages the lifecycle with humans setting policy.',
+                option2: 'Flag cleanup needs human judgment about timing, dependencies, and business context. Automated cleanup risks removing flags still needed.'
+            },
+            'planning,content': {
+                question: 'Should content and code share the same workflow automation?',
+                option1: 'Use the same workflow for both. Issues track work, pull requests capture review, deploys ship changes. The process works for any change type.',
+                option2: 'Content has different stakeholders, approval chains, and timing requirements. It needs its own workflow designed around editorial concerns.'
+            },
+            'security,code': {
+                question: 'How do we automate vulnerability-to-fix without human bottlenecks?',
+                option1: 'Build a library of known vulnerability patterns with verified fixes. AI applies these end-to-end for high-confidence matches, escalating novel issues.',
+                option2: 'Security patches always need human review. Automated fixes can introduce new vulnerabilities or break functionality in subtle, dangerous ways.'
+            },
+            'security,knowledge': {
+                question: 'How do we prevent secrets from being published in docs?',
+                option1: 'AI scans documentation for API keys, credentials, and sensitive patterns before publish, blocking anything that matches known secret formats.',
+                option2: 'What counts as sensitive depends on context AI can\'t fully understand. Human review is needed to catch secrets that don\'t match patterns.'
+            },
+            'security,analytics': {
+                question: 'How do we safely use security signals in product analytics?',
+                option1: 'AI anonymizes security data and extracts aggregate insights that inform product decisions without exposing sensitive incident details.',
+                option2: 'Security data needs strict isolation from product analytics. The risk of accidental exposure or misuse outweighs any analytical value.'
+            },
+            'security,release': {
+                question: 'Should critical vulnerabilities automatically pause rollouts?',
+                option1: 'Critical security issues should automatically pause all rollouts. Security concerns override business timelines, and automation responds faster.',
+                option2: 'Pausing rollouts has business impact that requires human judgment. Not every vulnerability warrants stopping all deployments immediately.'
+            },
+            'security,content': {
+                question: 'How do we enforce content compliance rules automatically?',
+                option1: 'AI enforces compliance rules at publish time, blocking content that violates policies instantly. Humans handle edge cases and appeals.',
+                option2: 'Compliance requires understanding intent and context. Automated enforcement blocks legitimate content and misses sophisticated violations.'
+            },
+            'code,knowledge': {
+                question: 'How do we make documentation useful context for AI coding?',
+                option1: 'Structure docs so AI can query them while coding. Explicit links between docs and code, machine-readable formats, and API-accessible content.',
+                option2: 'Documentation goes stale too fast to be reliable context. The code itself, with good types and tests, is the only trustworthy source of truth.'
+            },
+            'code,content': {
+                question: 'Should code and content share the same PR and deploy workflow?',
+                option1: 'Use the same automation for both. Pull requests, reviews, and deploys work identically whether you\'re changing code or content.',
+                option2: 'Content needs different approval flows with different stakeholders. Editorial review has different concerns than code review.'
+            },
+            'code,analytics': {
+                question: 'How do we help AI write correct analytics tracking code?',
+                option1: 'Give AI access to analytics schemas, event definitions, and existing tracking patterns. Context about what events exist helps AI instrument correctly.',
+                option2: 'Analytics schemas and naming conventions change too fast. AI will always lag behind reality, so developers need to verify tracking manually.'
+            },
+            'code,release': {
+                question: 'Should feature flags be created automatically from code annotations?',
+                option1: 'Let developers annotate code with flag hints that flow through to the flag management system. Flags exist in code first, then sync to platform.',
+                option2: 'Flags need product planning before they exist in code. Auto-creation from annotations leads to flag sprawl and ungoverned experimentation.'
+            },
+            'analytics,release': {
+                question: 'How should metrics control rollout speed?',
+                option1: 'Fully automated. Good metrics accelerate rollout percentage, bad metrics pause or roll back automatically. The system responds faster than humans.',
+                option2: 'Metrics inform but shouldn\'t control rollouts directly. Rollout decisions need product context about user segments and business priorities.'
+            },
+            'analytics,content': {
+                question: 'How do we enable AI-driven content personalization at scale?',
+                option1: 'AI selects and ranks content based on real-time user analytics and behavioral signals. Personalization happens automatically without manual curation.',
+                option2: 'Content selection needs human curation to maintain quality and brand consistency. AI can suggest but humans should decide what audiences see.'
+            },
+            'analytics,knowledge': {
+                question: 'How do we identify documentation gaps automatically?',
+                option1: 'AI analyzes search queries, support tickets, and failed lookups to identify what\'s missing from docs. Then it drafts content to fill gaps.',
+                option2: 'Documentation structure should be intentional, not reactive to search patterns. Chasing failed searches leads to fragmented, unfocused docs.'
+            },
+            'knowledge,content': {
+                question: 'How do we adapt internal docs for external audiences?',
+                option1: 'AI transforms internal knowledge into public content by adjusting tone, removing internal references, and restructuring for external readers.',
+                option2: 'Internal and external content serve different purposes. Humans must thoughtfully adapt content for each audience rather than auto-transforming.'
+            },
+            'knowledge,release': {
+                question: 'How should release notes be generated from development activity?',
+                option1: 'AI drafts release notes from commits, PRs, and changelogs. Humans review and edit for the right audience, adding context about user impact.',
+                option2: 'Release notes require human judgment about what matters to users. AI can\'t distinguish genuinely important changes from implementation noise.'
+            },
+            'release,content': {
+                question: 'Should content and features launch together through shared flags?',
+                option1: 'Same flag controls both code and content. When a feature enables, its documentation and marketing content appear simultaneously and automatically.',
+                option2: 'Content release is simpler than code release and doesn\'t need the same controls. Feature flags add unnecessary complexity for content.'
+            }
+        };
+
+        // Precomputed questions - based on Continuous AI concepts
+        const precomputedQuestions = {
+            '': {
+                question: 'What\'s the biggest bottleneck in automating development workflows today?',
+                option1: 'Giving AI enough context about code, documentation, and systems to act autonomously without constantly asking humans for clarification.',
+                option2: 'Building trust in AI outputs. The technology works, but humans need to stay in the loop longer before we can safely expand automation scope.'
+            },
+            'linear': {
+                question: 'How should AI help when new issues come in?',
+                option1: 'Start investigating immediately. AI should gather context from linked systems, identify related code, suggest priority, and draft an approach.',
+                option2: 'Wait for humans to decide which issues deserve AI attention. Proactive AI wastes resources on issues that may not matter.'
+            },
+            'snyk': {
+                question: 'How do we speed up security patching without adding risk?',
+                option1: 'AI handles known vulnerability patterns with verified fixes end-to-end. Humans review only novel vulnerabilities that don\'t match existing patterns.',
+                option2: 'Security changes always need human review regardless of pattern matching confidence. The risk of automated security patches is too high.'
+            },
+            'sentry': {
+                question: 'How should AI handle repeated errors with known fixes?',
+                option1: 'For high-confidence pattern matches, AI should patch and deploy automatically. Speed matters when users are affected by known issues.',
+                option2: 'Always surface errors to humans first. Automated fixes risk making things worse, and the time saved isn\'t worth the potential damage.'
+            },
+            'continue': {
+                question: 'What would it take for AI coding agents to need correction less often?',
+                option1: 'Better context systems. Give AI more information about your codebase, conventions, architecture, and past decisions through better tooling.',
+                option2: 'Better models. The bottleneck is AI capability, not context. Smarter models will need less hand-holding regardless of available information.'
+            },
+            'devin': {
+                question: 'What do cloud coding agents need to work more independently?',
+                option1: 'Richer context about the codebase, team patterns, architectural decisions, and coding conventions. Knowledge is the limiting factor.',
+                option2: 'Better judgment and reasoning. Context alone won\'t solve the autonomy problem. AI needs to make better decisions with existing information.'
+            },
+            'jules': {
+                question: 'Should AI proactively find and start working on issues?',
+                option1: 'AI should monitor the codebase, identify potential improvements, technical debt, and small fixes, then surface these as work items to consider.',
+                option2: 'Developers should control when AI takes action. Proactive AI creates noise and works on things that may not align with current priorities.'
+            },
+            'vercel': {
+                question: 'If AI can deploy, monitor, and rollback autonomously, what\'s left for the on-call engineer?',
+                option1: 'On-call shifts from reactive firefighting to proactive system design. Engineers set policies and handle novel failures AI hasn\'t seen before.',
+                option2: 'On-call remains essential for accountability. Autonomous systems need human oversight, and someone must own outcomes when things go wrong.'
+            },
+            'notion': {
+                question: 'As AI consumes more of our documentation, should we write docs differently?',
+                option1: 'Yes. Docs need machine-readable structure, explicit relationships, and metadata that helps AI understand context—not just prose for humans.',
+                option2: 'No. Good docs for humans are good docs for AI. Optimizing for machine consumption sacrifices the clarity that makes docs useful in the first place.'
+            },
+            'datadog': {
+                question: 'How should AI help debug production issues?',
+                option1: 'AI should parse logs, traces, and metrics automatically, correlate signals across services, and surface the most likely root causes.',
+                option2: 'AI should assist human investigation, not drive it. Debugging requires intuition about system behavior that AI doesn\'t have.'
+            },
+            'posthog': {
+                question: 'How should AI workflows learn from their own performance?',
+                option1: 'Automated feedback loops where acceptance rates, correction patterns, and outcomes feed back into the system to improve future suggestions.',
+                option2: 'Human analysis should drive improvements. Automated adjustment risks optimizing for easy-to-measure metrics that don\'t capture real value.'
+            },
+            'launchdarkly': {
+                question: 'Are feature flags essential for safe AI-driven deployments?',
+                option1: 'Feature flags make deployments reversible, which is what enables safe automation. Ship code dark, enable gradually, roll back instantly.',
+                option2: 'Good testing matters more than flags. Feature flags add complexity and tech debt. Invest in catching issues before deployment instead.'
+            },
+            'confluent': {
+                question: 'How do we enable AI to respond to streaming data in real-time?',
+                option1: 'Build event-driven AI that processes streams continuously, detects patterns as they emerge, and takes action within seconds of anomalies.',
+                option2: 'Batch analysis first. Real-time AI action needs much stronger guardrails and testing before it\'s reliable enough for production use.'
+            },
+            'cognee': {
+                question: 'What\'s the bottleneck for AI effectiveness: context or model capability?',
+                option1: 'Context is the bottleneck. AI needs better information about your specific systems, codebase, and decisions to provide useful assistance.',
+                option2: 'Model capability is the bottleneck. Even with perfect context, current AI makes too many errors. Smarter models will change everything.'
+            },
+            'graphene': {
+                question: 'Should BI tools expose interfaces that AI agents can use?',
+                option1: 'AI that can query business metrics and understand domain context writes dramatically better code for data-intensive features.',
+                option2: 'BI tools are for humans. AI should query databases directly rather than going through another abstraction layer that adds complexity.'
+            },
+            'github': {
+                question: 'As AI handles more development tasks autonomously, who reviews the AI?',
+                option1: 'Other AI systems. We need layered AI review—one agent writes, another critiques, a third validates—with humans setting policies and handling escalations.',
+                option2: 'Humans must remain the final reviewers. AI reviewing AI creates blind spots and correlated failures. Human judgment is the essential check.'
+            },
+            'supabase': {
+                question: 'Should AI coding agents have direct access to production schemas?',
+                option1: 'Real schema access dramatically improves AI-generated queries and data code. Read-only production metadata access is worth the setup effort.',
+                option2: 'Production access is too risky regardless of permission level. Types, mocks, and documentation should provide sufficient context.'
+            },
+            'sanity': {
+                question: 'Does structured content help AI more than unstructured text?',
+                option1: 'Typed, relational content with explicit schemas gives AI much more to work with than unstructured text. Structure enables better understanding.',
+                option2: 'AI handles unstructured content well enough. Schemas are good for other reasons, but don\'t significantly improve AI content interaction.'
+            },
+            'netlify': {
+                question: 'What\'s needed to make git-push-to-production safe?',
+                option1: 'Comprehensive tests to catch issues, feature flags for safe rollout, and automated rollback when metrics indicate problems.',
+                option2: 'Human checkpoints for coordination and timing decisions. Automated deployment is fine, but humans need visibility and control.'
+            },
+            'atlassian': {
+                question: 'How do we make enterprise tools like Jira accessible to AI automation?',
+                option1: 'AI can translate between human intent and complex enterprise APIs. Natural language becomes the interface to otherwise complex systems.',
+                option2: 'Simplify the tools first. AI can\'t paper over fundamental complexity. Complex tools need to be fixed, not wrapped with AI.'
+            },
+            'continue,devin,jules': {
+                question: 'How should we measure success across different AI coding tools?',
+                option1: 'Standardized metrics that work across tools: suggestion acceptance rate, correction frequency, time saved, code quality outcomes.',
+                option2: 'Different tools serve different purposes and need different measures. Forcing false comparisons with shared metrics obscures real value.'
+            },
+            'sentry,continue,vercel': {
+                question: 'How do we safely automate the error-to-fix-to-deploy loop?',
+                option1: 'Each step has clear inputs and outputs. Apply confidence thresholds at each stage and only automate when all stages have high confidence.',
+                option2: 'The fix step inherently requires human judgment. Error detection and deployment can be automated, but code changes need human review.'
+            },
+            'linear,snyk,sentry': {
+                question: 'Should issues, vulnerabilities, and errors trigger the same AI workflow?',
+                option1: 'The pattern is the same: detect, gather context, triage, route. One workflow handles all signal types with specialized handling for each.',
+                option2: 'Each signal type has different urgency, expertise requirements, and response patterns. Specialized workflows work better than one-size-fits-all.'
+            },
+            'github,continue': {
+                question: 'How do we maintain code quality when AI generates most of the code?',
+                option1: 'Shift quality gates earlier. AI that understands your standards, tests, and architecture prevents problems. Review becomes exception handling.',
+                option2: 'Double down on review. More AI-generated code means more human scrutiny, not less. The volume makes rigorous review even more important.'
+            },
+            'github,devin': {
+                question: 'What kinds of issues can AI take all the way to merged PRs?',
+                option1: 'Well-defined bugs with clear reproduction steps, failing tests, and specific acceptance criteria. Bounded scope is key to autonomous completion.',
+                option2: 'None safely. Code changes should always have human review before merging. AI can draft but humans must approve and take accountability.'
+            },
+            'supabase,cognee': {
+                question: 'Should AI context live alongside application data?',
+                option1: 'Unified storage keeps AI context fresh and queryable using the same tools as application data. One database simplifies architecture.',
+                option2: 'AI context has different access patterns and lifecycle than application data. Purpose-built context systems work better than shared storage.'
+            },
+            'supabase,continue': {
+                question: 'Should AI coding agents have access to production database schemas?',
+                option1: 'Real schema access dramatically improves generated queries. AI that knows your actual tables and relationships writes much better data code.',
+                option2: 'Production access creates security risk. Types, mocks, and schema documentation provide enough context without the exposure.'
+            },
+            'confluent,datadog': {
+                question: 'How do we enable AI to act on streaming observability data?',
+                option1: 'Real-time streaming lets AI detect patterns and respond before humans even notice something is wrong. Speed matters in incident response.',
+                option2: 'Batch analysis is safer and more predictable. Real-time AI action introduces complexity and risk that most teams aren\'t ready for.'
+            },
+            'confluent,sentry': {
+                question: 'Should errors flow through event streams for AI processing?',
+                option1: 'Async event processing lets AI triage and route errors at scale without blocking error handling. Stream processing enables sophisticated automation.',
+                option2: 'Errors need immediate, synchronous handling. Adding streaming introduces latency and complexity that hurts more than it helps.'
+            },
+            'posthog,launchdarkly': {
+                question: 'How should metrics control feature rollouts?',
+                option1: 'Automatically adjust rollout percentages based on metric thresholds. When key metrics cross boundaries, the system responds without waiting.',
+                option2: 'Metrics should be advisory. Rollout decisions need product judgment about user segments, timing, and business context that metrics don\'t capture.'
+            },
+            'cognee,notion': {
+                question: 'What gives AI better context: knowledge graphs or structured docs?',
+                option1: 'Both together provide the best context. Structured documents for content, knowledge graphs for relationships between concepts.',
+                option2: 'Good content is what matters. Knowledge graphs add complexity without proportional benefit. Well-organized docs are sufficient.'
+            },
+            'graphene,cognee': {
+                question: 'Should metric definitions be part of AI coding context?',
+                option1: 'AI that understands your business metrics and how they\'re calculated writes better code for data features and analytics integration.',
+                option2: 'Keep BI context and coding context separate. Mixing them creates coupling between systems that should evolve independently.'
+            },
+            'graphene,continue': {
+                question: 'Does access to metrics help AI write better data code?',
+                option1: 'Domain understanding from business metrics helps AI make better decisions about data modeling, aggregations, and feature implementation.',
+                option2: 'AI should work from requirements, not explore metrics. Metric access encourages AI to make assumptions instead of asking for clarity.'
+            },
+            'graphene,posthog': {
+                question: 'Should product analytics and BI share metric definitions?',
+                option1: 'One source of truth for metrics means everyone measures the same thing. Shared definitions prevent the confusion of conflicting numbers.',
+                option2: 'Different tools serve different audiences with different needs. Product analytics and BI can define metrics independently.'
+            },
+            'graphene,github': {
+                question: 'Should dashboard changes go through PR review?',
+                option1: 'Version control and code review work for dashboards too. Treating dashboards as code improves quality and enables collaboration.',
+                option2: 'Dashboards need rapid iteration without PR ceremony. Code review friction slows down the exploration that makes dashboards useful.'
+            },
+            'graphene,supabase': {
+                question: 'Should BI layers query production databases directly?',
+                option1: 'One database means less complexity for AI to understand. Direct queries avoid sync issues and give AI accurate, real-time context.',
+                option2: 'Analytics and application workloads need isolation. Separate systems prevent BI queries from affecting production performance.'
+            },
+            'snyk,github': {
+                question: 'How much of vulnerability-to-PR can be automated?',
+                option1: 'Known vulnerability patterns with verified fixes can go end-to-end: detect, generate patch, run tests, open PR. All automated for speed.',
+                option2: 'Detection and initial PR drafting can be automated, but humans must review all security patches before merge. No exceptions.'
+            },
+            'linear,notion': {
+                question: 'How do we keep docs in sync when issues close?',
+                option1: 'When issues close, AI drafts documentation updates based on what was done. Humans review and refine, but drafting is automated.',
+                option2: 'Good documentation needs human narrative about why things matter. Automated summaries describe what changed but miss the meaning.'
+            },
+            'vercel,sentry': {
+                question: 'When should error spikes trigger automatic rollback?',
+                option1: 'Always trigger rollback when errors cross clear thresholds. Speed of response matters more than occasional false positives.',
+                option2: 'Never roll back automatically. Rollbacks need human context about whether the errors are caused by the deploy or external factors.'
+            },
+            'datadog,posthog': {
+                question: 'Should infrastructure and product analytics share context?',
+                option1: 'Combined context helps AI understand full user impact. Infrastructure issues correlate with product metrics to show real consequences.',
+                option2: 'Keep infrastructure and product domains separate. Combining them creates noise and false correlations that mislead investigations.'
+            },
+            'jules,github': {
+                question: 'Should AI proactively create PRs for tasks it discovers?',
+                option1: 'AI should identify improvements, draft changes, and open PRs for human review. Proactive contribution scales engineering capacity.',
+                option2: 'Humans should choose what AI works on. Proactive PRs create noise and work on things that may not align with team priorities.'
+            },
+            'continue,snyk': {
+                question: 'How do we catch security issues earlier in the coding process?',
+                option1: 'Real-time security feedback in the IDE catches issues while developers are writing code. Fix problems before they\'re committed.',
+                option2: 'Keep security review as a separate, focused step. IDE integration creates noise that developers learn to ignore.'
+            },
+            'launchdarkly,sentry': {
+                question: 'Should error spikes automatically disable feature flags?',
+                option1: 'Automatic flag disable responds faster than any human could. When errors spike, instantly rolling back the feature limits user impact.',
+                option2: 'Disabling features has business impact beyond error rates. Humans need to make the judgment call about whether to kill a feature.'
+            },
+            'devin,vercel': {
+                question: 'What guardrails let cloud agents ship to production?',
+                option1: 'Feature flags for instant rollback, staged rollouts that start small, automated metrics monitoring, and immediate rollback on degradation.',
+                option2: 'Human review at each stage. Code review before merge, manual deploy trigger, human monitoring. Don\'t let AI ship without checkpoints.'
+            },
+            'notion,continue': {
+                question: 'How does documentation context improve AI coding?',
+                option1: 'Significantly. Architecture decisions, API designs, and coding patterns documented in Notion help AI avoid mistakes and follow conventions.',
+                option2: 'Marginally. Documentation goes stale quickly. The code itself, with good types and tests, is more reliable context than external docs.'
+            },
+            'cognee,continue': {
+                question: 'Does AI that remembers past work make fewer mistakes?',
+                option1: 'Accumulated context from previous sessions helps AI avoid repeating mistakes and builds on established patterns and decisions.',
+                option2: 'Stale context causes more problems than it solves. Fresh evaluation of current state is better than relying on potentially outdated memory.'
+            },
+            'confluent,github': {
+                question: 'Should git events stream to AI for instant automation?',
+                option1: 'Streaming git events enables instant triggers. Push happens, AI responds immediately. No polling delay, no missed events.',
+                option2: 'Git hooks and webhooks are sufficient for most automation. Event streaming adds infrastructure complexity without proportional benefit.'
+            },
+            'linear,github': {
+                question: 'Should commits automatically update linked issue status?',
+                option1: 'Automate the connection between code and tickets. When commits reference issues, status should flow automatically from branch to merge.',
+                option2: 'Developers should explicitly control ticket state. Automatic updates based on commit patterns create incorrect transitions and noise.'
+            },
+            'posthog,vercel': {
+                question: 'How do we close the deploy-measure-adjust loop?',
+                option1: 'AI watches product metrics after each deploy and takes action automatically. Rollback on regression, proceed on success, alert on ambiguity.',
+                option2: 'Humans must interpret what metrics mean before any action. Numbers need context about expected behavior and external factors.'
+            },
+            'datadog,sentry': {
+                question: 'Does unified observability context help AI debug faster?',
+                option1: 'Full context across errors, logs, traces, and metrics helps AI identify root causes faster. Unified view shows the complete picture.',
+                option2: 'Combining different observability signals creates noise. Focused investigation of one signal type at a time is more effective.'
+            },
+            'sanity,vercel': {
+                question: 'Should content deploy automatically before code?',
+                option1: 'Content is lower risk than code and a good place to build confidence in automation. Same pipeline proves the process before applying to code.',
+                option2: 'Content affects brand perception and SEO in ways that need human judgment. Don\'t automate content deployment without explicit approval.'
+            },
+            'sanity,notion': {
+                question: 'How do we keep internal docs and external content in sync?',
+                option1: 'AI adapts content for different audiences automatically. Internal knowledge transforms to external content with appropriate tone and detail.',
+                option2: 'Internal and external content serve different purposes. Humans must thoughtfully adapt rather than auto-transform between contexts.'
+            },
+            'sanity,posthog': {
+                question: 'How should AI personalize content based on analytics?',
+                option1: 'AI selects content automatically based on user segments and behavioral data. Personalization happens in real-time without manual curation.',
+                option2: 'Content selection needs human curation for brand consistency. AI can suggest but humans should decide what different audiences see.'
+            },
+            'sanity,cognee': {
+                question: 'Does structured content give AI better context than plain text?',
+                option1: 'Typed, relational content with explicit schemas dramatically improves AI understanding. Structure provides meaning that plain text lacks.',
+                option2: 'Content relationships should be explicit in how content links together, not inferred from structure. Plain text with clear references works.'
+            },
+            'sanity,github': {
+                question: 'Should content and code share the same workflow?',
+                option1: 'Same PR and deploy process works for both. Version control, review, and deployment automation apply equally to content changes.',
+                option2: 'Content has different stakeholders and approval needs. Editorial workflows differ from code review in important ways.'
+            },
+            'sanity,continue': {
+                question: 'Does content schema access help AI write better frontend code?',
+                option1: 'AI writes better components when it knows your content types, fields, and relationships. Schema access prevents type mismatches.',
+                option2: 'Content schemas change frequently. Baking schema knowledge into AI-generated code creates coupling that breaks when content evolves.'
+            },
+            'netlify,vercel': {
+                question: 'Can AI choose deployment platforms based on requirements?',
+                option1: 'Platform selection based on requirements is largely rule-based. AI can match project needs to platform capabilities effectively.',
+                option2: 'Platform choice involves team expertise, existing infrastructure, and organizational factors that rules can\'t capture.'
+            },
+            'netlify,sanity': {
+                question: 'Should content changes automatically invalidate edge caches?',
+                option1: 'Automate the full flow from content publish to cache invalidation. Changes should be visible immediately without manual intervention.',
+                option2: 'Cache strategy needs human judgment about what to invalidate and when. Automatic invalidation can hurt performance and availability.'
+            },
+            'netlify,github': {
+                question: 'What\'s needed for safe git-push-to-edge deployment?',
+                option1: 'Comprehensive test coverage, feature flags for gradual rollout, automated rollback on error spikes, and good monitoring.',
+                option2: 'Human visibility into what\'s deploying and explicit deploy triggers. Automation is fine but humans need to see and control.'
+            },
+            'netlify,sentry': {
+                question: 'When should edge errors trigger automatic rollback?',
+                option1: 'On clear error thresholds, roll back instantly and automatically. Edge latency means user impact compounds quickly without fast response.',
+                option2: 'Edge errors need investigation before rollback. The distributed nature means errors might be regional or transient, not deployment-related.'
+            },
+            'netlify,posthog': {
+                question: 'How do we enable edge personalization based on analytics?',
+                option1: 'Segment data flows to edge functions automatically, enabling real-time personalization decisions close to users without round-trips.',
+                option2: 'Human curation should decide what content fits what audience. Edge personalization risks showing wrong content without oversight.'
+            },
+            'atlassian,linear': {
+                question: 'How do we keep Jira and Linear in sync?',
+                option1: 'AI translates between different schemas and conventions. Same issues appear in both tools, each formatted for its own context.',
+                option2: 'Don\'t sync. Different tools reflect different team workflows. Forcing sync creates confusion about which system is authoritative.'
+            },
+            'atlassian,github': {
+                question: 'When AI can update code, docs, and tickets simultaneously, what becomes the source of truth?',
+                option1: 'The workflow itself becomes the source of truth. State lives in the connections between systems, not in any single tool.',
+                option2: 'One system must be authoritative. Distributed state across tools creates drift and conflicting versions that AI makes worse, not better.'
+            },
+            'atlassian,notion': {
+                question: 'How do we unify context across Confluence and Notion?',
+                option1: 'AI translates between both systems to create one unified knowledge base. Query either system, get consistent answers.',
+                option2: 'Pick one source of truth. Syncing documentation across systems creates confusion about what\'s current and authoritative.'
+            },
+            'atlassian,sentry': {
+                question: 'Should errors automatically create Jira tickets?',
+                option1: 'Error to triaged ticket, fully automated. Include stack traces, affected users, and suggested assignee based on code ownership.',
+                option2: 'Auto-created tickets flood backlogs with noise. Humans should filter errors and create tickets only for issues worth tracking.'
+            },
+            'atlassian,continue': {
+                question: 'Does Jira and Confluence context help AI write better code?',
+                option1: 'Tickets and docs answer "why" questions that code can\'t. Understanding requirements and decisions helps AI make better choices.',
+                option2: 'Enterprise documentation goes stale too fast to be reliable context. Code with good comments and tests is more trustworthy.'
+            },
+            'atlassian,datadog': {
+                question: 'Should alerts automatically create contextualized Jira tickets?',
+                option1: 'Alert to useful ticket, fully automated. Include relevant logs, metrics, runbook links, and suggested owner based on service mapping.',
+                option2: 'Keep ops and dev workflows separate. Mixing alerting with ticketing creates confusion about urgency and appropriate response.'
+            },
+            'jules,vercel': {
+                question: 'Can scheduled AI tasks fix and deploy automatically?',
+                option1: 'With good guardrails, AI can detect issues, generate fixes, run tests, and deploy on a schedule. Continuous automated improvement.',
+                option2: 'Build failures and issues need investigation, not just automated fixes. Scheduled AI deployment risks compounding problems.'
+            },
+            'jules,linear': {
+                question: 'Should TODO comments automatically become Linear issues?',
+                option1: 'AI extracts TODOs from code and creates properly formatted tickets with context, suggested priority, and links back to the code.',
+                option2: 'TODOs are informal notes, not commitments. Not every TODO deserves a ticket. Automated creation floods backlogs with noise.'
+            },
+            'devin,linear': {
+                question: 'What kinds of Linear issues can go straight to AI agents?',
+                option1: 'Well-defined bugs with reproduction steps, specific acceptance criteria, and bounded scope. Clear issues enable autonomous work.',
+                option2: 'None should go straight to AI. Humans should always review AI work assignment to ensure appropriate scope and priority.'
+            },
+            'launchdarkly,posthog': {
+                question: 'How should AI model rollouts respond to metrics?',
+                option1: 'Automatically adjust rollout percentage based on metric thresholds. Good metrics mean faster rollout, bad metrics mean pause.',
+                option2: 'Metrics should be advisory. AI model decisions need product judgment about user experience that metrics alone can\'t capture.'
+            },
+            'launchdarkly,continue': {
+                question: 'Should feature flags control AI model selection?',
+                option1: 'A/B test AI models with the same flag infrastructure you use for features. Gradual rollout, instant rollback, measured comparison.',
+                option2: 'Developers should control their own tool settings. AI model selection is a personal productivity choice, not a product feature.'
+            },
+            'cognee,confluent': {
+                question: 'Do streaming AI agents need memory across events?',
+                option1: 'Accumulated context across events helps AI avoid repeated mistakes and build understanding over time. Memory enables smarter responses.',
+                option2: 'Streaming agents should be stateless for reliability and scalability. Stale memory causes more problems than fresh evaluation.'
+            },
+            'datadog,continue': {
+                question: 'Does production observability context help AI write better code?',
+                option1: 'Real production data answers "what actually happens" questions. AI that knows real traffic patterns and error rates writes better code.',
+                option2: 'Production access is too risky. Types, mocks, and documentation provide enough context without exposing sensitive production data.'
+            },
+            'sentry,linear': {
+                question: 'Should repeated errors automatically create assigned tickets?',
+                option1: 'Known error patterns should create assigned, prioritized tickets automatically. Include context, suggested fix, and owner from code blame.',
+                option2: 'Error triage needs human judgment about severity and priority. Automated ticket creation floods backlogs and numbs teams to alerts.'
+            }
+        };
+
+        // Get categories for selected tools
+        function getSelectedCategories(selectedTools) {
+            const cats = new Set();
+            selectedTools.forEach(tool => {
+                if (partners[tool]) cats.add(partners[tool].category);
+            });
+            return Array.from(cats).sort();
+        }
+
+        // Get question for selection
+        function getQuestion(selectedTools) {
+            // 1. Check for exact tool match first
+            const key = selectedTools.sort().join(',');
+            if (precomputedQuestions[key]) return precomputedQuestions[key];
+            
+            // 2. Check for best subset match in precomputed questions
+            let bestMatch = null;
+            let bestMatchSize = 0;
+            
+            for (const [comboKey, q] of Object.entries(precomputedQuestions)) {
+                if (comboKey === '') continue;
+                const comboTools = comboKey.split(',');
+                if (comboTools.every(t => selectedTools.includes(t)) && comboTools.length > bestMatchSize) {
+                    bestMatch = q;
+                    bestMatchSize = comboTools.length;
+                }
+            }
+            
+            // If we found a good match (2+ tools), use it
+            if (bestMatch && bestMatchSize >= 2) return bestMatch;
+            
+            // 3. Try category-based questions
+            const selectedCats = getSelectedCategories(selectedTools);
+            
+            if (selectedCats.length > 0) {
+                // Try category combinations (2 categories first, then single)
+                if (selectedCats.length >= 2) {
+                    // Try all pairs of categories
+                    for (let i = 0; i < selectedCats.length; i++) {
+                        for (let j = i + 1; j < selectedCats.length; j++) {
+                            const catKey = [selectedCats[i], selectedCats[j]].sort().join(',');
+                            if (categoryQuestions[catKey]) return categoryQuestions[catKey];
+                        }
+                    }
+                }
+                
+                // Try single category
+                for (const cat of selectedCats) {
+                    if (categoryQuestions[cat]) return categoryQuestions[cat];
+                }
+            }
+            
+            // 4. Use best single-tool match if we have one
+            if (bestMatch) return bestMatch;
+            
+            // 5. Generate a dynamic fallback based on selected tools
+            if (selectedTools.length > 0) {
+                const toolNames = selectedTools.map(t => partners[t]?.name).filter(Boolean);
+                const roles = selectedTools.map(t => partners[t]?.role).filter(Boolean);
+                
+                if (toolNames.length >= 2) {
+                    return {
+                        question: `Should ${toolNames.slice(0, 2).join(' and ')} share context through automated workflows?`,
+                        option1: `Yes. Connected ${roles.slice(0, 2).join(' and ')} enables AI to work across your full stack.`,
+                        option2: 'No. Each tool should maintain its own boundaries to prevent complexity.'
+                    };
+                }
+            }
+            
+            // 6. Final fallback
+            return precomputedQuestions[''];
+        }
+
+        // Update question display
+        function updateQuestion() {
+            const selectedTools = Array.from(document.querySelectorAll('.tool-btn.selected'))
+                .map(btn => btn.dataset.tool).filter(Boolean);
+            
+            const q = getQuestion(selectedTools);
+            document.getElementById('questionText').textContent = q.question;
+            
+        }
+
+        // Tool selection
+        document.querySelectorAll('.tool-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('selected');
+                updateQuestion();
+            });
+        });
+
+        // Build prompt
+        function buildPrompt(selectedTools) {
+            const q = getQuestion(selectedTools);
+            
+            let prompt = `# Continuous AI January Dinner
+
+
+## Context
+
+I'm attending the **Continuous AI January Dinner** in San Francisco.
+
+Continuous AI is about automating the workflows around code, not just the code itself. The philosophy is "AI is Glue" — LLMs bond together varying surfaces: human language, CLIs, APIs, webhooks, databases.
+
+**Learn more:**
+
+- [Continuous AI](https://www.continuousai.com)
+
+- [AI is Glue](https://blog.continue.dev/ai-is-glue)`;
+
+            if (selectedTools.length > 0) {
+                prompt += `
+
+
+## Tools I Use
+`;
+                selectedTools.forEach(key => {
+                    const p = partners[key];
+                    if (p) prompt += `
+- **${p.name}** (${p.role}) — ${p.desc}
+`;
+                });
+            }
+
+            prompt += `
+
+---
+
+
+## Dinner Question
+
+> ${q.question}
+
+
+---
+
+
+## Your Task
+
+What's your take? Search the web for recent developments if helpful. I'll bring your answer to dinner.`;
+
+            return prompt;
+        }
+
+        // AI URLs
+        const aiUrls = {
+            claude: 'https://claude.ai/new?q=',
+            openai: 'https://chat.openai.com/?q=',
+            gemini: 'https://www.google.com/search?udm=50&q='
+        };
+
+        function getPromptAndCopy() {
+            const selectedTools = Array.from(document.querySelectorAll('.tool-btn.selected'))
+                .map(b => b.dataset.tool).filter(Boolean);
+            
+            return buildPrompt(selectedTools);
+        }
+
+        const copyBtn = document.querySelector('.ai-btn.copy-btn');
+        const copyIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>`;
+        const checkIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+
+        document.querySelectorAll('.ai-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const ai = btn.dataset.ai;
+                const prompt = getPromptAndCopy();
+                
+                if (ai === 'copy') {
+                    navigator.clipboard.writeText(prompt).then(() => {
+                        // Show checkmark
+                        copyBtn.innerHTML = checkIcon;
+                        copyBtn.classList.add('copied');
+                        
+                        setTimeout(() => {
+                            copyBtn.innerHTML = copyIcon;
+                            copyBtn.classList.remove('copied');
+                        }, 2000);
+                    });
+                } else {
+                    // All AI services support query params - open directly with prompt
+                    window.open(aiUrls[ai] + encodeURIComponent(prompt), '_blank');
+                }
+            });
+        });
+
+        updateQuestion();
+    </script>
+</body>
+</html>
