@@ -27,119 +27,51 @@ export default function Jan2025Page() {
       sanity: { name: 'Sanity', role: 'content platform', desc: 'Structured content with schemas AI can understand—typed, relational data', category: 'content' },
     };
 
-    // Role pattern questions - these are templates that can be customized with tool names
-    // Use {tools} for "X and Y" or "X, Y, and Z" format
-    // Use {tool1}, {tool2}, {tool3} for specific positions
-    const rolePatternQuestions: Record<string, { question: string; option1: string; option2: string }> = {
-      // Full loop patterns
-      'trigger+context+actor+target': {
-        question: 'When the full loop is automated—trigger, context, action, change—what\'s the human\'s job?',
-        option1: 'Architect the system and review outputs. Define "what" and "when", let AI handle "how".',
-        option2: 'Handle exceptions and edge cases. AI does routine, humans do novel.'
-      },
-      'trigger+actor+target': {
-        question: 'What\'s missing when AI acts on triggers without broader context?',
-        option1: 'Business priorities. Speed vs. safety tradeoffs that only humans understand.',
-        option2: 'Historical patterns. What worked before, what failed, why we do it this way.'
-      },
+    // Multi-tool questions: forward-looking questions about Continuous AI
+    // Randomly selected when multiple tools are chosen
+    const multiToolQuestions = [
+      // About the shift from reactive to proactive
+      "What would change if your tools started acting on their own instead of waiting for you to ask?",
+      "What's something you check manually every day that could just tell you when it needs attention?",
+      "If your systems could fix routine problems overnight without waking anyone, what would you trust them to handle first?",
+      "What work would disappear from your plate if your tools could remember context from yesterday?",
       
-      // Trigger + Actor patterns
-      'trigger+actor': {
-        question: 'When {tool1} fires an alert, what decides if {tool2} should act vs. page a human?',
-        option1: 'Clear scope. If the fix is bounded and testable, let the agent try.',
-        option2: 'High confidence. If the system is sure about root cause, let the agent act.'
-      },
-      'trigger+context+actor': {
-        question: 'How much context should AI gather before acting on an alert?',
-        option1: 'Optimize for speed. Grab the essentials and act fast; iterate if wrong.',
-        option2: 'Optimize for accuracy. Take time to understand fully; act once with confidence.'
-      },
+      // About measuring and trusting automation
+      "How would you know if AI automation is actually helping versus creating new problems to manage?",
+      "What would make you comfortable letting AI merge code without your approval?",
+      "At what point does reviewing AI output become more work than doing the task yourself?",
+      "What's the difference between AI that saves you time and AI that just shifts where you spend it?",
       
-      // Actor + Target patterns
-      'actor+target': {
-        question: 'What should {tool1} be allowed to change in {tool2} directly?',
-        option1: 'Anything reversible. Feature flags, branches, preview deploys—if you can undo it, let AI try.',
-        option2: 'Only code in PRs. AI proposes, humans approve, automation deploys.'
-      },
-      'context+actor+target': {
-        question: 'What context helps AI agents ship changes with fewer mistakes?',
-        option1: 'Technical: code patterns, test coverage, dependency maps, recent changes.',
-        option2: 'Organizational: ownership, priorities, deadlines, who cares about what.'
-      },
+      // About connecting systems
+      "What information lives in one tool that would be more valuable if it automatically flowed somewhere else?",
+      "What decisions get delayed because they require checking three different systems first?",
+      "If all your tools shared the same memory, what would you want them to remember?",
+      "What falls through the cracks because no single system sees the whole picture?",
       
-      // Trigger + Target patterns (no agent)
-      'trigger+target': {
-        question: 'When {tool1} detects a problem, what can {tool2} safely do without AI judgment?',
-        option1: 'Defensive actions. Rollbacks, feature flag kills, traffic shifts—stop the bleeding.',
-        option2: 'Escalations only. Alert the right people, but don\'t change production state.'
-      },
-      'trigger+context+target': {
-        question: 'How should alerts use context to decide automated responses?',
-        option1: 'Correlate with changes. If it broke after a deploy or flag flip, revert that.',
-        option2: 'Check business rules. Is this critical path? Is there a maintenance window?'
-      },
+      // About progressive autonomy
+      "What's something AI should suggest today but do automatically in a year?",
+      "Where would you want AI to start with training wheels before eventually running unsupervised?",
+      "What's a low-risk task where you'd let AI fail a few times while it learns your preferences?",
+      "How do you graduate from 'AI assistant' to 'AI that just handles it'?",
       
-      // Context patterns
-      'context+actor': {
-        question: 'What from {tool1} helps {tool2} work with less back-and-forth?',
-        option1: 'System knowledge: architecture, dependencies, failure modes, runbooks.',
-        option2: 'Team knowledge: coding conventions, review norms, past decisions and why.'
-      },
-      'trigger+context': {
-        question: 'How should AI enrich {tool1} alerts with {tool2} data before humans see them?',
-        option1: 'Add diagnostic data: recent changes, similar incidents, relevant metrics.',
-        option2: 'Add action items: who to page, what to check first, likely remediations.'
-      },
-      'context+target': {
-        question: 'How should {tool1} inform what gets deployed to {tool2}?',
-        option1: 'Dependency checks. Block deploys when upstream services are degraded.',
-        option2: 'Risk scoring. Flag changes that touch critical paths or complex areas.'
-      },
+      // About the changing role of engineers
+      "If AI handles the routine work, what do your best engineers spend their time on instead?",
+      "What expertise becomes more valuable when execution gets automated?",
+      "What's the difference between managing AI and managing the systems AI manages?",
+      "When AI can write code faster than you can review it, what changes about your job?",
       
-      // Single role patterns
-      'trigger': {
-        question: 'What makes an alert actionable vs. just noise?',
-        option1: 'Include next steps. What to check, who to ask, where to look.',
-        option2: 'Raise the bar. Only alert when human action is truly needed.'
-      },
-      'context': {
-        question: 'What context is missing when AI suggestions miss the mark?',
-        option1: 'History. Why we do it this way, what we tried, what failed.',
-        option2: 'State. What\'s in flight, what\'s about to change, current priorities.'
-      },
-      'actor': {
-        question: 'What guardrails let AI agents work with less supervision?',
-        option1: 'Scope limits. Define what they can touch; let them figure out how.',
-        option2: 'Output checks. Let them try anything; validate before applying.'
-      },
-      'target': {
-        question: 'What\'s the right blast radius for automated changes?',
-        option1: 'Gradual. Start at 1%, expand if metrics hold, auto-pause on anomalies.',
-        option2: 'Fast. Ship to everyone, but make rollback instant and automatic.'
-      },
+      // About institutional knowledge
+      "What does your team know that isn't written down anywhere but should be taught to AI?",
+      "What context do new engineers take months to absorb that AI could learn from your tools?",
+      "If AI could learn from how your best people work, what patterns would you want it to pick up?",
+      "What tribal knowledge would you encode into automation if you could?",
       
-      // Same-role combinations (multiple tools of same type)
-      'multi-trigger': {
-        question: 'When {tools} fire at once, how should AI prioritize?',
-        option1: 'Correlation. If multiple systems agree something\'s wrong, escalate confidence.',
-        option2: 'Severity. Handle the highest-impact signal first, queue the rest.'
-      },
-      'multi-context': {
-        question: 'When {tools} disagree, which should AI trust?',
-        option1: 'Freshness. More recent information wins.',
-        option2: 'Authority. Canonical sources (docs, schemas) beat derived data.'
-      },
-      'multi-actor': {
-        question: 'How should {tools} coordinate on the same codebase?',
-        option1: 'Queue work. One agent at a time to avoid conflicts.',
-        option2: 'Partition scope. Different agents own different areas.'
-      },
-      'multi-target': {
-        question: 'When a change affects {tools}, what\'s the right sequence?',
-        option1: 'Dependencies first. Update upstream before downstream.',
-        option2: 'Safest first. Start with the most reversible change.'
-      },
-    };
+      // About the end state
+      "What would 'self-driving software' look like for your team?",
+      "What's the most ambitious workflow you'd automate if reliability wasn't a concern?",
+      "If you could design your toolchain from scratch for AI-first automation, what would be different?",
+      "What would it take for AI to handle your on-call rotation?",
+    ];
 
     // Single tool questions
     const toolQuestions: Record<string, { question: string; option1: string; option2: string }> = {
@@ -227,50 +159,15 @@ export default function Jan2025Page() {
 
     // Default question when no tools selected
     const defaultQuestion = {
-      question: "What's the biggest bottleneck in automating development workflows today?",
-      option1: 'Context. AI needs to understand the full picture before it can act.',
-      option2: 'Trust. We have the tools; we\'re not sure when to let them run.'
+      question: "What would it look like if your development workflows could drive themselves?",
+      option1: '',
+      option2: ''
     };
-
-    // Map tools to workflow roles
-    // Each tool has ONE primary role to avoid nonsensical groupings
-    const toolRoles: Record<string, string[]> = {
-      // Triggers - emit events that start workflows
-      sentry: ['trigger'],
-      datadog: ['trigger'],
-      snyk: ['trigger'],
-      confluent: ['trigger'],
-      github: ['trigger'],  // Primary: webhooks, PR events, Actions
-      
-      // Context - AI reads to understand
-      notion: ['context'],
-      cognee: ['context'],
-      graphene: ['context'],
-      posthog: ['context'],
-      sanity: ['context'],
-      linear: ['context'],  // Primary: issues provide context for work
-      
-      // Actors - do work
-      continue: ['actor'],
-      devin: ['actor'],
-      jules: ['actor'],
-      
-      // Targets - get modified by automation
-      vercel: ['target'],
-      launchdarkly: ['target'],
-    };
-
-    function getWorkflowRoles(selectedTools: string[]) {
-      const roleCounts = { trigger: 0, context: 0, actor: 0, target: 0 };
-      
-      selectedTools.forEach(tool => {
-        const roles = toolRoles[tool] || [];
-        roles.forEach(role => {
-          if (role in roleCounts) roleCounts[role as keyof typeof roleCounts]++;
-        });
-      });
-      
-      return roleCounts;
+    
+    // Get a random multi-tool question
+    function getRandomQuestion() {
+      const index = Math.floor(Math.random() * multiToolQuestions.length);
+      return multiToolQuestions[index];
     }
 
     function getQuestion(selectedTools: string[]) {
@@ -284,134 +181,12 @@ export default function Jan2025Page() {
         return toolQuestions[selectedTools[0]] || defaultQuestion;
       }
       
-      // Multiple tools: analyze roles
-      // Track which tools contribute to each role (for picking distinct tools later)
-      const toolsPerRole: Record<string, string[]> = { trigger: [], context: [], actor: [], target: [] };
-      selectedTools.forEach(tool => {
-        const roles = toolRoles[tool] || [];
-        roles.forEach(role => {
-          if (role in toolsPerRole) toolsPerRole[role].push(tool);
-        });
-      });
-      
-      // Count how many DISTINCT tools fill each role
-      const roleCounts = {
-        trigger: toolsPerRole.trigger.length,
-        context: toolsPerRole.context.length,
-        actor: toolsPerRole.actor.length,
-        target: toolsPerRole.target.length,
+      // Multiple tools: randomly select a forward-looking question
+      return {
+        question: getRandomQuestion(),
+        option1: '',
+        option2: ''
       };
-      
-      const presentRoles: string[] = [];
-      const multiRoles: string[] = [];
-      
-      if (roleCounts.trigger > 0) presentRoles.push('trigger');
-      if (roleCounts.context > 0) presentRoles.push('context');
-      if (roleCounts.actor > 0) presentRoles.push('actor');
-      if (roleCounts.target > 0) presentRoles.push('target');
-      
-      if (roleCounts.trigger > 1) multiRoles.push('trigger');
-      if (roleCounts.context > 1) multiRoles.push('context');
-      if (roleCounts.actor > 1) multiRoles.push('actor');
-      if (roleCounts.target > 1) multiRoles.push('target');
-      
-      // Determine workflow key
-      let workflowKey = presentRoles.join('+');
-      
-      // Prefer multi-X questions when multiple tools share a role
-      // This handles cases like Linear+Notion (both context) better than context+target
-      if (multiRoles.length > 0) {
-        // Pick the multi-role with most tools, or first one
-        const bestMultiRole = multiRoles.reduce((best, role) => 
-          roleCounts[role as keyof typeof roleCounts] > roleCounts[best as keyof typeof roleCounts] ? role : best
-        );
-        workflowKey = 'multi-' + bestMultiRole;
-      }
-      
-      // Look up question
-      const baseQuestion = rolePatternQuestions[workflowKey];
-      
-      if (baseQuestion) {
-        // For 2-3 tools, customize question with tool names
-        if (selectedTools.length <= 3) {
-          const toolNames = selectedTools.map(t => partners[t]?.name).filter(Boolean);
-          if (toolNames.length >= 2) {
-            // Format tool list: "X and Y" or "X, Y, and Z"
-            const formatToolList = (names: string[]) => {
-              if (names.length === 2) return `${names[0]} and ${names[1]}`;
-              if (names.length === 3) return `${names[0]}, ${names[1]}, and ${names[2]}`;
-              return names.join(', ');
-            };
-            
-            // Group tools by role, tracking which tool each name came from
-            // This prevents the same tool from filling multiple slots
-            const toolsByRole: Record<string, { name: string; toolId: string }[]> = { 
-              trigger: [], context: [], actor: [], target: [] 
-            };
-            selectedTools.forEach(tool => {
-              const roles = toolRoles[tool] || [];
-              roles.forEach(role => {
-                if (role in toolsByRole) {
-                  toolsByRole[role].push({ name: partners[tool]?.name || tool, toolId: tool });
-                }
-              });
-            });
-            
-            let question = baseQuestion.question;
-            
-            // Replace {tools} with formatted list
-            question = question.replace('{tools}', formatToolList(toolNames));
-            
-            // For role-based patterns, substitute by role but ensure different tools
-            if (question.includes('{tool1}') || question.includes('{tool2}')) {
-              // Define role pairs for each pattern
-              const rolePatterns: Record<string, [string, string]> = {
-                'trigger+actor': ['trigger', 'actor'],
-                'actor+target': ['actor', 'target'],
-                'trigger+target': ['trigger', 'target'],
-                'context+actor': ['context', 'actor'],
-                'trigger+context': ['trigger', 'context'],
-                'context+target': ['context', 'target'],
-              };
-              
-              const pattern = rolePatterns[workflowKey];
-              if (pattern) {
-                const [role1, role2] = pattern;
-                const candidates1 = toolsByRole[role1];
-                const candidates2 = toolsByRole[role2];
-                
-                // Pick first tool for role1
-                const tool1 = candidates1[0]?.name || toolNames[0];
-                const tool1Id = candidates1[0]?.toolId;
-                
-                // Pick first tool for role2 that isn't the same as tool1
-                let tool2 = candidates2.find(c => c.toolId !== tool1Id)?.name;
-                // If no different tool found, use the other selected tool
-                if (!tool2) {
-                  tool2 = toolNames.find(n => n !== tool1) || toolNames[1];
-                }
-                
-                question = question.replace('{tool1}', tool1);
-                question = question.replace('{tool2}', tool2);
-              } else {
-                // Fallback: just use position
-                question = question.replace('{tool1}', toolNames[0]);
-                question = question.replace('{tool2}', toolNames[1] || toolNames[0]);
-                question = question.replace('{tool3}', toolNames[2] || toolNames[1] || toolNames[0]);
-              }
-            }
-            
-            return {
-              question,
-              option1: baseQuestion.option1,
-              option2: baseQuestion.option2,
-            };
-          }
-        }
-        return baseQuestion;
-      }
-      
-      return defaultQuestion;
     }
 
     function updateQuestion() {
