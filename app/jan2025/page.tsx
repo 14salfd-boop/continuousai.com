@@ -13,7 +13,7 @@ export default function Jan2025Page() {
       launchdarkly: { name: 'LaunchDarkly', role: 'feature flags & AI configs', desc: 'Manage AI model configs, prompts, and rollouts with the same controls you use for feature flags', category: 'release' },
       snyk: { name: 'Snyk', role: 'security scanning', desc: 'Vulnerability alerts can trigger automated patching, testing, and PR creation', category: 'security' },
       notion: { name: 'Notion', role: 'documentation', desc: 'Block-based architecture gives AI structured context—every paragraph, task, and property is queryable', category: 'knowledge' },
-      continue: { name: 'Continue', role: 'AI coding assistant', desc: 'IDE-integrated AI that helps you code, with tools to measure and improve AI effectiveness over time', category: 'agents' },
+      continue: { name: 'Continue', role: 'mission control for AI agents', desc: 'Ship faster with Continuous AI—orchestrate cloud agents, automate workflows, and measure what matters', category: 'agents' },
       devin: { name: 'Devin', role: 'async AI engineer', desc: 'Cloud coding agent that can work on tasks asynchronously and push PRs', category: 'agents' },
       jules: { name: 'Jules', role: 'proactive coding agent', desc: 'Suggests tasks, runs scheduled jobs, integrates with deployments—AI that works without being asked', category: 'agents' },
       sentry: { name: 'Sentry', role: 'error monitoring', desc: 'Errors can trigger automated investigation, fixes, and deploys', category: 'observability' },
@@ -27,111 +27,358 @@ export default function Jan2025Page() {
       sanity: { name: 'Sanity', role: 'content platform', desc: 'Structured content with schemas AI can understand—typed, relational data', category: 'content' },
     };
 
-    const categoryQuestions: Record<string, { question: string; option1: string; option2: string }> = {
-      'agents': {
-        question: 'How do we give AI coding agents enough context to work autonomously?',
-        option1: 'Invest in context infrastructure like knowledge graphs, structured documentation, and codebase indexing so AI understands the full picture before acting.',
-        option2: 'Full autonomy is the wrong goal. The focus should be on tighter human-AI collaboration where AI amplifies human judgment rather than replacing it.'
+    // Role pattern questions - these are templates that can be customized with tool names
+    // Use {tools} for "X and Y" or "X, Y, and Z" format
+    // Use {tool1}, {tool2}, {tool3} for specific positions
+    const rolePatternQuestions: Record<string, { question: string; option1: string; option2: string }> = {
+      // Full loop patterns
+      'trigger+context+actor+target': {
+        question: 'When the full loop is automated—trigger, context, action, change—what\'s the human\'s job?',
+        option1: 'Architect the system and review outputs. Define "what" and "when", let AI handle "how".',
+        option2: 'Handle exceptions and edge cases. AI does routine, humans do novel.'
       },
-      'observability': {
-        question: 'How should AI use production data to close the loop from alert to fix?',
-        option1: 'Give AI access to logs, traces, and metrics so it can detect patterns and act on clear signals automatically, escalating only novel issues to humans.',
-        option2: 'AI should surface insights and correlations, but the decision about what actions to take in production environments should remain with humans.'
+      'trigger+actor+target': {
+        question: 'What\'s missing when AI acts on triggers without broader context?',
+        option1: 'Business priorities. Speed vs. safety tradeoffs that only humans understand.',
+        option2: 'Historical patterns. What worked before, what failed, why we do it this way.'
       },
-      'deployment': {
-        question: "What's needed to make fully automated deployments safe?",
-        option1: 'Feature flags for instant rollback, comprehensive test coverage, staged rollouts with automatic promotion, and clear metrics that trigger pauses.',
-        option2: 'Human checkpoints will always be essential for deployment safety. The focus should be on making review and approval faster, not eliminating them.'
+      
+      // Trigger + Actor patterns
+      'trigger+actor': {
+        question: 'When {tool1} fires an alert, what decides if {tool2} should act vs. page a human?',
+        option1: 'Clear scope. If the fix is bounded and testable, let the agent try.',
+        option2: 'High confidence. If the system is sure about root cause, let the agent act.'
       },
-      'data': {
-        question: 'How do we make data systems accessible to AI workflows?',
-        option1: 'Build natural language interfaces over data systems and let AI generate pipelines and queries, with humans reviewing outputs before execution.',
-        option2: 'Data work requires precision and auditability that AI struggles to provide reliably. Keep AI in an assistive role while humans drive.'
+      'trigger+context+actor': {
+        question: 'How much context should AI gather before acting on an alert?',
+        option1: 'Optimize for speed. Grab the essentials and act fast; iterate if wrong.',
+        option2: 'Optimize for accuracy. Take time to understand fully; act once with confidence.'
       },
-      'planning': {
-        question: 'How should AI help triage and route incoming issues?',
-        option1: 'AI should gather context from linked systems, assess priority based on historical patterns, and route to the right team, with humans reviewing assignments.',
-        option2: "Triage requires judgment about business priorities and team capacity that AI can't grasp. AI should surface information but humans make decisions."
+      
+      // Actor + Target patterns
+      'actor+target': {
+        question: 'What should {tool1} be allowed to change in {tool2} directly?',
+        option1: 'Anything reversible. Feature flags, branches, preview deploys—if you can undo it, let AI try.',
+        option2: 'Only code in PRs. AI proposes, humans approve, automation deploys.'
+      },
+      'context+actor+target': {
+        question: 'What context helps AI agents ship changes with fewer mistakes?',
+        option1: 'Technical: code patterns, test coverage, dependency maps, recent changes.',
+        option2: 'Organizational: ownership, priorities, deadlines, who cares about what.'
+      },
+      
+      // Trigger + Target patterns (no agent)
+      'trigger+target': {
+        question: 'When {tool1} detects a problem, what can {tool2} safely do without AI judgment?',
+        option1: 'Defensive actions. Rollbacks, feature flag kills, traffic shifts—stop the bleeding.',
+        option2: 'Escalations only. Alert the right people, but don\'t change production state.'
+      },
+      'trigger+context+target': {
+        question: 'How should alerts use context to decide automated responses?',
+        option1: 'Correlate with changes. If it broke after a deploy or flag flip, revert that.',
+        option2: 'Check business rules. Is this critical path? Is there a maintenance window?'
+      },
+      
+      // Context patterns
+      'context+actor': {
+        question: 'What from {tool1} helps {tool2} work with less back-and-forth?',
+        option1: 'System knowledge: architecture, dependencies, failure modes, runbooks.',
+        option2: 'Team knowledge: coding conventions, review norms, past decisions and why.'
+      },
+      'trigger+context': {
+        question: 'How should AI enrich {tool1} alerts with {tool2} data before humans see them?',
+        option1: 'Add diagnostic data: recent changes, similar incidents, relevant metrics.',
+        option2: 'Add action items: who to page, what to check first, likely remediations.'
+      },
+      'context+target': {
+        question: 'How should {tool1} inform what gets deployed to {tool2}?',
+        option1: 'Dependency checks. Block deploys when upstream services are degraded.',
+        option2: 'Risk scoring. Flag changes that touch critical paths or complex areas.'
+      },
+      
+      // Single role patterns
+      'trigger': {
+        question: 'What makes an alert actionable vs. just noise?',
+        option1: 'Include next steps. What to check, who to ask, where to look.',
+        option2: 'Raise the bar. Only alert when human action is truly needed.'
+      },
+      'context': {
+        question: 'What context is missing when AI suggestions miss the mark?',
+        option1: 'History. Why we do it this way, what we tried, what failed.',
+        option2: 'State. What\'s in flight, what\'s about to change, current priorities.'
+      },
+      'actor': {
+        question: 'What guardrails let AI agents work with less supervision?',
+        option1: 'Scope limits. Define what they can touch; let them figure out how.',
+        option2: 'Output checks. Let them try anything; validate before applying.'
+      },
+      'target': {
+        question: 'What\'s the right blast radius for automated changes?',
+        option1: 'Gradual. Start at 1%, expand if metrics hold, auto-pause on anomalies.',
+        option2: 'Fast. Ship to everyone, but make rollback instant and automatic.'
+      },
+      
+      // Same-role combinations (multiple tools of same type)
+      'multi-trigger': {
+        question: 'When {tools} fire at once, how should AI prioritize?',
+        option1: 'Correlation. If multiple systems agree something\'s wrong, escalate confidence.',
+        option2: 'Severity. Handle the highest-impact signal first, queue the rest.'
+      },
+      'multi-context': {
+        question: 'When {tools} disagree, which should AI trust?',
+        option1: 'Freshness. More recent information wins.',
+        option2: 'Authority. Canonical sources (docs, schemas) beat derived data.'
+      },
+      'multi-actor': {
+        question: 'How should {tools} coordinate on the same codebase?',
+        option1: 'Queue work. One agent at a time to avoid conflicts.',
+        option2: 'Partition scope. Different agents own different areas.'
+      },
+      'multi-target': {
+        question: 'When a change affects {tools}, what\'s the right sequence?',
+        option1: 'Dependencies first. Update upstream before downstream.',
+        option2: 'Safest first. Start with the most reversible change.'
       },
     };
 
-    const precomputedQuestions: Record<string, { question: string; option1: string; option2: string }> = {
-      '': {
-        question: "What's the biggest bottleneck in automating development workflows today?",
-        option1: 'Giving AI enough context about code, documentation, and systems to act autonomously without constantly asking humans for clarification.',
-        option2: 'Building trust in AI outputs. The technology works, but humans need to stay in the loop longer before we can safely expand automation scope.'
-      },
+    // Single tool questions
+    const toolQuestions: Record<string, { question: string; option1: string; option2: string }> = {
       'linear': {
-        question: 'How should AI help when new issues come in?',
-        option1: 'Start investigating immediately. AI should gather context from linked systems, identify related code, suggest priority, and draft an approach.',
-        option2: 'Wait for humans to decide which issues deserve AI attention. Proactive AI wastes resources on issues that may not matter.'
+        question: 'What context does AI need to triage issues as well as your best engineer?',
+        option1: 'Codebase knowledge: which files matter, who owns what, what broke recently.',
+        option2: 'Business context: customer impact, roadmap priorities, team capacity.'
+      },
+      'launchdarkly': {
+        question: 'What signal should trigger an automatic feature flag rollback?',
+        option1: 'Error rate thresholds tied to the specific flag. Hard numbers, fast action.',
+        option2: 'Anomaly detection across metrics. Catch problems that don\'t fit predefined rules.'
+      },
+      'snyk': {
+        question: 'What makes some security vulnerabilities safe for AI to auto-patch?',
+        option1: 'Clear upgrade path with no breaking changes. Dependency bumps, not code rewrites.',
+        option2: 'Comprehensive test coverage on the affected code. Let tests prove the fix.'
+      },
+      'notion': {
+        question: 'How do you keep documentation from going stale as code evolves?',
+        option1: 'Automate it. Docs should update when code changes.',
+        option2: 'Make it easy. Reduce friction so humans actually update docs.'
       },
       'continue': {
-        question: 'What would it take for AI coding agents to need correction less often?',
-        option1: 'Better context systems. Give AI more information about your codebase, conventions, architecture, and past decisions through better tooling.',
-        option2: 'Better models. The bottleneck is AI capability, not context. Smarter models will need less hand-holding regardless of available information.'
+        question: 'If AI made writing code faster but teams are drowning in PRs, where\'s the real bottleneck?',
+        option1: 'Downstream. Automate reviewing, testing, merging, and deploying—the workflows around code.',
+        option2: 'Upstream. Slow down code generation. Too much AI code is flooding the pipeline.'
+      },
+      'devin': {
+        question: 'What kind of issues can async AI agents handle without back-and-forth?',
+        option1: 'Well-specified bugs with clear repro steps and expected behavior.',
+        option2: 'Refactoring tasks with explicit patterns: "rename X to Y everywhere."'
+      },
+      'jules': {
+        question: 'When AI proactively suggests improvements, how do you avoid noise?',
+        option1: 'Confidence thresholds. Only surface suggestions AI is highly certain about.',
+        option2: 'Batching. Collect suggestions and review them weekly, not as interrupts.'
+      },
+      'sentry': {
+        question: 'What error patterns are safe for AI to auto-investigate and draft fixes for?',
+        option1: 'Regressions. Code that worked before has a clear "good state" to restore.',
+        option2: 'High-frequency errors. Patterns with many examples give AI more signal.'
+      },
+      'datadog': {
+        question: 'What makes it hard to correlate metrics with root causes automatically?',
+        option1: 'Too many signals. AI needs to know which metrics actually matter for each service.',
+        option2: 'Missing context. Metrics show what\'s wrong, not why.'
+      },
+      'posthog': {
+        question: 'What data would let AI generate useful experiment hypotheses?',
+        option1: 'Funnel drop-offs with session recordings. See what users struggled with.',
+        option2: 'Segment comparisons. Find what successful users do differently.'
+      },
+      'vercel': {
+        question: 'What signals indicate a deploy is safe to promote vs. needs rollback?',
+        option1: 'Error rates and latency percentiles. Core vitals that affect users.',
+        option2: 'Business metrics. Conversion rates catch problems error rates miss.'
+      },
+      'confluent': {
+        question: 'What makes event-driven AI workflows hard to debug?',
+        option1: 'Non-determinism. Same event can trigger different AI responses.',
+        option2: 'Distributed state. Context is spread across services and time.'
+      },
+      'cognee': {
+        question: 'When does a knowledge graph beat vector search for AI context?',
+        option1: 'Relationship queries. "Who owns the service that calls this API?"',
+        option2: 'Multi-hop reasoning. Following chains of dependencies.'
+      },
+      'graphene': {
+        question: 'What makes natural language queries over data reliable enough to trust?',
+        option1: 'Semantic layer. Predefined metrics with business logic baked in.',
+        option2: 'Validation. AI shows its work; humans verify before acting.'
+      },
+      'github': {
+        question: 'What\'s blocking fully automated merge after approval?',
+        option1: 'Coordination. People want to control when changes go out.',
+        option2: 'Confidence. Tests pass, but humans want one last look.'
+      },
+      'sanity': {
+        question: 'What content tasks are safe for AI to handle autonomously?',
+        option1: 'Structured data: SEO fields, alt text, metadata from templates.',
+        option2: 'Translations with review. AI drafts, humans approve.'
       },
     };
 
-    function getSelectedCategories(selectedTools: string[]) {
-      const cats = new Set<string>();
+    // Default question when no tools selected
+    const defaultQuestion = {
+      question: "What's the biggest bottleneck in automating development workflows today?",
+      option1: 'Context. AI needs to understand the full picture before it can act.',
+      option2: 'Trust. We have the tools; we\'re not sure when to let them run.'
+    };
+
+    // Map tools to workflow roles (tools can have multiple roles)
+    const toolRoles: Record<string, string[]> = {
+      // Triggers - emit events that start workflows
+      sentry: ['trigger'],
+      datadog: ['trigger'],
+      snyk: ['trigger'],
+      confluent: ['trigger'],
+      
+      // Context - AI reads to understand
+      notion: ['context'],
+      cognee: ['context'],
+      graphene: ['context'],
+      posthog: ['context'],
+      sanity: ['context'],
+      
+      // Actors - do work
+      continue: ['actor'],
+      devin: ['actor'],
+      jules: ['actor'],
+      
+      // Targets - get modified
+      vercel: ['target'],
+      launchdarkly: ['target'],
+      
+      // Multi-role tools
+      github: ['trigger', 'target'],  // Webhooks fire, PRs get created
+      linear: ['context', 'target'],  // Issues inform work, issues get updated
+    };
+
+    function getWorkflowRoles(selectedTools: string[]) {
+      const roleCounts = { trigger: 0, context: 0, actor: 0, target: 0 };
+      
       selectedTools.forEach(tool => {
-        if (partners[tool]) cats.add(partners[tool].category);
+        const roles = toolRoles[tool] || [];
+        roles.forEach(role => {
+          if (role in roleCounts) roleCounts[role as keyof typeof roleCounts]++;
+        });
       });
-      return Array.from(cats).sort();
+      
+      return roleCounts;
     }
 
     function getQuestion(selectedTools: string[]) {
-      const key = selectedTools.sort().join(',');
-      if (precomputedQuestions[key]) return precomputedQuestions[key];
+      // No tools selected
+      if (selectedTools.length === 0) {
+        return defaultQuestion;
+      }
       
-      let bestMatch = null;
-      let bestMatchSize = 0;
+      // Single tool: use tool-specific question
+      if (selectedTools.length === 1) {
+        return toolQuestions[selectedTools[0]] || defaultQuestion;
+      }
       
-      for (const [comboKey, q] of Object.entries(precomputedQuestions)) {
-        if (comboKey === '') continue;
-        const comboTools = comboKey.split(',');
-        if (comboTools.every(t => selectedTools.includes(t)) && comboTools.length > bestMatchSize) {
-          bestMatch = q;
-          bestMatchSize = comboTools.length;
+      // Multiple tools: analyze roles
+      const roleCounts = getWorkflowRoles(selectedTools);
+      const presentRoles: string[] = [];
+      const multiRoles: string[] = [];
+      
+      if (roleCounts.trigger > 0) presentRoles.push('trigger');
+      if (roleCounts.context > 0) presentRoles.push('context');
+      if (roleCounts.actor > 0) presentRoles.push('actor');
+      if (roleCounts.target > 0) presentRoles.push('target');
+      
+      if (roleCounts.trigger > 1) multiRoles.push('trigger');
+      if (roleCounts.context > 1) multiRoles.push('context');
+      if (roleCounts.actor > 1) multiRoles.push('actor');
+      if (roleCounts.target > 1) multiRoles.push('target');
+      
+      // If all selected tools share the same single role, use multi-X question
+      if (presentRoles.length === 1 && multiRoles.length === 1) {
+        const multiKey = 'multi-' + multiRoles[0];
+        if (rolePatternQuestions[multiKey]) {
+          return rolePatternQuestions[multiKey];
         }
       }
       
-      if (bestMatch && bestMatchSize >= 2) return bestMatch;
+      // Build workflow key and look up question
+      const workflowKey = presentRoles.join('+');
+      const baseQuestion = rolePatternQuestions[workflowKey];
       
-      const selectedCats = getSelectedCategories(selectedTools);
-      
-      if (selectedCats.length > 0) {
-        if (selectedCats.length >= 2) {
-          for (let i = 0; i < selectedCats.length; i++) {
-            for (let j = i + 1; j < selectedCats.length; j++) {
-              const catKey = [selectedCats[i], selectedCats[j]].sort().join(',');
-              if (categoryQuestions[catKey]) return categoryQuestions[catKey];
+      if (baseQuestion) {
+        // For 2-3 tools, customize question with tool names
+        if (selectedTools.length <= 3) {
+          const toolNames = selectedTools.map(t => partners[t]?.name).filter(Boolean);
+          if (toolNames.length >= 2) {
+            // Format tool list: "X and Y" or "X, Y, and Z"
+            const formatToolList = (names: string[]) => {
+              if (names.length === 2) return `${names[0]} and ${names[1]}`;
+              if (names.length === 3) return `${names[0]}, ${names[1]}, and ${names[2]}`;
+              return names.join(', ');
+            };
+            
+            // Group tools by role for smarter substitution
+            const toolsByRole: Record<string, string[]> = { trigger: [], context: [], actor: [], target: [] };
+            selectedTools.forEach(tool => {
+              const roles = toolRoles[tool] || [];
+              roles.forEach(role => {
+                if (role in toolsByRole) toolsByRole[role].push(partners[tool]?.name || tool);
+              });
+            });
+            
+            let question = baseQuestion.question;
+            
+            // Replace {tools} with formatted list
+            question = question.replace('{tools}', formatToolList(toolNames));
+            
+            // For role-based patterns, try to substitute by role
+            // {tool1} = first trigger, {tool2} = first actor/target (depending on pattern)
+            if (question.includes('{tool1}') || question.includes('{tool2}')) {
+              // Determine which roles to use based on the workflow key
+              if (workflowKey === 'trigger+actor') {
+                question = question.replace('{tool1}', toolsByRole.trigger[0] || toolNames[0]);
+                question = question.replace('{tool2}', toolsByRole.actor[0] || toolNames[1]);
+              } else if (workflowKey === 'actor+target') {
+                question = question.replace('{tool1}', toolsByRole.actor[0] || toolNames[0]);
+                question = question.replace('{tool2}', toolsByRole.target[0] || toolNames[1]);
+              } else if (workflowKey === 'trigger+target') {
+                question = question.replace('{tool1}', toolsByRole.trigger[0] || toolNames[0]);
+                question = question.replace('{tool2}', toolsByRole.target[0] || toolNames[1]);
+              } else if (workflowKey === 'context+actor') {
+                question = question.replace('{tool1}', toolsByRole.context[0] || toolNames[0]);
+                question = question.replace('{tool2}', toolsByRole.actor[0] || toolNames[1]);
+              } else if (workflowKey === 'trigger+context') {
+                question = question.replace('{tool1}', toolsByRole.trigger[0] || toolNames[0]);
+                question = question.replace('{tool2}', toolsByRole.context[0] || toolNames[1]);
+              } else if (workflowKey === 'context+target') {
+                question = question.replace('{tool1}', toolsByRole.context[0] || toolNames[0]);
+                question = question.replace('{tool2}', toolsByRole.target[0] || toolNames[1]);
+              } else {
+                // Fallback: just use position
+                question = question.replace('{tool1}', toolNames[0]);
+                question = question.replace('{tool2}', toolNames[1] || toolNames[0]);
+                question = question.replace('{tool3}', toolNames[2] || toolNames[1] || toolNames[0]);
+              }
             }
+            
+            return {
+              question,
+              option1: baseQuestion.option1,
+              option2: baseQuestion.option2,
+            };
           }
         }
-        
-        for (const cat of selectedCats) {
-          if (categoryQuestions[cat]) return categoryQuestions[cat];
-        }
+        return baseQuestion;
       }
       
-      if (bestMatch) return bestMatch;
-      
-      if (selectedTools.length > 0) {
-        const toolNames = selectedTools.map(t => partners[t]?.name).filter(Boolean);
-        const roles = selectedTools.map(t => partners[t]?.role).filter(Boolean);
-        
-        if (toolNames.length >= 2) {
-          return {
-            question: `Should ${toolNames.slice(0, 2).join(' and ')} share context through automated workflows?`,
-            option1: `Yes. Connected ${roles.slice(0, 2).join(' and ')} enables AI to work across your full stack.`,
-            option2: 'No. Each tool should maintain its own boundaries to prevent complexity.'
-          };
-        }
-      }
-      
-      return precomputedQuestions[''];
+      return defaultQuestion;
     }
 
     function updateQuestion() {
