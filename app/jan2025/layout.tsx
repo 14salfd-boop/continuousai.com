@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Continuous AI - January Dinner",
+  title: "Jan 2025 Dinner",
   description: "San Francisco · January 2025",
   openGraph: {
     type: "website",

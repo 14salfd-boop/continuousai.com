@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Continuous AI",
-  description: "The practice of developing software with background agents",
+  description: "The practice of developing software with cloud agents",
   icons: {
     icon: '/favicon.svg?v=4',
   },
