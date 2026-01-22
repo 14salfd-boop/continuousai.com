@@ -164,6 +164,9 @@ export default function Jan2025Page() {
       option2: ''
     };
     
+    // Store the current question so it's consistent between display and prompt
+    let currentQuestion = defaultQuestion;
+    
     // Get a random multi-tool question
     function getRandomQuestion() {
       const index = Math.floor(Math.random() * multiToolQuestions.length);
@@ -194,10 +197,11 @@ export default function Jan2025Page() {
         .map(btn => (btn as HTMLElement).dataset.tool)
         .filter(Boolean) as string[];
       
-      const q = getQuestion(selectedTools);
+      // Update and store the current question
+      currentQuestion = getQuestion(selectedTools);
       const questionText = document.getElementById('questionText');
       if (questionText) {
-        questionText.textContent = q.question;
+        questionText.textContent = currentQuestion.question;
       }
     }
 
@@ -209,7 +213,8 @@ export default function Jan2025Page() {
     });
 
     function buildPrompt(selectedTools: string[]) {
-      const q = getQuestion(selectedTools);
+      // Use the stored currentQuestion to ensure consistency with displayed question
+      const q = currentQuestion;
       
       let prompt = `# Continuous AI January Dinner
 
