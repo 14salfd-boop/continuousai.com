@@ -44,7 +44,7 @@ export default function Home() {
             Continuous AI
           </h1>
 
-          <p className="font-['DM_Sans',sans-serif] text-[16px] sm:text-[20px] text-[#fafafa] leading-relaxed text-balance">
+          <p className="font-['DM_Sans',sans-serif] text-[16px] sm:text-[20px] text-[#fafafa] leading-relaxed max-w-[620px] mx-auto">
             Developers are drowning in AI-generated code. Continuous AI addresses this by automating the workflows around code, not just the code itself. The role of the software engineer is shifting from prompting AI to designing processes that run automatically.
           </p>
         </div>
