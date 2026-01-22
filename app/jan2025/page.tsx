@@ -232,13 +232,15 @@ export default function Jan2025Page() {
       option2: 'Trust. We have the tools; we\'re not sure when to let them run.'
     };
 
-    // Map tools to workflow roles (tools can have multiple roles)
+    // Map tools to workflow roles
+    // Each tool has ONE primary role to avoid nonsensical groupings
     const toolRoles: Record<string, string[]> = {
       // Triggers - emit events that start workflows
       sentry: ['trigger'],
       datadog: ['trigger'],
       snyk: ['trigger'],
       confluent: ['trigger'],
+      github: ['trigger'],  // Primary: webhooks, PR events, Actions
       
       // Context - AI reads to understand
       notion: ['context'],
@@ -246,19 +248,16 @@ export default function Jan2025Page() {
       graphene: ['context'],
       posthog: ['context'],
       sanity: ['context'],
+      linear: ['context'],  // Primary: issues provide context for work
       
       // Actors - do work
       continue: ['actor'],
       devin: ['actor'],
       jules: ['actor'],
       
-      // Targets - get modified
+      // Targets - get modified by automation
       vercel: ['target'],
       launchdarkly: ['target'],
-      
-      // Multi-role tools
-      github: ['trigger', 'target'],  // Webhooks fire, PRs get created
-      linear: ['context', 'target'],  // Issues inform work, issues get updated
     };
 
     function getWorkflowRoles(selectedTools: string[]) {
@@ -286,7 +285,23 @@ export default function Jan2025Page() {
       }
       
       // Multiple tools: analyze roles
-      const roleCounts = getWorkflowRoles(selectedTools);
+      // Track which tools contribute to each role (for picking distinct tools later)
+      const toolsPerRole: Record<string, string[]> = { trigger: [], context: [], actor: [], target: [] };
+      selectedTools.forEach(tool => {
+        const roles = toolRoles[tool] || [];
+        roles.forEach(role => {
+          if (role in toolsPerRole) toolsPerRole[role].push(tool);
+        });
+      });
+      
+      // Count how many DISTINCT tools fill each role
+      const roleCounts = {
+        trigger: toolsPerRole.trigger.length,
+        context: toolsPerRole.context.length,
+        actor: toolsPerRole.actor.length,
+        target: toolsPerRole.target.length,
+      };
+      
       const presentRoles: string[] = [];
       const multiRoles: string[] = [];
       
@@ -303,9 +318,14 @@ export default function Jan2025Page() {
       // Determine workflow key
       let workflowKey = presentRoles.join('+');
       
-      // If all selected tools share the same single role, use multi-X question
-      if (presentRoles.length === 1 && multiRoles.length === 1) {
-        workflowKey = 'multi-' + multiRoles[0];
+      // Prefer multi-X questions when multiple tools share a role
+      // This handles cases like Linear+Notion (both context) better than context+target
+      if (multiRoles.length > 0) {
+        // Pick the multi-role with most tools, or first one
+        const bestMultiRole = multiRoles.reduce((best, role) => 
+          roleCounts[role as keyof typeof roleCounts] > roleCounts[best as keyof typeof roleCounts] ? role : best
+        );
+        workflowKey = 'multi-' + bestMultiRole;
       }
       
       // Look up question
@@ -323,12 +343,17 @@ export default function Jan2025Page() {
               return names.join(', ');
             };
             
-            // Group tools by role for smarter substitution
-            const toolsByRole: Record<string, string[]> = { trigger: [], context: [], actor: [], target: [] };
+            // Group tools by role, tracking which tool each name came from
+            // This prevents the same tool from filling multiple slots
+            const toolsByRole: Record<string, { name: string; toolId: string }[]> = { 
+              trigger: [], context: [], actor: [], target: [] 
+            };
             selectedTools.forEach(tool => {
               const roles = toolRoles[tool] || [];
               roles.forEach(role => {
-                if (role in toolsByRole) toolsByRole[role].push(partners[tool]?.name || tool);
+                if (role in toolsByRole) {
+                  toolsByRole[role].push({ name: partners[tool]?.name || tool, toolId: tool });
+                }
               });
             });
             
@@ -337,28 +362,37 @@ export default function Jan2025Page() {
             // Replace {tools} with formatted list
             question = question.replace('{tools}', formatToolList(toolNames));
             
-            // For role-based patterns, try to substitute by role
-            // {tool1} = first trigger, {tool2} = first actor/target (depending on pattern)
+            // For role-based patterns, substitute by role but ensure different tools
             if (question.includes('{tool1}') || question.includes('{tool2}')) {
-              // Determine which roles to use based on the workflow key
-              if (workflowKey === 'trigger+actor') {
-                question = question.replace('{tool1}', toolsByRole.trigger[0] || toolNames[0]);
-                question = question.replace('{tool2}', toolsByRole.actor[0] || toolNames[1]);
-              } else if (workflowKey === 'actor+target') {
-                question = question.replace('{tool1}', toolsByRole.actor[0] || toolNames[0]);
-                question = question.replace('{tool2}', toolsByRole.target[0] || toolNames[1]);
-              } else if (workflowKey === 'trigger+target') {
-                question = question.replace('{tool1}', toolsByRole.trigger[0] || toolNames[0]);
-                question = question.replace('{tool2}', toolsByRole.target[0] || toolNames[1]);
-              } else if (workflowKey === 'context+actor') {
-                question = question.replace('{tool1}', toolsByRole.context[0] || toolNames[0]);
-                question = question.replace('{tool2}', toolsByRole.actor[0] || toolNames[1]);
-              } else if (workflowKey === 'trigger+context') {
-                question = question.replace('{tool1}', toolsByRole.trigger[0] || toolNames[0]);
-                question = question.replace('{tool2}', toolsByRole.context[0] || toolNames[1]);
-              } else if (workflowKey === 'context+target') {
-                question = question.replace('{tool1}', toolsByRole.context[0] || toolNames[0]);
-                question = question.replace('{tool2}', toolsByRole.target[0] || toolNames[1]);
+              // Define role pairs for each pattern
+              const rolePatterns: Record<string, [string, string]> = {
+                'trigger+actor': ['trigger', 'actor'],
+                'actor+target': ['actor', 'target'],
+                'trigger+target': ['trigger', 'target'],
+                'context+actor': ['context', 'actor'],
+                'trigger+context': ['trigger', 'context'],
+                'context+target': ['context', 'target'],
+              };
+              
+              const pattern = rolePatterns[workflowKey];
+              if (pattern) {
+                const [role1, role2] = pattern;
+                const candidates1 = toolsByRole[role1];
+                const candidates2 = toolsByRole[role2];
+                
+                // Pick first tool for role1
+                const tool1 = candidates1[0]?.name || toolNames[0];
+                const tool1Id = candidates1[0]?.toolId;
+                
+                // Pick first tool for role2 that isn't the same as tool1
+                let tool2 = candidates2.find(c => c.toolId !== tool1Id)?.name;
+                // If no different tool found, use the other selected tool
+                if (!tool2) {
+                  tool2 = toolNames.find(n => n !== tool1) || toolNames[1];
+                }
+                
+                question = question.replace('{tool1}', tool1);
+                question = question.replace('{tool2}', tool2);
               } else {
                 // Fallback: just use position
                 question = question.replace('{tool1}', toolNames[0]);
