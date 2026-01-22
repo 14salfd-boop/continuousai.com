@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "San Francisco · January 2025",
   openGraph: {
     type: "website",
-    title: "You're Invited — Continuous AI January Dinner",
+    title: "Continuous AI Dinner",
     description: "San Francisco · January 2025",
     images: [
       {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "You're Invited — Continuous AI January Dinner",
+    title: "Continuous AI Dinner",
     description: "San Francisco · January 2025",
     images: ["/jan2025/og-image.png"],
   },
