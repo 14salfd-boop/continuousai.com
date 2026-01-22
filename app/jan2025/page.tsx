@@ -300,16 +300,15 @@ export default function Jan2025Page() {
       if (roleCounts.actor > 1) multiRoles.push('actor');
       if (roleCounts.target > 1) multiRoles.push('target');
       
+      // Determine workflow key
+      let workflowKey = presentRoles.join('+');
+      
       // If all selected tools share the same single role, use multi-X question
       if (presentRoles.length === 1 && multiRoles.length === 1) {
-        const multiKey = 'multi-' + multiRoles[0];
-        if (rolePatternQuestions[multiKey]) {
-          return rolePatternQuestions[multiKey];
-        }
+        workflowKey = 'multi-' + multiRoles[0];
       }
       
-      // Build workflow key and look up question
-      const workflowKey = presentRoles.join('+');
+      // Look up question
       const baseQuestion = rolePatternQuestions[workflowKey];
       
       if (baseQuestion) {
