@@ -3,9 +3,32 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Continuous AI",
-  description: "The practice of developing software with cloud agents",
+  description: "Ship as fast as you code. Automating the workflows around code, not just the code itself.",
+  metadataBase: new URL('https://continuousai.com'),
   icons: {
     icon: '/favicon.svg?v=5',
+  },
+  openGraph: {
+    title: 'Continuous AI',
+    description: 'Ship as fast as you code. Automating the workflows around code, not just the code itself.',
+    url: 'https://continuousai.com',
+    siteName: 'Continuous AI',
+    images: [
+      {
+        url: '/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Continuous AI',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Continuous AI',
+    description: 'Ship as fast as you code. Automating the workflows around code, not just the code itself.',
+    images: ['/og-image.svg'],
   },
 };
 

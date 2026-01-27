@@ -1,0 +1,105 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for glowing effect -->
+    <radialGradient id="glow1" cx="0.3" cy="0.4" r="0.8">
+      <stop offset="0%" stop-color="#c8ff00" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#c8ff00" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.7" cy="0.6" r="0.6">
+      <stop offset="0%" stop-color="#c8ff00" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#c8ff00" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lineGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c8ff00" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#c8ff00" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#c8ff00" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="lineGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c8ff00" stop-opacity="0"/>
+      <stop offset="40%" stop-color="#c8ff00" stop-opacity="0.5"/>
+      <stop offset="60%" stop-color="#c8ff00" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#c8ff00" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c8ff00" stop-opacity="0.1"/>
+      <stop offset="50%" stop-color="#c8ff00" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#c8ff00" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  
+  <!-- Subtle gradient overlays -->
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+  
+  <!-- Abstract flowing lines - representing continuous flow -->
+  <!-- Large sweeping arc top -->
+  <path d="M -100 200 Q 300 -50, 600 150 Q 900 350, 1300 100" 
+        stroke="url(#lineGrad2)" stroke-width="1" fill="none" opacity="0.6"/>
+  
+  <!-- Medium arc middle -->
+  <path d="M -50 350 Q 250 150, 500 280 Q 750 410, 1000 250 Q 1150 150, 1250 200" 
+        stroke="url(#lineGrad1)" stroke-width="1.5" fill="none" opacity="0.5"/>
+  
+  <!-- Lower flowing line -->
+  <path d="M -100 500 Q 200 400, 450 480 Q 700 560, 950 450 Q 1100 380, 1300 420" 
+        stroke="url(#lineGrad2)" stroke-width="1" fill="none" opacity="0.4"/>
+  
+  <!-- Continuous/infinity inspired shapes -->
+  <!-- Central flowing S-curve -->
+  <path d="M 200 315 Q 400 200, 600 315 Q 800 430, 1000 315" 
+        stroke="#c8ff00" stroke-width="2" fill="none" opacity="0.3" stroke-linecap="round"/>
+  
+  <!-- Orbital arcs suggesting continuous motion -->
+  <ellipse cx="600" cy="315" rx="280" ry="120" 
+           stroke="url(#arcGrad)" stroke-width="1" fill="none" 
+           transform="rotate(-8 600 315)" opacity="0.4"/>
+  <ellipse cx="600" cy="315" rx="350" ry="150" 
+           stroke="url(#arcGrad)" stroke-width="0.5" fill="none" 
+           transform="rotate(5 600 315)" opacity="0.25"/>
+  
+  <!-- Accent dots - nodes in the continuous flow -->
+  <circle cx="300" cy="280" r="3" fill="#c8ff00" opacity="0.7"/>
+  <circle cx="600" cy="315" r="4" fill="#c8ff00" opacity="0.9"/>
+  <circle cx="900" cy="350" r="3" fill="#c8ff00" opacity="0.7"/>
+  <circle cx="450" cy="380" r="2" fill="#c8ff00" opacity="0.5"/>
+  <circle cx="750" cy="250" r="2" fill="#c8ff00" opacity="0.5"/>
+  
+  <!-- Small scattered dots for depth -->
+  <circle cx="150" cy="180" r="1.5" fill="#c8ff00" opacity="0.3"/>
+  <circle cx="1050" cy="200" r="1.5" fill="#c8ff00" opacity="0.3"/>
+  <circle cx="180" cy="450" r="1" fill="#c8ff00" opacity="0.25"/>
+  <circle cx="1020" cy="480" r="1" fill="#c8ff00" opacity="0.25"/>
+  <circle cx="500" cy="150" r="1" fill="#c8ff00" opacity="0.2"/>
+  <circle cx="700" cy="500" r="1" fill="#c8ff00" opacity="0.2"/>
+  
+  <!-- Grid lines - subtle tech feel -->
+  <line x1="0" y1="157" x2="1200" y2="157" stroke="#c8ff00" stroke-width="0.5" opacity="0.05"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="#c8ff00" stroke-width="0.5" opacity="0.08"/>
+  <line x1="0" y1="473" x2="1200" y2="473" stroke="#c8ff00" stroke-width="0.5" opacity="0.05"/>
+  <line x1="300" y1="0" x2="300" y2="630" stroke="#c8ff00" stroke-width="0.5" opacity="0.05"/>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="#c8ff00" stroke-width="0.5" opacity="0.08"/>
+  <line x1="900" y1="0" x2="900" y2="630" stroke="#c8ff00" stroke-width="0.5" opacity="0.05"/>
+  
+  <!-- Text: Continuous AI -->
+  <text x="600" y="300" 
+        font-family="system-ui, -apple-system, sans-serif" 
+        font-size="72" 
+        font-weight="800" 
+        fill="#f5f5f5" 
+        text-anchor="middle">
+    <tspan fill="#c8ff00">Continuous</tspan><tspan fill="#f5f5f5"> AI</tspan>
+  </text>
+  
+  <!-- Tagline -->
+  <text x="600" y="360" 
+        font-family="ui-monospace, monospace" 
+        font-size="18" 
+        fill="#666" 
+        text-anchor="middle"
+        letter-spacing="0.15em">
+    SHIP AS FAST AS YOU CODE
+  </text>
+</svg>
