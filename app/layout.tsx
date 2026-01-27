@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: 'Continuous AI',
     images: [
       {
-        url: '/og-image.svg',
+        url: '/og-image.gif',
         width: 1200,
         height: 630,
         alt: 'Continuous AI',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Continuous AI',
     description: 'Ship as fast as you code. Automating the workflows around code, not just the code itself.',
-    images: ['/og-image.svg'],
+    images: ['/og-image.gif'],
   },
 };
 
