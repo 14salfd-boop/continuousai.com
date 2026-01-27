@@ -322,7 +322,7 @@ export default function Home() {
             <span className="text-[var(--accent)]">now the whole team&apos;s.</span>
           </p>
           <p className="text-[clamp(1rem,3vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] mt-4">
-            Junior engineers ship like staff. Staff engineers focus on what matters most.
+            Junior engineers ship like staff. Staff engineers focus on what matters.
           </p>
           
           {/* Continue button - part of content flow */}
