@@ -74,12 +74,13 @@ export default function Home() {
 
         @media (max-width: 768px) {
           .snap-container {
-            scroll-snap-type: none;
+            scroll-snap-type: y mandatory;
           }
           .snap-section {
-            min-height: auto;
-            padding-top: 80px;
-            padding-bottom: 60px;
+            min-height: 100vh;
+            min-height: 100dvh;
+            padding-top: 0;
+            padding-bottom: 0;
           }
         }
 
@@ -114,7 +115,7 @@ export default function Home() {
         </a>
       </header>
 
-      {/* Navigation Dots */}
+      {/* Navigation Dots - Desktop */}
       <nav className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-[100] flex-col gap-4 hidden md:flex">
         {[
           { id: "manifesto", label: "The Manifesto" },
@@ -137,11 +138,30 @@ export default function Home() {
         ))}
       </nav>
 
+      {/* Navigation Dots - Mobile */}
+      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] flex gap-3 md:hidden bg-[rgba(10,10,10,0.8)] backdrop-blur-md px-4 py-2.5 rounded-full border border-[rgba(255,255,255,0.1)]">
+        {[
+          { id: "manifesto", label: "1" },
+          { id: "ecosystem", label: "2" },
+          { id: "vision", label: "3" },
+        ].map(({ id }) => (
+          <button
+            key={id}
+            onClick={() => scrollToSection(id)}
+            className={`w-2.5 h-2.5 rounded-full border-none cursor-pointer transition-all duration-300 ${
+              activeSection === id
+                ? "bg-[var(--accent)] scale-[1.3]"
+                : "bg-[var(--muted)]"
+            }`}
+          />
+        ))}
+      </nav>
+
       <div className="snap-container">
       {/* Section 1: The Manifesto */}
       <section
         id="manifesto"
-        className="snap-section flex flex-col justify-center px-6 md:px-[8vw] py-16 relative overflow-hidden"
+        className="snap-section flex flex-col justify-center px-5 md:px-[8vw] py-16 relative overflow-hidden"
         style={{
           background: "linear-gradient(135deg, #0a0a0a 0%, #151515 100%)",
         }}
@@ -160,26 +180,26 @@ export default function Home() {
             The Manifesto
           </p>
           <h1
-            className="text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold leading-[1.1] mb-8"
+            className="text-[clamp(2rem,8vw,4.5rem)] font-extrabold leading-[1.1] mb-6 md:mb-8 pr-1"
             style={{ animation: "fadeInUp 0.8s ease 0.2s forwards", opacity: 0 }}
           >
             <span className="text-[var(--accent)]">Continuous</span> AI
           </h1>
           <p
-            className="text-[clamp(1.1rem,2vw,1.35rem)] leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px]"
+            className="text-[clamp(1rem,3.5vw,1.35rem)] leading-[1.7] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px]"
             style={{ animation: "fadeInUp 0.8s ease 0.4s forwards", opacity: 0 }}
           >
             Developers are drowning in AI-generated code. Continuous AI addresses this by automating the workflows around code, not just the code itself. The role of the software engineer is shifting from prompting AI to designing processes that run automatically.
           </p>
           <div
-            className="flex items-center gap-4 mt-10"
+            className="flex flex-col sm:flex-row sm:items-center gap-4 mt-8 md:mt-10"
             style={{ animation: "fadeInUp 0.8s ease 0.6s forwards", opacity: 0 }}
           >
             <a
               href="https://blog.continue.dev/ai-is-glue"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2"
+              className="inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2 w-fit"
             >
               AI is Glue
               <svg className="w-4 h-4 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -228,7 +248,7 @@ export default function Home() {
       {/* Section 2: The Ecosystem */}
       <section
         id="ecosystem"
-        className="snap-section flex flex-col justify-center px-6 md:px-[8vw] py-16 relative overflow-hidden bg-[#0d0d0d]"
+        className="snap-section flex flex-col justify-center px-5 md:px-[8vw] py-16 relative overflow-hidden bg-[#0d0d0d]"
       >
         <div
           className="absolute bottom-0 left-0 right-0 h-px"
@@ -238,13 +258,13 @@ export default function Home() {
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-8">
             The Ecosystem
           </p>
-          <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold leading-[1.1] mb-8">
+          <h1 className="text-[clamp(2rem,8vw,4.5rem)] font-extrabold leading-[1.1] mb-6 md:mb-8">
             Building <span className="text-[var(--accent)]">Together</span>
           </h1>
-          <p className="text-[clamp(1.1rem,2vw,1.35rem)] leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[750px] mb-8">
+          <p className="text-[clamp(1rem,3.5vw,1.35rem)] leading-[1.7] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[750px] mb-6 md:mb-8">
             The best developer tools are converging on a shared vision: agents that keep pace with code generation, raise the bar on quality, and let you ship with confidence. From coding assistants to observability platforms, from feature flags to documentation—these tools are becoming the connective tissue of modern software development.
           </p>
-          <div className="flex flex-wrap gap-2 md:gap-3 my-6 md:my-10">
+          <div className="flex flex-wrap gap-1.5 md:gap-3 my-4 md:my-10">
             {[
               "Continue", "GitHub", "Vercel", "Sentry", "Datadog", "PostHog",
               "Linear", "Notion", "LaunchDarkly", "Snyk", "Confluent",
@@ -260,7 +280,7 @@ export default function Home() {
           </div>
           <a
             href="/jan2025"
-            className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2"
+            className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 md:px-6 md:py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2"
           >
             Jan 2025 Dinner
             <svg className="w-4 h-4 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -273,7 +293,7 @@ export default function Home() {
       {/* Section 3: The Vision */}
       <section
         id="vision"
-        className="snap-section flex flex-col justify-start pt-[12vh] pb-48 md:pb-20 px-6 md:px-[8vw] relative overflow-hidden"
+        className="snap-section flex flex-col justify-center px-5 md:px-[8vw] py-16 relative overflow-hidden"
         style={{
           background: "linear-gradient(180deg, #0d0d0d 0%, #111 50%, #0a0a0a 100%)",
         }}
@@ -288,28 +308,28 @@ export default function Home() {
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-8">
             The Vision
           </p>
-          <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold leading-[1.1] mb-8">
+          <h1 className="text-[clamp(2rem,8vw,4.5rem)] font-extrabold leading-[1.1] mb-6 md:mb-8">
             Ship as Fast as <span className="text-[var(--accent)]">You Code</span>
           </h1>
-          <p className="text-[clamp(1.1rem,2vw,1.35rem)] leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px]">
+          <p className="text-[clamp(1rem,3.5vw,1.35rem)] leading-[1.7] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px]">
             AI made your engineers 10x faster at writing code. Now they&apos;re drowning in the stuff that isn&apos;t code—reviews, checks, docs, shipping. Continuous AI closes that gap. Not by automating developers, but by baking their best judgment into agents that raise the whole team&apos;s floor.
           </p>
-          <p className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-[var(--fg)] my-6 leading-[1.2]">
+          <p className="text-[clamp(1.25rem,5vw,2.5rem)] font-bold text-[var(--fg)] my-4 md:my-6 leading-[1.2]">
             Your best engineers&apos; standards,<br />
             <span className="text-[var(--accent)]">now the whole team&apos;s.</span>
           </p>
-          <p className="text-[clamp(1.1rem,2vw,1.35rem)] leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] mt-4">
+          <p className="text-[clamp(1rem,3.5vw,1.35rem)] leading-[1.7] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] mt-4 hidden md:block">
             Junior engineers ship like staff. Staff engineers focus on what only they can do. What would your best engineers catch? Now everyone catches it.
           </p>
           </div>
 
         {/* Footer */}
-        <footer className="md:absolute relative md:bottom-0 left-0 right-0 px-6 md:px-[8vw] flex flex-col mt-12 md:mt-0">
+        <footer className="absolute bottom-0 left-0 right-0 px-5 md:px-[8vw] pb-20 md:pb-8 flex flex-col">
           <a
             href="https://continue.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mb-8 px-6 py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2 w-fit"
+            className="inline-flex items-center gap-2 mb-6 md:mb-8 px-5 py-2.5 md:px-6 md:py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2 w-fit"
           >
             Continue
             <svg className="w-4 h-4 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -317,14 +337,14 @@ export default function Home() {
             </svg>
           </a>
           <div className="w-full border-t border-[rgba(255,255,255,0.05)]" />
-          <div className="flex items-center justify-between w-full mt-8 mb-8">
-            <div className="flex items-center gap-3 font-mono text-sm text-[var(--muted)]">
+          <div className="flex items-center justify-between w-full mt-4 md:mt-8">
+            <div className="flex items-center gap-2 md:gap-3 font-mono text-xs md:text-sm text-[var(--muted)]">
               Powered by
               <a href="https://continue.dev" target="_blank" rel="noopener noreferrer" className="text-[var(--fg)] no-underline transition-colors duration-300 hover:text-[var(--accent)]">
                 Continue
               </a>
             </div>
-            <a href="https://github.com/continuedev/continuousai.com" target="_blank" rel="noopener noreferrer" className="font-mono text-sm text-[var(--muted)] no-underline transition-colors duration-300 hover:text-[var(--accent)]">
+            <a href="https://github.com/continuedev/continuousai.com" target="_blank" rel="noopener noreferrer" className="font-mono text-xs md:text-sm text-[var(--muted)] no-underline transition-colors duration-300 hover:text-[var(--accent)]">
               GitHub
             </a>
           </div>
