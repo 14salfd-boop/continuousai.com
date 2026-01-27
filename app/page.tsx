@@ -139,7 +139,7 @@ export default function Home() {
       </nav>
 
       {/* Navigation Dots - Mobile */}
-      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] flex gap-3 md:hidden bg-[rgba(10,10,10,0.8)] backdrop-blur-md px-4 py-2.5 rounded-full border border-[rgba(255,255,255,0.1)]">
+      <nav className="fixed right-4 top-1/2 -translate-y-1/2 z-[100] flex flex-col gap-3 md:hidden">
         {[
           { id: "manifesto", label: "1" },
           { id: "ecosystem", label: "2" },
@@ -148,7 +148,7 @@ export default function Home() {
           <button
             key={id}
             onClick={() => scrollToSection(id)}
-            className={`w-2.5 h-2.5 rounded-full border-none cursor-pointer transition-all duration-300 ${
+            className={`w-2 h-2 rounded-full border-none cursor-pointer transition-all duration-300 ${
               activeSection === id
                 ? "bg-[var(--accent)] scale-[1.3]"
                 : "bg-[var(--muted)]"
@@ -293,7 +293,7 @@ export default function Home() {
       {/* Section 3: The Vision */}
       <section
         id="vision"
-        className="snap-section flex flex-col px-5 md:px-[8vw] pt-20 md:pt-16 pb-20 md:pb-8 relative overflow-hidden"
+        className="snap-section flex flex-col px-5 md:px-[8vw] pt-20 md:pt-16 pb-6 md:pb-8 relative overflow-hidden"
         style={{
           background: "linear-gradient(180deg, #0d0d0d 0%, #111 50%, #0a0a0a 100%)",
         }}
@@ -311,25 +311,25 @@ export default function Home() {
           <h1 className="text-[clamp(2rem,8vw,4.5rem)] font-extrabold leading-[1.1] mb-4 md:mb-8">
             Ship as Fast as <span className="text-[var(--accent)]">You Code</span>
           </h1>
-          <p className="text-[clamp(1rem,3.5vw,1.35rem)] leading-[1.7] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] hidden md:block">
+          <p className="text-[clamp(0.95rem,3.5vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px]">
             AI made your engineers 10x faster at writing code. Now they&apos;re drowning in the stuff that isn&apos;t code—reviews, checks, docs, shipping. Continuous AI closes that gap. Not by automating developers, but by baking their best judgment into agents that raise the whole team&apos;s floor.
           </p>
-          <p className="text-[clamp(1.25rem,5vw,2.5rem)] font-bold text-[var(--fg)] my-3 md:my-6 leading-[1.2]">
+          <p className="text-[clamp(1.15rem,4.5vw,2.5rem)] font-bold text-[var(--fg)] my-3 md:my-6 leading-[1.2]">
             Your best engineers&apos; standards,<br />
             <span className="text-[var(--accent)]">now the whole team&apos;s.</span>
           </p>
-          <p className="text-[clamp(1rem,3.5vw,1.35rem)] leading-[1.7] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] mt-4 hidden md:block">
+          <p className="text-[clamp(0.95rem,3.5vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] hidden md:block">
             Junior engineers ship like staff. Staff engineers focus on what only they can do. What would your best engineers catch? Now everyone catches it.
           </p>
         </div>
 
         {/* Footer */}
-        <footer className="mt-auto flex flex-col">
+        <footer className="mt-4 md:mt-auto flex flex-col">
           <a
             href="https://continue.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mb-4 md:mb-6 px-5 py-2.5 md:px-6 md:py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2 w-fit"
+            className="inline-flex items-center gap-2 mb-3 md:mb-6 px-5 py-2.5 md:px-6 md:py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2 w-fit"
           >
             Continue
             <svg className="w-4 h-4 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
