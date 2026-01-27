@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Continuous AI',
-    description: 'Ship as fast as you code. Automating the workflows around code, not just the code itself.',
+    description: 'Ship as fast as you code.',
     url: 'https://continuousai.com',
     siteName: 'Continuous AI',
     images: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Continuous AI',
-    description: 'Ship as fast as you code. Automating the workflows around code, not just the code itself.',
+    description: 'Ship as fast as you code.',
     images: ['/og-image.gif'],
   },
 };
