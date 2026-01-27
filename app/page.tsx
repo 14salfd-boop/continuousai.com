@@ -195,7 +195,7 @@ export default function Home() {
             {[
               "Continue", "Devin", "Jules", "GitHub", "Vercel", "PostHog",
               "Sentry", "Datadog", "Linear", "Notion", "LaunchDarkly",
-              "Snyk", "Confluent", "Sanity", "Cognee", "Graphene"
+              "Snyk", "Confluent", "Sanity", "Cognee", "Graphene", "dltHub"
             ].map((tool) => (
               <span
                 key={tool}
