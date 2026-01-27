@@ -6,51 +6,51 @@ export default function Heartbeat() {
       <style jsx global>{`
         @keyframes heartbeat {
           0%, 100% { transform: scaleY(1); }
-          8% { transform: scaleY(1.15); }
-          16% { transform: scaleY(1); }
-          24% { transform: scaleY(1.35); }
-          36% { transform: scaleY(1); }
+          7% { transform: scaleY(1.2); }
+          14% { transform: scaleY(1); }
+          21% { transform: scaleY(1.45); }
+          35% { transform: scaleY(1); }
         }
         
         @keyframes breathe-out {
           0%, 100% { transform: translateY(0) scaleY(1); opacity: 0.5; }
-          8% { transform: translateY(-4px) scaleY(1.04); opacity: 0.6; }
-          16% { transform: translateY(0) scaleY(1); opacity: 0.5; }
-          24% { transform: translateY(-10px) scaleY(1.1); opacity: 0.75; }
-          36% { transform: translateY(0) scaleY(1); opacity: 0.5; }
+          7% { transform: translateY(-5px) scaleY(1.05); opacity: 0.65; }
+          14% { transform: translateY(0) scaleY(1); opacity: 0.5; }
+          21% { transform: translateY(-12px) scaleY(1.12); opacity: 0.8; }
+          35% { transform: translateY(0) scaleY(1); opacity: 0.5; }
         }
         
         @keyframes breathe-in {
           0%, 100% { transform: translateY(0) scaleY(1); opacity: 0.5; }
-          8% { transform: translateY(4px) scaleY(1.04); opacity: 0.6; }
-          16% { transform: translateY(0) scaleY(1); opacity: 0.5; }
-          24% { transform: translateY(10px) scaleY(1.1); opacity: 0.75; }
-          36% { transform: translateY(0) scaleY(1); opacity: 0.5; }
+          7% { transform: translateY(5px) scaleY(1.05); opacity: 0.65; }
+          14% { transform: translateY(0) scaleY(1); opacity: 0.5; }
+          21% { transform: translateY(12px) scaleY(1.12); opacity: 0.8; }
+          35% { transform: translateY(0) scaleY(1); opacity: 0.5; }
         }
         
         @keyframes fade-pulse {
           0%, 100% { opacity: 0.15; }
-          8% { opacity: 0.22; }
-          16% { opacity: 0.15; }
-          24% { opacity: 0.35; }
-          36% { opacity: 0.15; }
+          7% { opacity: 0.25; }
+          14% { opacity: 0.15; }
+          21% { opacity: 0.4; }
+          35% { opacity: 0.15; }
         }
         
         .core { 
-          animation: heartbeat 2.5s ease-in-out infinite;
+          animation: heartbeat 1s ease-in-out infinite;
           transform-origin: center center;
           transform-box: fill-box;
         }
         .breathe-up {
-          animation: breathe-out 2.5s ease-in-out infinite;
+          animation: breathe-out 1s ease-in-out infinite;
           transform-origin: center bottom;
         }
         .breathe-down {
-          animation: breathe-in 2.5s ease-in-out infinite;
+          animation: breathe-in 1s ease-in-out infinite;
           transform-origin: center top;
         }
         .fade-band {
-          animation: fade-pulse 2.5s ease-in-out infinite;
+          animation: fade-pulse 1s ease-in-out infinite;
         }
         
         .hover-line {
