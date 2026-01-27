@@ -144,24 +144,68 @@ export default function Home() {
         </a>
       </header>
 
-      {/* Heartbeat */}
+      {/* Heartbeat - Full width ambient decoration */}
       <a
         href="/heartbeat"
-        className="heartbeat-link fixed bottom-4 left-4 md:bottom-6 md:left-6 z-50 flex items-center gap-1 transition-all duration-300"
+        className="heartbeat-link fixed right-0 top-1/2 -translate-y-1/2 z-40 pointer-events-auto transition-all duration-500 hidden md:block"
+        style={{ width: '45vw' }}
       >
-        <svg width="32" height="16" viewBox="0 0 32 16" fill="none" className="md:w-10 md:h-5">
-          {/* Fading outer lines */}
-          <rect className="heartbeat-line" style={{ animationDelay: '0.1s' }} x="0" y="2" width="32" height="1" fill="#1a2a0c" />
-          <rect className="heartbeat-line" style={{ animationDelay: '0.1s' }} x="0" y="13" width="32" height="1" fill="#1a2a0c" />
+        <svg width="100%" height="120" viewBox="0 0 600 120" preserveAspectRatio="none" fill="none">
+          {/* Macro - distant echoes */}
+          <rect className="heartbeat-line" style={{ animationDelay: '0.2s' }} x="0" y="5" width="600" height="1" fill="#0d0d0e" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.2s' }} x="0" y="115" width="600" height="1" fill="#0d0d0e" />
           
-          <rect className="heartbeat-line" style={{ animationDelay: '0.05s' }} x="0" y="4" width="32" height="1" fill="#2a3d10" />
-          <rect className="heartbeat-line" style={{ animationDelay: '0.05s' }} x="0" y="11" width="32" height="1" fill="#2a3d10" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.18s' }} x="0" y="15" width="600" height="1" fill="#101011" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.18s' }} x="0" y="105" width="600" height="1" fill="#101011" />
           
-          <rect className="heartbeat-line" x="0" y="6" width="32" height="1" fill="#3a5214" />
-          <rect className="heartbeat-line" x="0" y="9" width="32" height="1" fill="#3a5214" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.15s' }} x="0" y="25" width="600" height="1" fill="#131314" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.15s' }} x="0" y="95" width="600" height="1" fill="#131314" />
+          
+          {/* Medium scale - fragmenting */}
+          <rect className="heartbeat-line" style={{ animationDelay: '0.12s' }} x="0" y="32" width="250" height="1" fill="#161617" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.12s' }} x="280" y="32" width="200" height="1" fill="#171718" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.12s' }} x="510" y="32" width="90" height="1" fill="#161617" />
+          
+          <rect className="heartbeat-line" style={{ animationDelay: '0.12s' }} x="0" y="88" width="220" height="1" fill="#161617" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.12s' }} x="250" y="88" width="230" height="1" fill="#171718" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.12s' }} x="510" y="88" width="90" height="1" fill="#161617" />
+          
+          {/* Fine scale - green emerging */}
+          <rect className="heartbeat-line" style={{ animationDelay: '0.08s' }} x="0" y="42" width="450" height="2" fill="#1a1f0a" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.08s' }} x="480" y="42" width="120" height="2" fill="#191e09" />
+          
+          <rect className="heartbeat-line" style={{ animationDelay: '0.08s' }} x="0" y="76" width="420" height="2" fill="#1a1f0a" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.08s' }} x="450" y="76" width="150" height="2" fill="#191e09" />
+          
+          {/* Near core */}
+          <rect className="heartbeat-line" style={{ animationDelay: '0.04s' }} x="0" y="50" width="520" height="2" fill="#1e2a0c" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.04s' }} x="550" y="50" width="50" height="2" fill="#1d280b" />
+          
+          <rect className="heartbeat-line" style={{ animationDelay: '0.04s' }} x="0" y="68" width="500" height="2" fill="#1e2a0c" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.04s' }} x="530" y="68" width="70" height="2" fill="#1d280b" />
+          
+          {/* Inner glow */}
+          <rect className="heartbeat-line" style={{ animationDelay: '0.02s' }} x="0" y="55" width="560" height="3" fill="#2a3d10" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.02s' }} x="0" y="62" width="540" height="3" fill="#2a3d10" />
           
           {/* Core line */}
-          <rect className="heartbeat-icon" x="0" y="7.5" width="32" height="2" fill="#c8ff00" style={{ transformOrigin: 'center' }} />
+          <rect className="heartbeat-icon" x="0" y="58" width="600" height="4" fill="#c8ff00" style={{ transformOrigin: 'center' }} />
+        </svg>
+      </a>
+      
+      {/* Mobile heartbeat - smaller */}
+      <a
+        href="/heartbeat"
+        className="heartbeat-link fixed bottom-4 left-4 z-50 flex items-center md:hidden"
+      >
+        <svg width="48" height="24" viewBox="0 0 48 24" fill="none">
+          <rect className="heartbeat-line" style={{ animationDelay: '0.1s' }} x="0" y="3" width="48" height="1" fill="#1a2a0c" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.1s' }} x="0" y="20" width="48" height="1" fill="#1a2a0c" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.05s' }} x="0" y="6" width="48" height="1" fill="#2a3d10" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.05s' }} x="0" y="17" width="48" height="1" fill="#2a3d10" />
+          <rect className="heartbeat-line" x="0" y="9" width="48" height="2" fill="#3a5214" />
+          <rect className="heartbeat-line" x="0" y="13" width="48" height="2" fill="#3a5214" />
+          <rect className="heartbeat-icon" x="0" y="11" width="48" height="3" fill="#c8ff00" style={{ transformOrigin: 'center' }} />
         </svg>
       </a>
 
