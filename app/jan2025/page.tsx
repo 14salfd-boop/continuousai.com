@@ -345,11 +345,12 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
           max-width: 680px;
           margin: 0 auto;
           padding: 32px 24px 24px;
-          min-height: 100vh;
-          min-height: 100dvh;
+          height: 100vh;
+          height: 100dvh;
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: space-between;
+          overflow: hidden;
         }
 
         .header {
