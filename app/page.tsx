@@ -161,7 +161,7 @@ export default function Home() {
       {/* Section 1: The Manifesto */}
       <section
         id="manifesto"
-        className="snap-section flex flex-col justify-center px-5 md:px-[8vw] pt-16 pb-16 relative overflow-hidden"
+        className="snap-section flex flex-col justify-center px-5 md:px-[8vw] pt-16 pb-24 md:pb-16 relative overflow-hidden"
         style={{
           background: "linear-gradient(135deg, #0a0a0a 0%, #151515 100%)",
         }}
