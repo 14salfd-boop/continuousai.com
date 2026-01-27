@@ -263,8 +263,8 @@ export default function Home() {
           <h1 className="text-[clamp(2rem,8vw,4.5rem)] font-extrabold leading-[1.1] mb-6 md:mb-8">
             Building <span className="text-[var(--accent)]">Together</span>
           </h1>
-          <p className="text-[clamp(1rem,3vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[750px] mb-4 md:mb-8">
-            The best developer tools are converging: agents that keep pace with code generation, raise quality, and let you ship with confidence.
+          <p className="text-[clamp(1rem,3vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] mb-4 md:mb-8">
+            The best developer tools are converging around a shared goal: agents that keep pace with code generation, catch issues before they ship, and give every engineer the guardrails to move fast with confidence.
           </p>
           <div className="flex flex-wrap gap-1 md:gap-3 my-3 md:my-10">
             {[
