@@ -26,6 +26,7 @@ export default function Jan2025Page() {
       github: { name: 'GitHub', role: 'code hosting', desc: 'PRs, issues, actions, and Codespaces can all be automated by AI', category: 'code' },
       sanity: { name: 'Sanity', role: 'content platform', desc: 'Structured content with schemas AI can understand—typed, relational data', category: 'content' },
       dlthub: { name: 'dltHub', role: 'data pipelines', desc: 'Python library for declarative data loading that AI agents can use to move data between systems', category: 'data' },
+      netlify: { name: 'Netlify', role: 'web platform', desc: 'Deploy, scale, and manage modern web projects with built-in CI/CD and serverless functions', category: 'deployment' },
     };
 
     // Multi-tool questions: forward-looking questions about Continuous AI
@@ -316,7 +317,7 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
         }
 
         html {
-          overflow: hidden;
+          overflow-x: hidden;
         }
 
         .jan2025-page {
@@ -400,10 +401,22 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
         }
 
         .tools-grid {
-          display: flex;
-          flex-wrap: wrap;
+          display: grid;
+          grid-template-columns: repeat(6, auto);
           justify-content: center;
           gap: 8px;
+        }
+
+        @media (max-width: 680px) {
+          .tools-grid {
+            grid-template-columns: repeat(4, auto);
+          }
+        }
+
+        @media (max-width: 480px) {
+          .tools-grid {
+            grid-template-columns: repeat(3, auto);
+          }
         }
 
         .tool-btn {
@@ -730,6 +743,10 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
             <button className="tool-btn" data-tool="dlthub">
               <img src="/jan2025/icons/dlthub.svg" alt="" width={16} height={16} />
               dltHub
+            </button>
+            <button className="tool-btn" data-tool="netlify">
+              <img src="/jan2025/icons/netlify.svg" alt="" width={16} height={16} />
+              Netlify
             </button>
           </div>
         </section>
