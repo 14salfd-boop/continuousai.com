@@ -605,57 +605,55 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
         .footer { animation: fadeIn 0.7s ease-out 0.4s both; }
 
         @media (max-width: 540px) {
-          .container { padding: 24px 16px 32px; }
-          .header { margin-bottom: 20px; }
-          .header-eyebrow { font-size: 10px; margin-bottom: 10px; }
-          .header h1 { font-size: 32px; margin-bottom: 4px; }
-          .header-meta { font-size: 13px; margin-top: 8px; }
-          .section { margin-bottom: 20px; }
-          .section-label { font-size: 10px; margin-bottom: 12px; }
-          .tools-grid { gap: 6px; max-width: 100%; }
-          .tool-btn { padding: 6px 10px; font-size: 11px; gap: 4px; }
-          .tool-btn img { width: 13px; height: 13px; min-width: 13px; min-height: 13px; }
-          .question-card { padding: 14px 12px; min-height: 80px; height: auto; border-radius: 12px; }
-          .question-text { font-size: 15px; line-height: 1.4; }
-          .ask-section { margin-top: 20px; width: 100%; }
-          .ask-label { font-size: 10px; margin-bottom: 10px; }
-          .ask-bar { flex-direction: column; padding: 12px 16px; gap: 10px; border-radius: 12px; width: 100%; max-width: 280px; }
-          .ask-title { font-size: 18px; }
-          .ai-buttons { gap: 8px; }
-          .ai-btn { width: 40px; height: 40px; }
-          .ai-btn svg { width: 18px; height: 18px; }
-          .ai-btn.copy-btn svg { width: 16px; height: 16px; }
-          .footer { margin-top: 24px; }
-          .footer p { font-size: 12px; margin-bottom: 6px; }
-          .footer-links { font-size: 12px; gap: 12px; }
-
-        }
-
-        @media (max-width: 375px) {
-          .container { padding: 20px 16px 28px; }
-          .header { margin-bottom: 16px; }
-          .header-eyebrow { font-size: 9px; margin-bottom: 8px; letter-spacing: 0.15em; }
+          .container { padding: 16px 16px 12px; height: 100vh; height: 100dvh; display: flex; flex-direction: column; justify-content: space-between; }
+          .header { margin-bottom: 12px; }
+          .header-eyebrow { font-size: 10px; margin-bottom: 6px; }
           .header h1 { font-size: 28px; margin-bottom: 2px; }
-          .header-meta { font-size: 12px; margin-top: 6px; }
-          .section { margin-bottom: 16px; }
-          .section-label { font-size: 9px; margin-bottom: 10px; letter-spacing: 0.1em; }
+          .header-meta { font-size: 12px; margin-top: 4px; }
+          .section { margin-bottom: 12px; }
+          .section-label { font-size: 10px; margin-bottom: 8px; }
           .tools-grid { gap: 5px; max-width: 100%; }
           .tool-btn { padding: 5px 8px; font-size: 10px; gap: 3px; }
           .tool-btn img { width: 12px; height: 12px; min-width: 12px; min-height: 12px; }
-          .question-card { padding: 12px; min-height: 70px; height: auto; border-radius: 10px; }
+          .question-card { padding: 10px; min-height: 60px; height: auto; border-radius: 10px; }
           .question-text { font-size: 13px; line-height: 1.35; }
-          .ask-section { margin-top: 16px; width: 100%; }
-          .ask-label { font-size: 9px; margin-bottom: 8px; }
-          .ask-bar { padding: 12px 16px; gap: 10px; border-radius: 10px; width: 100%; max-width: 260px; }
+          .ask-section { margin-top: 12px; width: 100%; }
+          .ask-label { font-size: 9px; margin-bottom: 6px; }
+          .ask-bar { flex-direction: column; padding: 10px 14px; gap: 8px; border-radius: 10px; width: 100%; max-width: 260px; }
           .ask-title { font-size: 16px; }
           .ai-buttons { gap: 6px; }
           .ai-btn { width: 36px; height: 36px; }
           .ai-btn svg { width: 16px; height: 16px; }
           .ai-btn.copy-btn svg { width: 14px; height: 14px; }
-          .footer { margin-top: 20px; }
+          .footer { margin-top: 12px; }
           .footer p { font-size: 11px; margin-bottom: 4px; }
           .footer-links { font-size: 11px; gap: 10px; }
+        }
 
+        @media (max-width: 375px) {
+          .container { padding: 12px 14px 10px; }
+          .header { margin-bottom: 10px; }
+          .header-eyebrow { font-size: 9px; margin-bottom: 4px; letter-spacing: 0.15em; }
+          .header h1 { font-size: 24px; margin-bottom: 2px; }
+          .header-meta { font-size: 11px; margin-top: 3px; }
+          .section { margin-bottom: 10px; }
+          .section-label { font-size: 9px; margin-bottom: 6px; letter-spacing: 0.1em; }
+          .tools-grid { gap: 4px; }
+          .tool-btn { padding: 4px 7px; font-size: 9px; gap: 3px; }
+          .tool-btn img { width: 11px; height: 11px; min-width: 11px; min-height: 11px; }
+          .question-card { padding: 8px; min-height: 50px; border-radius: 8px; }
+          .question-text { font-size: 12px; line-height: 1.3; }
+          .ask-section { margin-top: 10px; }
+          .ask-label { font-size: 8px; margin-bottom: 5px; }
+          .ask-bar { padding: 8px 12px; gap: 6px; border-radius: 8px; max-width: 240px; }
+          .ask-title { font-size: 14px; }
+          .ai-buttons { gap: 5px; }
+          .ai-btn { width: 32px; height: 32px; }
+          .ai-btn svg { width: 14px; height: 14px; }
+          .ai-btn.copy-btn svg { width: 12px; height: 12px; }
+          .footer { margin-top: 10px; }
+          .footer p { font-size: 10px; margin-bottom: 3px; }
+          .footer-links { font-size: 10px; gap: 8px; }
         }
       `}</style>
 
