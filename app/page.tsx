@@ -192,14 +192,14 @@ export default function Home() {
             Developers are drowning in AI-generated code. Continuous AI addresses this by automating the workflows around code, not just the code itself. The role of the software engineer is shifting from prompting AI to designing processes that run automatically.
           </p>
           <div
-            className="flex flex-col sm:flex-row sm:items-center gap-4 mt-8 md:mt-10"
+            className="flex flex-col items-center sm:flex-row sm:items-center gap-4 mt-8 md:mt-10"
             style={{ animation: "fadeInUp 0.8s ease 0.6s forwards", opacity: 0 }}
           >
             <a
               href="https://blog.continue.dev/ai-is-glue"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2 w-fit"
+              className="inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2"
             >
               AI is Glue
               <svg className="w-4 h-4 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
