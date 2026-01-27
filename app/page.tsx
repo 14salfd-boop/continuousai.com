@@ -115,6 +115,18 @@ export default function Home() {
         </a>
       </header>
 
+      {/* Heartbeat */}
+      <a
+        href="/heartbeat"
+        className="fixed bottom-4 left-4 md:bottom-6 md:left-6 z-50 w-12 h-6 md:w-16 md:h-8 rounded overflow-hidden opacity-40 hover:opacity-100 transition-opacity duration-300"
+      >
+        <iframe
+          src="/og-image.svg"
+          className="w-[200px] h-[105px] border-none pointer-events-none"
+          style={{ transform: 'scale(0.08)', transformOrigin: 'top left' }}
+        />
+      </a>
+
       {/* Navigation Dots - Desktop */}
       <nav className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-[100] flex-col gap-4 hidden md:flex">
         {[
