@@ -355,7 +355,7 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
 
         .header {
           text-align: center;
-          margin-bottom: 32px;
+          margin-bottom: 20px;
         }
 
         .header-eyebrow {
@@ -390,7 +390,7 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
         }
 
         .section {
-          margin-bottom: 32px;
+          margin-bottom: 20px;
         }
 
         .section-label {
@@ -476,7 +476,7 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
         }
 
         .ask-section {
-          margin: 32px 0 0;
+          margin: 16px 0 0;
           display: flex;
           flex-direction: column;
           align-items: center;
