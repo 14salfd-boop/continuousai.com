@@ -139,7 +139,7 @@ export default function Home() {
       </nav>
 
       {/* Navigation Dots - Mobile */}
-      <nav className="fixed right-4 bottom-6 z-[100] flex flex-col gap-2.5 md:hidden">
+      <nav className="fixed right-5 bottom-16 z-[100] flex flex-col gap-2.5 md:hidden">
         {[
           { id: "manifesto", label: "1" },
           { id: "ecosystem", label: "2" },
@@ -192,7 +192,7 @@ export default function Home() {
             Developers are drowning in AI-generated code. Continuous AI addresses this by automating the workflows around code, not just the code itself. The role of the software engineer is shifting from prompting AI to designing processes that run automatically.
           </p>
           <div
-            className="flex flex-col items-center sm:flex-row sm:items-center gap-4 mt-8 md:mt-10"
+            className="flex flex-col items-end sm:flex-row sm:items-center gap-3 sm:gap-4 mt-8 md:mt-10"
             style={{ animation: "fadeInUp 0.8s ease 0.6s forwards", opacity: 0 }}
           >
             <a
