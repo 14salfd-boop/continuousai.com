@@ -139,7 +139,7 @@ export default function Home() {
       </nav>
 
       {/* Navigation Dots - Mobile */}
-      <nav className="fixed right-4 top-1/2 -translate-y-1/2 z-[100] flex flex-col gap-3 md:hidden">
+      <nav className="fixed right-4 bottom-6 z-[100] flex flex-col gap-2.5 md:hidden">
         {[
           { id: "manifesto", label: "1" },
           { id: "ecosystem", label: "2" },
