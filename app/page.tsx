@@ -293,7 +293,7 @@ export default function Home() {
       {/* Section 3: The Vision */}
       <section
         id="vision"
-        className="snap-section flex flex-col px-5 md:px-[8vw] pt-20 md:pt-16 pb-6 md:pb-8 relative overflow-hidden"
+        className="snap-section flex flex-col justify-between px-5 md:px-[8vw] pt-20 md:pt-16 pb-6 md:pb-8 relative overflow-hidden"
         style={{
           background: "linear-gradient(180deg, #0d0d0d 0%, #111 50%, #0a0a0a 100%)",
         }}
@@ -304,27 +304,27 @@ export default function Home() {
             background: "radial-gradient(circle, rgba(200, 255, 0, 0.02) 0%, transparent 50%)",
           }}
         />
-        <div className="max-w-[900px] flex-1 flex flex-col justify-center">
-          <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-4 md:mb-8">
+        <div className="max-w-[900px]">
+          <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-3 md:mb-8">
             The Vision
           </p>
-          <h1 className="text-[clamp(2rem,8vw,4.5rem)] font-extrabold leading-[1.1] mb-4 md:mb-8">
+          <h1 className="text-[clamp(1.75rem,7vw,4.5rem)] font-extrabold leading-[1.1] mb-3 md:mb-8">
             Ship as Fast as <span className="text-[var(--accent)]">You Code</span>
           </h1>
-          <p className="text-[clamp(0.95rem,3.5vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px]">
-            AI made your engineers 10x faster at writing code. Now they&apos;re drowning in the stuff that isn&apos;t code—reviews, checks, docs, shipping. Continuous AI closes that gap. Not by automating developers, but by baking their best judgment into agents that raise the whole team&apos;s floor.
+          <p className="text-[clamp(0.9rem,3.2vw,1.35rem)] leading-[1.5] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px]">
+            AI made your engineers 10x faster at writing code. Now they&apos;re drowning in the stuff that isn&apos;t code—reviews, checks, docs, shipping. Continuous AI closes that gap.
           </p>
-          <p className="text-[clamp(1.15rem,4.5vw,2.5rem)] font-bold text-[var(--fg)] my-3 md:my-6 leading-[1.2]">
+          <p className="text-[clamp(1.1rem,4vw,2.5rem)] font-bold text-[var(--fg)] mt-3 md:my-6 leading-[1.2]">
             Your best engineers&apos; standards,<br />
             <span className="text-[var(--accent)]">now the whole team&apos;s.</span>
           </p>
-          <p className="text-[clamp(0.95rem,3.5vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] hidden md:block">
+          <p className="text-[clamp(0.95rem,3.5vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] mt-4 hidden md:block">
             Junior engineers ship like staff. Staff engineers focus on what only they can do. What would your best engineers catch? Now everyone catches it.
           </p>
         </div>
 
         {/* Footer */}
-        <footer className="mt-4 md:mt-auto flex flex-col">
+        <footer className="flex flex-col mt-6 md:mt-0">
           <a
             href="https://continue.dev"
             target="_blank"
