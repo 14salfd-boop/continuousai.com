@@ -109,16 +109,18 @@ export default function Home() {
 
         @keyframes heartbeat-pulse {
           0%, 100% { transform: scaleY(1); opacity: 0.5; }
-          25% { transform: scaleY(1.15); opacity: 0.7; }
-          50% { transform: scaleY(1); opacity: 0.5; }
-          75% { transform: scaleY(1.1); opacity: 0.65; }
+          8% { transform: scaleY(1.2); opacity: 0.65; }
+          16% { transform: scaleY(1); opacity: 0.5; }
+          24% { transform: scaleY(1.4); opacity: 0.8; }
+          36% { transform: scaleY(1); opacity: 0.5; }
         }
 
         @keyframes line-flicker {
           0%, 100% { opacity: 0.2; }
-          25% { opacity: 0.4; }
-          50% { opacity: 0.2; }
-          75% { opacity: 0.35; }
+          8% { opacity: 0.35; }
+          16% { opacity: 0.2; }
+          24% { opacity: 0.5; }
+          36% { opacity: 0.2; }
         }
 
         .heartbeat-icon {
