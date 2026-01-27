@@ -268,9 +268,10 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap gap-1 md:gap-3 my-3 md:my-10">
             {[
-              "Continue", "GitHub", "Vercel", "Sentry", "Datadog", "PostHog",
-              "Linear", "Notion", "LaunchDarkly", "Snyk", "Confluent",
-              "Devin", "Jules", "Cognee", "Graphene", "dltHub"
+              "Continue", "GitHub", "Snyk", "Devin",
+              "Vercel", "Sentry", "Datadog", "Jules",
+              "PostHog", "Linear", "Notion", "Cognee",
+              "LaunchDarkly", "Graphene", "dltHub", "Confluent"
             ].map((tool) => (
               <span
                 key={tool}
