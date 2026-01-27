@@ -108,26 +108,25 @@ export default function Home() {
         }
 
         @keyframes heartbeat-pulse {
-          0%, 100% { transform: scaleY(1); opacity: 0.3; }
-          5% { transform: scaleY(1.4); opacity: 0.6; }
-          10% { transform: scaleY(0.85); opacity: 0.35; }
-          15% { transform: scaleY(1.6); opacity: 0.7; }
-          25% { transform: scaleY(1.05); opacity: 0.4; }
-          40% { transform: scaleY(1); opacity: 0.3; }
+          0%, 100% { transform: scaleY(1); opacity: 0.5; }
+          25% { transform: scaleY(1.15); opacity: 0.7; }
+          50% { transform: scaleY(1); opacity: 0.5; }
+          75% { transform: scaleY(1.1); opacity: 0.65; }
         }
 
         @keyframes line-flicker {
-          0%, 100% { opacity: 0.15; }
-          15% { opacity: 0.5; }
-          40% { opacity: 0.15; }
+          0%, 100% { opacity: 0.2; }
+          25% { opacity: 0.4; }
+          50% { opacity: 0.2; }
+          75% { opacity: 0.35; }
         }
 
         .heartbeat-icon {
-          animation: heartbeat-pulse 1.4s ease-in-out infinite;
+          animation: heartbeat-pulse 4s ease-in-out infinite;
         }
 
         .heartbeat-line {
-          animation: line-flicker 1.4s ease-in-out infinite;
+          animation: line-flicker 4s ease-in-out infinite;
         }
 
         .heartbeat-link:hover .heartbeat-icon,

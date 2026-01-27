@@ -21,55 +21,47 @@
   <style>
     @keyframes heartbeat {
       0%, 100% { transform: scaleY(1); }
-      5% { transform: scaleY(1.3); }
-      10% { transform: scaleY(0.9); }
-      15% { transform: scaleY(1.6); }
-      25% { transform: scaleY(1.05); }
-      40% { transform: scaleY(1); }
-    }
-    
-    @keyframes glow-pulse {
-      0%, 100% { opacity: 1; }
-      5% { opacity: 1; }
-      15% { opacity: 1; }
-      40% { opacity: 1; }
+      25% { transform: scaleY(1.08); }
+      50% { transform: scaleY(1); }
+      75% { transform: scaleY(1.05); }
     }
     
     @keyframes breathe-out {
       0%, 100% { transform: translateY(0) scaleY(1); opacity: 0.5; }
-      5% { transform: translateY(-5px) scaleY(1.05); opacity: 0.65; }
-      15% { transform: translateY(-15px) scaleY(1.2); opacity: 0.85; }
-      40% { transform: translateY(0) scaleY(1); opacity: 0.5; }
+      25% { transform: translateY(-3px) scaleY(1.03); opacity: 0.6; }
+      50% { transform: translateY(0) scaleY(1); opacity: 0.5; }
+      75% { transform: translateY(-2px) scaleY(1.02); opacity: 0.55; }
     }
     
     @keyframes breathe-in {
       0%, 100% { transform: translateY(0) scaleY(1); opacity: 0.5; }
-      5% { transform: translateY(5px) scaleY(1.05); opacity: 0.65; }
-      15% { transform: translateY(15px) scaleY(1.2); opacity: 0.85; }
-      40% { transform: translateY(0) scaleY(1); opacity: 0.5; }
+      25% { transform: translateY(3px) scaleY(1.03); opacity: 0.6; }
+      50% { transform: translateY(0) scaleY(1); opacity: 0.5; }
+      75% { transform: translateY(2px) scaleY(1.02); opacity: 0.55; }
     }
     
     @keyframes fade-pulse {
-      0%, 100% { opacity: 0.12; }
-      15% { opacity: 0.25; }
-      40% { opacity: 0.12; }
+      0%, 100% { opacity: 0.15; }
+      25% { opacity: 0.25; }
+      50% { opacity: 0.15; }
+      75% { opacity: 0.2; }
     }
     
     .core { 
-      animation: heartbeat 1.4s ease-in-out infinite;
+      animation: heartbeat 4s ease-in-out infinite;
       transform-origin: center center;
       transform-box: fill-box;
     }
     .breathe-up {
-      animation: breathe-out 1.4s ease-in-out infinite;
+      animation: breathe-out 4s ease-in-out infinite;
       transform-origin: center bottom;
     }
     .breathe-down {
-      animation: breathe-in 1.4s ease-in-out infinite;
+      animation: breathe-in 4s ease-in-out infinite;
       transform-origin: center top;
     }
     .fade-band {
-      animation: fade-pulse 1.4s ease-in-out infinite;
+      animation: fade-pulse 4s ease-in-out infinite;
     }
   </style>
   
