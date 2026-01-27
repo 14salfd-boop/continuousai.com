@@ -39,7 +39,6 @@ export default function Home() {
 
         html {
           scroll-behavior: smooth;
-          scroll-snap-type: y mandatory;
         }
 
         body {
@@ -51,6 +50,17 @@ export default function Home() {
           overflow-y: auto;
           position: static;
           height: auto;
+        }
+
+        .snap-container {
+          scroll-snap-type: y mandatory;
+          overflow-y: scroll;
+          height: 100vh;
+        }
+
+        .snap-section {
+          scroll-snap-align: start;
+          height: 100vh;
         }
 
         @keyframes fadeInUp {
@@ -107,10 +117,11 @@ export default function Home() {
         ))}
       </nav>
 
+      <div className="snap-container">
       {/* Section 1: The Manifesto */}
       <section
         id="manifesto"
-        className="min-h-screen scroll-snap-align-start flex flex-col justify-center px-[8vw] py-16 relative overflow-hidden"
+        className="snap-section flex flex-col justify-center px-[8vw] py-16 relative overflow-hidden"
         style={{
           background: "linear-gradient(135deg, #0a0a0a 0%, #151515 100%)",
         }}
@@ -164,7 +175,7 @@ export default function Home() {
       {/* Section 2: The Ecosystem */}
       <section
         id="ecosystem"
-        className="min-h-screen scroll-snap-align-start flex flex-col justify-center px-[8vw] py-16 relative overflow-hidden bg-[#0d0d0d]"
+        className="snap-section flex flex-col justify-center px-[8vw] py-16 relative overflow-hidden bg-[#0d0d0d]"
       >
         <div
           className="absolute bottom-0 left-0 right-0 h-px"
@@ -209,7 +220,7 @@ export default function Home() {
       {/* Section 3: The Vision */}
       <section
         id="vision"
-        className="min-h-screen scroll-snap-align-start flex flex-col justify-start pt-[12vh] pb-20 px-[8vw] relative overflow-hidden"
+        className="snap-section flex flex-col justify-start pt-[12vh] pb-20 px-[8vw] relative overflow-hidden"
         style={{
           background: "linear-gradient(180deg, #0d0d0d 0%, #111 50%, #0a0a0a 100%)",
         }}
@@ -265,6 +276,7 @@ export default function Home() {
           </div>
         </footer>
       </section>
+      </div>
     </>
   );
 }
