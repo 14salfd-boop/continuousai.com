@@ -186,27 +186,28 @@ export default function Home() {
             <span className="text-[var(--accent)]">Continuous</span> AI
           </h1>
           <p
-            className="text-[clamp(1rem,3.5vw,1.35rem)] leading-[1.7] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px]"
+            className="text-[clamp(1rem,3vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px]"
             style={{ animation: "fadeInUp 0.8s ease 0.4s forwards", opacity: 0 }}
           >
             Developers are drowning in AI-generated code. Continuous AI addresses this by automating the workflows around code, not just the code itself. The role of the software engineer is shifting from prompting AI to designing processes that run automatically.
           </p>
           <div
-            className="flex flex-col items-start sm:flex-row sm:items-center gap-3 sm:gap-4 mt-8 md:mt-10"
+            className="mt-8 md:mt-10"
             style={{ animation: "fadeInUp 0.8s ease 0.6s forwards", opacity: 0 }}
           >
-            <a
-              href="https://blog.continue.dev/ai-is-glue"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2"
-            >
-              AI is Glue
-              <svg className="w-4 h-4 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+              <a
+                href="https://blog.continue.dev/ai-is-glue"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2 w-fit"
+              >
+                AI is Glue
+                <svg className="w-4 h-4 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+              <div className="flex items-center gap-2">
               <a
                 href="https://open.spotify.com/track/2aJDlirz6v2a4HREki98cP"
                 target="_blank"
@@ -234,6 +235,7 @@ export default function Home() {
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               </a>
+              </div>
             </div>
           </div>
         </div>
@@ -261,7 +263,7 @@ export default function Home() {
           <h1 className="text-[clamp(2rem,8vw,4.5rem)] font-extrabold leading-[1.1] mb-6 md:mb-8">
             Building <span className="text-[var(--accent)]">Together</span>
           </h1>
-          <p className="text-[clamp(0.875rem,3vw,1.35rem)] leading-[1.5] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[750px] mb-4 md:mb-8">
+          <p className="text-[clamp(1rem,3vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[750px] mb-4 md:mb-8">
             The best developer tools are converging: agents that keep pace with code generation, raise quality, and let you ship with confidence.
           </p>
           <div className="flex flex-wrap gap-1 md:gap-3 my-3 md:my-10">
@@ -311,15 +313,15 @@ export default function Home() {
           <h1 className="text-[clamp(1.75rem,7vw,4.5rem)] font-extrabold leading-[1.1] mb-4">
             Ship as Fast as <span className="text-[var(--accent)]">You Code</span>
           </h1>
-          <p className="text-[clamp(0.875rem,3vw,1.35rem)] leading-[1.5] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px]">
+          <p className="text-[clamp(1rem,3vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px]">
             AI made your engineers 10x faster at writing code. Now they&apos;re drowning in the stuff that isn&apos;t code. Continuous AI closes that gap.
           </p>
           <p className="text-[clamp(1rem,3.5vw,2.5rem)] font-bold text-[var(--fg)] mt-4 leading-[1.2]">
             Your best engineers&apos; standards,<br />
             <span className="text-[var(--accent)]">now the whole team&apos;s.</span>
           </p>
-          <p className="text-[clamp(0.95rem,3.5vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] mt-4 hidden md:block">
-            Junior engineers ship like staff. Staff engineers focus on what only they can do. What would your best engineers catch? Now everyone catches it.
+          <p className="text-[clamp(1rem,3vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] mt-4">
+            Junior engineers ship like staff. Staff engineers focus on what matters most.
           </p>
           
           {/* Continue button - part of content flow */}
