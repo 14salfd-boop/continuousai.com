@@ -144,10 +144,10 @@ export default function Home() {
         </a>
       </header>
 
-      {/* Heartbeat - Full width across bottom */}
+      {/* Heartbeat - Full width across bottom, only visible on last section */}
       <a
         href="/heartbeat"
-        className="heartbeat-link fixed bottom-0 left-0 right-0 z-40 pointer-events-auto transition-all duration-500"
+        className={`heartbeat-link fixed bottom-0 left-0 right-0 z-40 pointer-events-auto transition-all duration-500 ${activeSection === 'vision' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-full pointer-events-none'}`}
       >
         <svg width="100%" height="60" viewBox="0 0 1200 60" preserveAspectRatio="none" fill="none">
           {/* Macro - distant echoes */}
