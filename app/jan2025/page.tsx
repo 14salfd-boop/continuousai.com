@@ -669,33 +669,25 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
         <section className="section">
           <div className="section-label">Which tools do you use?</div>
           <div className="tools-grid">
-            <button className="tool-btn" data-tool="linear">
-              <img src="/jan2025/icons/linear.svg" alt="" width={16} height={16} />
-              Linear
+            <button className="tool-btn" data-tool="continue">
+              <img src="/jan2025/icons/continue.svg" alt="" width={16} height={16} />
+              Continue
             </button>
-            <button className="tool-btn" data-tool="launchdarkly">
-              <img src="/jan2025/icons/launchdarkly.svg" alt="" width={16} height={16} />
-              LaunchDarkly
+            <button className="tool-btn" data-tool="github">
+              <img src="/jan2025/icons/github.svg" alt="" width={16} height={16} />
+              GitHub
             </button>
             <button className="tool-btn" data-tool="snyk">
               <img src="/jan2025/icons/snyk.svg" alt="" width={16} height={16} />
               Snyk
             </button>
-            <button className="tool-btn" data-tool="notion">
-              <img src="/jan2025/icons/notion.svg" alt="" width={16} height={16} />
-              Notion
-            </button>
-            <button className="tool-btn" data-tool="continue">
-              <img src="/jan2025/icons/continue.svg" alt="" width={16} height={16} />
-              Continue
-            </button>
             <button className="tool-btn" data-tool="devin">
               <img src="/jan2025/icons/devin.svg" alt="" width={16} height={16} />
               Devin
             </button>
-            <button className="tool-btn" data-tool="jules">
-              <img src="/jan2025/icons/jules.svg" alt="" width={16} height={16} />
-              Jules
+            <button className="tool-btn" data-tool="vercel">
+              <img src="/jan2025/icons/vercel.svg" alt="" width={16} height={16} />
+              Vercel
             </button>
             <button className="tool-btn" data-tool="sentry">
               <img src="/jan2025/icons/sentry.svg" alt="" width={16} height={16} />
@@ -705,37 +697,41 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
               <img src="/jan2025/icons/datadog.svg" alt="" width={16} height={16} />
               Datadog
             </button>
+            <button className="tool-btn" data-tool="jules">
+              <img src="/jan2025/icons/jules.svg" alt="" width={16} height={16} />
+              Jules
+            </button>
             <button className="tool-btn" data-tool="posthog">
               <img src="/jan2025/icons/posthog.svg" alt="" width={16} height={16} />
               PostHog
             </button>
-            <button className="tool-btn" data-tool="vercel">
-              <img src="/jan2025/icons/vercel.svg" alt="" width={16} height={16} />
-              Vercel
+            <button className="tool-btn" data-tool="linear">
+              <img src="/jan2025/icons/linear.svg" alt="" width={16} height={16} />
+              Linear
             </button>
-            <button className="tool-btn" data-tool="confluent">
-              <img src="/jan2025/icons/confluent.svg" alt="" width={16} height={16} />
-              Confluent
+            <button className="tool-btn" data-tool="notion">
+              <img src="/jan2025/icons/notion.svg" alt="" width={16} height={16} />
+              Notion
             </button>
             <button className="tool-btn" data-tool="cognee">
               <img src="/jan2025/icons/cognee.svg" alt="" width={16} height={16} />
               Cognee
             </button>
+            <button className="tool-btn" data-tool="launchdarkly">
+              <img src="/jan2025/icons/launchdarkly.svg" alt="" width={16} height={16} />
+              LaunchDarkly
+            </button>
             <button className="tool-btn" data-tool="graphene">
               <img src="/jan2025/icons/graphene.svg" alt="" width={16} height={16} />
               Graphene
             </button>
-            <button className="tool-btn" data-tool="github">
-              <img src="/jan2025/icons/github.svg" alt="" width={16} height={16} />
-              GitHub
-            </button>
-            <button className="tool-btn" data-tool="sanity">
-              <img src="/jan2025/icons/sanity.svg" alt="" width={16} height={16} />
-              Sanity
-            </button>
             <button className="tool-btn" data-tool="dlthub">
               <img src="/jan2025/icons/dlthub.svg" alt="" width={16} height={16} />
               dltHub
+            </button>
+            <button className="tool-btn" data-tool="confluent">
+              <img src="/jan2025/icons/confluent.svg" alt="" width={16} height={16} />
+              Confluent
             </button>
           </div>
         </section>
