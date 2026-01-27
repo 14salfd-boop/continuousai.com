@@ -248,7 +248,7 @@ export default function Home() {
       {/* Section 2: The Ecosystem */}
       <section
         id="ecosystem"
-        className="snap-section flex flex-col justify-center px-5 md:px-[8vw] pt-20 md:pt-16 pb-16 relative overflow-hidden bg-[#0d0d0d]"
+        className="snap-section flex flex-col justify-center px-5 md:px-[8vw] pt-24 md:pt-16 pb-16 relative overflow-hidden bg-[#0d0d0d]"
       >
         <div
           className="absolute bottom-0 left-0 right-0 h-px"
@@ -261,10 +261,10 @@ export default function Home() {
           <h1 className="text-[clamp(2rem,8vw,4.5rem)] font-extrabold leading-[1.1] mb-6 md:mb-8">
             Building <span className="text-[var(--accent)]">Together</span>
           </h1>
-          <p className="text-[clamp(1rem,3.5vw,1.35rem)] leading-[1.7] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[750px] mb-6 md:mb-8">
-            The best developer tools are converging on a shared vision: agents that keep pace with code generation, raise the bar on quality, and let you ship with confidence. From coding assistants to observability platforms, from feature flags to documentation—these tools are becoming the connective tissue of modern software development.
+          <p className="text-[clamp(0.875rem,3vw,1.35rem)] leading-[1.5] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[750px] mb-4 md:mb-8">
+            The best developer tools are converging: agents that keep pace with code generation, raise quality, and let you ship with confidence.
           </p>
-          <div className="flex flex-wrap gap-1.5 md:gap-3 my-4 md:my-10">
+          <div className="flex flex-wrap gap-1 md:gap-3 my-3 md:my-10">
             {[
               "Continue", "GitHub", "Vercel", "Sentry", "Datadog", "PostHog",
               "Linear", "Notion", "LaunchDarkly", "Snyk", "Confluent",
@@ -272,7 +272,7 @@ export default function Home() {
             ].map((tool) => (
               <span
                 key={tool}
-                className="px-3 py-1.5 md:px-4 md:py-2 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-md font-mono text-xs md:text-sm text-[rgba(245,245,245,0.7)] transition-all duration-300 hover:bg-[rgba(200,255,0,0.1)] hover:border-[rgba(200,255,0,0.3)] hover:text-[var(--accent)] hover:-translate-y-0.5"
+                className="px-2 py-1 md:px-4 md:py-2 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-md font-mono text-[10px] md:text-sm text-[rgba(245,245,245,0.7)] transition-all duration-300 hover:bg-[rgba(200,255,0,0.1)] hover:border-[rgba(200,255,0,0.3)] hover:text-[var(--accent)] hover:-translate-y-0.5"
               >
                 {tool}
               </span>
