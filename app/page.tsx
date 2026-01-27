@@ -408,7 +408,7 @@ export default function Home() {
         </div>
 
         {/* Footer - pinned to bottom */}
-        <footer className="absolute bottom-4 md:bottom-8 left-5 right-5 md:left-[8vw] md:right-[8vw] flex flex-col">
+        <footer className="absolute bottom-4 md:bottom-8 left-5 right-5 md:left-[8vw] md:right-[8vw] flex flex-col z-50">
           <div className="w-full border-t border-[rgba(255,255,255,0.05)]" />
           <div className="flex items-center justify-between w-full mt-3 md:mt-6">
             <div className="flex items-center gap-2 md:gap-3 font-mono text-xs md:text-sm text-[var(--muted)]">
