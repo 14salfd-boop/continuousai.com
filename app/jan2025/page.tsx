@@ -25,6 +25,7 @@ export default function Jan2025Page() {
       graphene: { name: 'Graphene', role: 'AI-native BI', desc: 'BI with semantic layers that lives in your repo and AI agents can query via CLI', category: 'analytics' },
       github: { name: 'GitHub', role: 'code hosting', desc: 'PRs, issues, actions, and Codespaces can all be automated by AI', category: 'code' },
       sanity: { name: 'Sanity', role: 'content platform', desc: 'Structured content with schemas AI can understand—typed, relational data', category: 'content' },
+      dlthub: { name: 'dltHub', role: 'data pipelines', desc: 'Python library for declarative data loading that AI agents can use to move data between systems', category: 'data' },
     };
 
     // Multi-tool questions: forward-looking questions about Continuous AI
@@ -725,6 +726,10 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
             <button className="tool-btn" data-tool="sanity">
               <img src="/jan2025/icons/sanity.svg" alt="" width={16} height={16} />
               Sanity
+            </button>
+            <button className="tool-btn" data-tool="dlthub">
+              <img src="/jan2025/icons/dlthub.svg" alt="" width={16} height={16} />
+              dltHub
             </button>
           </div>
         </section>
