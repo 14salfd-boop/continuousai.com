@@ -161,7 +161,7 @@ export default function Home() {
       {/* Section 1: The Manifesto */}
       <section
         id="manifesto"
-        className="snap-section flex flex-col justify-center px-5 md:px-[8vw] py-16 relative overflow-hidden"
+        className="snap-section flex flex-col justify-center px-5 md:px-[8vw] pt-16 pb-16 relative overflow-hidden"
         style={{
           background: "linear-gradient(135deg, #0a0a0a 0%, #151515 100%)",
         }}
@@ -248,14 +248,14 @@ export default function Home() {
       {/* Section 2: The Ecosystem */}
       <section
         id="ecosystem"
-        className="snap-section flex flex-col justify-center px-5 md:px-[8vw] py-16 relative overflow-hidden bg-[#0d0d0d]"
+        className="snap-section flex flex-col justify-center px-5 md:px-[8vw] pt-20 md:pt-16 pb-16 relative overflow-hidden bg-[#0d0d0d]"
       >
         <div
           className="absolute bottom-0 left-0 right-0 h-px"
           style={{ background: "linear-gradient(90deg, transparent, rgba(200, 255, 0, 0.2), transparent)" }}
         />
         <div className="max-w-[1000px]">
-          <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-8">
+          <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-4 md:mb-8">
             The Ecosystem
           </p>
           <h1 className="text-[clamp(2rem,8vw,4.5rem)] font-extrabold leading-[1.1] mb-6 md:mb-8">
@@ -293,7 +293,7 @@ export default function Home() {
       {/* Section 3: The Vision */}
       <section
         id="vision"
-        className="snap-section flex flex-col justify-center px-5 md:px-[8vw] py-16 relative overflow-hidden"
+        className="snap-section flex flex-col px-5 md:px-[8vw] pt-20 md:pt-16 pb-20 md:pb-8 relative overflow-hidden"
         style={{
           background: "linear-gradient(180deg, #0d0d0d 0%, #111 50%, #0a0a0a 100%)",
         }}
@@ -304,32 +304,32 @@ export default function Home() {
             background: "radial-gradient(circle, rgba(200, 255, 0, 0.02) 0%, transparent 50%)",
           }}
         />
-        <div className="max-w-[900px]">
-          <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-8">
+        <div className="max-w-[900px] flex-1 flex flex-col justify-center">
+          <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-4 md:mb-8">
             The Vision
           </p>
-          <h1 className="text-[clamp(2rem,8vw,4.5rem)] font-extrabold leading-[1.1] mb-6 md:mb-8">
+          <h1 className="text-[clamp(2rem,8vw,4.5rem)] font-extrabold leading-[1.1] mb-4 md:mb-8">
             Ship as Fast as <span className="text-[var(--accent)]">You Code</span>
           </h1>
-          <p className="text-[clamp(1rem,3.5vw,1.35rem)] leading-[1.7] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px]">
+          <p className="text-[clamp(1rem,3.5vw,1.35rem)] leading-[1.7] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] hidden md:block">
             AI made your engineers 10x faster at writing code. Now they&apos;re drowning in the stuff that isn&apos;t code—reviews, checks, docs, shipping. Continuous AI closes that gap. Not by automating developers, but by baking their best judgment into agents that raise the whole team&apos;s floor.
           </p>
-          <p className="text-[clamp(1.25rem,5vw,2.5rem)] font-bold text-[var(--fg)] my-4 md:my-6 leading-[1.2]">
+          <p className="text-[clamp(1.25rem,5vw,2.5rem)] font-bold text-[var(--fg)] my-3 md:my-6 leading-[1.2]">
             Your best engineers&apos; standards,<br />
             <span className="text-[var(--accent)]">now the whole team&apos;s.</span>
           </p>
           <p className="text-[clamp(1rem,3.5vw,1.35rem)] leading-[1.7] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] mt-4 hidden md:block">
             Junior engineers ship like staff. Staff engineers focus on what only they can do. What would your best engineers catch? Now everyone catches it.
           </p>
-          </div>
+        </div>
 
         {/* Footer */}
-        <footer className="absolute bottom-0 left-0 right-0 px-5 md:px-[8vw] pb-20 md:pb-8 flex flex-col">
+        <footer className="mt-auto flex flex-col">
           <a
             href="https://continue.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mb-6 md:mb-8 px-5 py-2.5 md:px-6 md:py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2 w-fit"
+            className="inline-flex items-center gap-2 mb-4 md:mb-6 px-5 py-2.5 md:px-6 md:py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2 w-fit"
           >
             Continue
             <svg className="w-4 h-4 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -337,7 +337,7 @@ export default function Home() {
             </svg>
           </a>
           <div className="w-full border-t border-[rgba(255,255,255,0.05)]" />
-          <div className="flex items-center justify-between w-full mt-4 md:mt-8">
+          <div className="flex items-center justify-between w-full mt-3 md:mt-6">
             <div className="flex items-center gap-2 md:gap-3 font-mono text-xs md:text-sm text-[var(--muted)]">
               Powered by
               <a href="https://continue.dev" target="_blank" rel="noopener noreferrer" className="text-[var(--fg)] no-underline transition-colors duration-300 hover:text-[var(--accent)]">
