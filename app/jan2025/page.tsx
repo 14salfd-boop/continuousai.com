@@ -344,8 +344,12 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
         .container {
           max-width: 680px;
           margin: 0 auto;
-          padding: 40px 24px 40px;
+          padding: 32px 24px 24px;
           min-height: 100vh;
+          min-height: 100dvh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
 
         .header {
@@ -557,7 +561,7 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
 
         .footer {
           text-align: center;
-          margin-top: 32px;
+          margin-top: 24px;
           margin-bottom: 0;
           width: 100%;
         }
