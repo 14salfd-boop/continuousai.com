@@ -106,6 +106,35 @@ export default function Home() {
             transform: translateX(-50%) translateY(-5px);
           }
         }
+
+        @keyframes heartbeat-pulse {
+          0%, 100% { transform: scaleY(1); opacity: 0.3; }
+          5% { transform: scaleY(1.4); opacity: 0.6; }
+          10% { transform: scaleY(0.85); opacity: 0.35; }
+          15% { transform: scaleY(1.6); opacity: 0.7; }
+          25% { transform: scaleY(1.05); opacity: 0.4; }
+          40% { transform: scaleY(1); opacity: 0.3; }
+        }
+
+        @keyframes line-flicker {
+          0%, 100% { opacity: 0.15; }
+          15% { opacity: 0.5; }
+          40% { opacity: 0.15; }
+        }
+
+        .heartbeat-icon {
+          animation: heartbeat-pulse 1.4s ease-in-out infinite;
+        }
+
+        .heartbeat-line {
+          animation: line-flicker 1.4s ease-in-out infinite;
+        }
+
+        .heartbeat-link:hover .heartbeat-icon,
+        .heartbeat-link:hover .heartbeat-line {
+          opacity: 1 !important;
+          animation: none;
+        }
       `}</style>
 
       {/* Header */}
@@ -118,13 +147,22 @@ export default function Home() {
       {/* Heartbeat */}
       <a
         href="/heartbeat"
-        className="fixed bottom-4 left-4 md:bottom-6 md:left-6 z-50 w-12 h-6 md:w-16 md:h-8 rounded overflow-hidden opacity-40 hover:opacity-100 transition-opacity duration-300"
+        className="heartbeat-link fixed bottom-4 left-4 md:bottom-6 md:left-6 z-50 flex items-center gap-1 transition-all duration-300"
       >
-        <iframe
-          src="/og-image.svg"
-          className="w-[200px] h-[105px] border-none pointer-events-none"
-          style={{ transform: 'scale(0.08)', transformOrigin: 'top left' }}
-        />
+        <svg width="32" height="16" viewBox="0 0 32 16" fill="none" className="md:w-10 md:h-5">
+          {/* Fading outer lines */}
+          <rect className="heartbeat-line" style={{ animationDelay: '0.1s' }} x="0" y="2" width="32" height="1" fill="#1a2a0c" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.1s' }} x="0" y="13" width="32" height="1" fill="#1a2a0c" />
+          
+          <rect className="heartbeat-line" style={{ animationDelay: '0.05s' }} x="0" y="4" width="32" height="1" fill="#2a3d10" />
+          <rect className="heartbeat-line" style={{ animationDelay: '0.05s' }} x="0" y="11" width="32" height="1" fill="#2a3d10" />
+          
+          <rect className="heartbeat-line" x="0" y="6" width="32" height="1" fill="#3a5214" />
+          <rect className="heartbeat-line" x="0" y="9" width="32" height="1" fill="#3a5214" />
+          
+          {/* Core line */}
+          <rect className="heartbeat-icon" x="0" y="7.5" width="32" height="2" fill="#c8ff00" style={{ transformOrigin: 'center' }} />
+        </svg>
       </a>
 
       {/* Navigation Dots - Desktop */}
