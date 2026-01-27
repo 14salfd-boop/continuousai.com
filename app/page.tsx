@@ -54,8 +54,15 @@ export default function Home() {
 
         .snap-container {
           scroll-snap-type: y mandatory;
-          overflow-y: scroll;
+          overflow-y: auto;
+          overflow-x: hidden;
           height: 100vh;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+
+        .snap-container::-webkit-scrollbar {
+          display: none;
         }
 
         .snap-section {
@@ -193,9 +200,9 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap gap-3 my-10">
             {[
-              "Continue", "Devin", "Jules", "GitHub", "Vercel", "PostHog",
-              "Sentry", "Datadog", "Linear", "Notion", "LaunchDarkly",
-              "Snyk", "Confluent", "Sanity", "Cognee", "Graphene", "dltHub"
+              "Continue", "GitHub", "Vercel", "Sentry", "Datadog", "PostHog",
+              "Linear", "Notion", "LaunchDarkly", "Snyk", "Confluent",
+              "Devin", "Jules", "Cognee", "Sanity", "Graphene", "dltHub"
             ].map((tool) => (
               <span
                 key={tool}
