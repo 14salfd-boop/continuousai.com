@@ -339,16 +339,13 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
           color: var(--text);
           height: 100%;
           line-height: 1.5;
-          overflow: hidden;
         }
 
         .container {
           max-width: 680px;
           margin: 0 auto;
           padding: 40px 24px 40px;
-          height: 100vh;
-          overflow-y: auto;
-          overflow-x: hidden;
+          min-height: 100vh;
         }
 
         .header {
@@ -402,12 +399,24 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
         }
 
         .tools-grid {
-          display: flex;
-          flex-wrap: wrap;
+          display: grid;
+          grid-template-columns: repeat(6, auto);
           justify-content: center;
           gap: 8px;
-          max-width: 580px;
+          max-width: 680px;
           margin: 0 auto;
+        }
+
+        @media (max-width: 680px) {
+          .tools-grid {
+            grid-template-columns: repeat(5, auto);
+          }
+        }
+
+        @media (max-width: 560px) {
+          .tools-grid {
+            grid-template-columns: repeat(4, auto);
+          }
         }
 
         .tool-btn {
@@ -685,7 +694,7 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
           .header-meta { font-size: 13px; margin-top: 8px; }
           .section { margin-bottom: 20px; }
           .section-label { font-size: 10px; margin-bottom: 12px; }
-          .tools-grid { gap: 6px; max-width: 100%; }
+          .tools-grid { gap: 6px; grid-template-columns: repeat(4, auto); }
           .tool-btn { padding: 6px 10px; font-size: 11px; gap: 4px; }
           .tool-btn img { width: 13px; height: 13px; min-width: 13px; min-height: 13px; }
           .question-card { padding: 14px 12px; min-height: 80px; height: auto; border-radius: 12px; }
@@ -714,7 +723,7 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
           .header-meta { font-size: 12px; margin-top: 6px; }
           .section { margin-bottom: 16px; }
           .section-label { font-size: 9px; margin-bottom: 10px; letter-spacing: 0.1em; }
-          .tools-grid { gap: 5px; max-width: 100%; }
+          .tools-grid { gap: 5px; grid-template-columns: repeat(3, auto); }
           .tool-btn { padding: 5px 8px; font-size: 10px; gap: 3px; }
           .tool-btn img { width: 12px; height: 12px; min-width: 12px; min-height: 12px; }
           .question-card { padding: 12px; min-height: 70px; height: auto; border-radius: 10px; }
