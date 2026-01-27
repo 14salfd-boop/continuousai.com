@@ -211,10 +211,10 @@ export default function Home() {
           <p className="text-[clamp(1.1rem,2vw,1.35rem)] leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[750px] mb-8">
             The best developer tools are converging on a shared vision: agents that keep pace with code generation, raise the bar on quality, and let you ship with confidence. From coding assistants to observability platforms, from feature flags to documentation—these tools are becoming the connective tissue of modern software development.
           </p>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 md:gap-3 my-6 md:my-10">
+          <div className="flex flex-wrap gap-2 md:gap-3 my-6 md:my-10">
             {[
               "Continue", "GitHub", "Vercel", "Sentry", "Datadog", "PostHog",
-              "Linear", "Notion", "LaunchDarkly", "Snyk", "Confluent", "Netlify",
+              "Linear", "Notion", "LaunchDarkly", "Snyk", "Confluent",
               "Devin", "Jules", "Cognee", "Sanity", "Graphene", "dltHub"
             ].map((tool) => (
               <span
