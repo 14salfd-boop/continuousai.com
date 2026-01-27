@@ -281,6 +281,8 @@ export default function Home() {
           </div>
           <a
             href="/jan2025"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 md:px-6 md:py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2"
           >
             Jan 2025 Dinner
