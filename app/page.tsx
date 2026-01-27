@@ -57,6 +57,7 @@ export default function Home() {
           overflow-y: auto;
           overflow-x: hidden;
           height: 100vh;
+          height: 100dvh;
           scrollbar-width: none;
           -ms-overflow-style: none;
         }
@@ -67,7 +68,19 @@ export default function Home() {
 
         .snap-section {
           scroll-snap-align: start;
-          height: 100vh;
+          min-height: 100vh;
+          min-height: 100dvh;
+        }
+
+        @media (max-width: 768px) {
+          .snap-container {
+            scroll-snap-type: none;
+          }
+          .snap-section {
+            min-height: auto;
+            padding-top: 80px;
+            padding-bottom: 60px;
+          }
         }
 
         @keyframes fadeInUp {
@@ -95,14 +108,14 @@ export default function Home() {
       `}</style>
 
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 p-6 px-16 z-50 flex justify-between items-center mix-blend-difference">
-        <a href="/" className="font-mono text-sm tracking-[0.15em] uppercase text-[var(--fg)] no-underline">
+      <header className="fixed top-0 left-0 right-0 p-4 px-6 md:p-6 md:px-16 z-50 flex justify-between items-center mix-blend-difference">
+        <a href="/" className="font-mono text-xs md:text-sm tracking-[0.15em] uppercase text-[var(--fg)] no-underline">
           Continuous AI
         </a>
       </header>
 
       {/* Navigation Dots */}
-      <nav className="fixed right-8 top-1/2 -translate-y-1/2 z-[100] flex flex-col gap-4">
+      <nav className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-[100] flex-col gap-4 hidden md:flex">
         {[
           { id: "manifesto", label: "The Manifesto" },
           { id: "ecosystem", label: "The Ecosystem" },
@@ -128,7 +141,7 @@ export default function Home() {
       {/* Section 1: The Manifesto */}
       <section
         id="manifesto"
-        className="snap-section flex flex-col justify-center px-[8vw] py-16 relative overflow-hidden"
+        className="snap-section flex flex-col justify-center px-6 md:px-[8vw] py-16 relative overflow-hidden"
         style={{
           background: "linear-gradient(135deg, #0a0a0a 0%, #151515 100%)",
         }}
@@ -171,7 +184,7 @@ export default function Home() {
             </svg>
           </a>
         </div>
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50" style={{ animation: "bounce 2s infinite" }}>
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex-col items-center gap-2 opacity-50 hidden md:flex" style={{ animation: "bounce 2s infinite" }}>
           <span className="font-mono text-[0.7rem] tracking-[0.2em] uppercase">Scroll</span>
           <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -182,7 +195,7 @@ export default function Home() {
       {/* Section 2: The Ecosystem */}
       <section
         id="ecosystem"
-        className="snap-section flex flex-col justify-center px-[8vw] py-16 relative overflow-hidden bg-[#0d0d0d]"
+        className="snap-section flex flex-col justify-center px-6 md:px-[8vw] py-16 relative overflow-hidden bg-[#0d0d0d]"
       >
         <div
           className="absolute bottom-0 left-0 right-0 h-px"
@@ -198,7 +211,7 @@ export default function Home() {
           <p className="text-[clamp(1.1rem,2vw,1.35rem)] leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[750px] mb-8">
             The best developer tools are converging on a shared vision: agents that keep pace with code generation, raise the bar on quality, and let you ship with confidence. From coding assistants to observability platforms, from feature flags to documentation—these tools are becoming the connective tissue of modern software development.
           </p>
-          <div className="flex flex-wrap gap-3 my-10">
+          <div className="flex flex-wrap gap-2 md:gap-3 my-6 md:my-10">
             {[
               "Continue", "GitHub", "Vercel", "Sentry", "Datadog", "PostHog",
               "Linear", "Notion", "LaunchDarkly", "Snyk", "Confluent",
@@ -206,7 +219,7 @@ export default function Home() {
             ].map((tool) => (
               <span
                 key={tool}
-                className="px-4 py-2 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-md font-mono text-sm text-[rgba(245,245,245,0.7)] transition-all duration-300 hover:bg-[rgba(200,255,0,0.1)] hover:border-[rgba(200,255,0,0.3)] hover:text-[var(--accent)] hover:-translate-y-0.5"
+                className="px-3 py-1.5 md:px-4 md:py-2 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-md font-mono text-xs md:text-sm text-[rgba(245,245,245,0.7)] transition-all duration-300 hover:bg-[rgba(200,255,0,0.1)] hover:border-[rgba(200,255,0,0.3)] hover:text-[var(--accent)] hover:-translate-y-0.5"
               >
                 {tool}
               </span>
@@ -227,7 +240,7 @@ export default function Home() {
       {/* Section 3: The Vision */}
       <section
         id="vision"
-        className="snap-section flex flex-col justify-start pt-[12vh] pb-20 px-[8vw] relative overflow-hidden"
+        className="snap-section flex flex-col justify-start pt-[12vh] pb-48 md:pb-20 px-6 md:px-[8vw] relative overflow-hidden"
         style={{
           background: "linear-gradient(180deg, #0d0d0d 0%, #111 50%, #0a0a0a 100%)",
         }}
@@ -258,7 +271,7 @@ export default function Home() {
           </div>
 
         {/* Footer */}
-        <footer className="absolute bottom-0 left-0 right-0 px-[8vw] flex flex-col">
+        <footer className="md:absolute relative md:bottom-0 left-0 right-0 px-6 md:px-[8vw] flex flex-col mt-12 md:mt-0">
           <a
             href="https://continue.dev"
             target="_blank"
