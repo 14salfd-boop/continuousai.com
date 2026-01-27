@@ -248,30 +248,26 @@ export default function Home() {
           <p className="text-[clamp(1.1rem,2vw,1.35rem)] leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] mt-4">
             Junior engineers ship like staff. Staff engineers focus on what only they can do. What would your best engineers catch? Now everyone catches it.
           </p>
+          </div>
+
+        {/* Footer */}
+        <footer className="absolute bottom-0 left-0 right-0 px-[8vw] flex flex-col items-center">
           <a
             href="https://continue.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-10 mb-24 px-6 py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2"
+            className="inline-flex items-center gap-2 mb-8 px-6 py-3 bg-[rgba(200,255,0,0.1)] border border-[rgba(200,255,0,0.3)] rounded-full text-[var(--accent)] no-underline font-mono text-sm transition-all duration-300 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:translate-x-2"
           >
             Continue
             <svg className="w-4 h-4 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </a>
-        </div>
-
-        {/* Footer */}
-        <footer className="absolute bottom-0 left-0 right-0 px-[8vw] py-8 flex justify-between items-center border-t border-[rgba(255,255,255,0.05)]">
-          <div className="flex items-center gap-3 font-mono text-sm text-[var(--muted)]">
+          <div className="w-full border-t border-[rgba(255,255,255,0.05)]" />
+          <div className="flex items-center gap-3 font-mono text-sm text-[var(--muted)] mt-8 mb-8">
             Powered by
             <a href="https://continue.dev" target="_blank" rel="noopener noreferrer" className="text-[var(--fg)] no-underline transition-colors duration-300 hover:text-[var(--accent)]">
               Continue
-            </a>
-          </div>
-          <div className="font-mono text-sm">
-            <a href="https://github.com/continuedev/continue" target="_blank" rel="noopener noreferrer" className="text-[var(--muted)] no-underline transition-colors duration-300 hover:text-[var(--accent)]">
-              GitHub
             </a>
           </div>
         </footer>
