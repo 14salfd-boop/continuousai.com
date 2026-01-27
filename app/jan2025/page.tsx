@@ -488,7 +488,7 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
           letter-spacing: 0.12em;
           text-transform: uppercase;
           color: var(--text-muted);
-          margin-bottom: 16px;
+          margin-bottom: 20px;
         }
 
         .ask-bar {
