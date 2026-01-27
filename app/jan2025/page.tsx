@@ -403,7 +403,7 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
           flex-wrap: wrap;
           justify-content: center;
           gap: 8px;
-          max-width: 600px;
+          max-width: 540px;
           margin: 0 auto;
         }
 
