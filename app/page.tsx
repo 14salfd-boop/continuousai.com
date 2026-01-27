@@ -122,11 +122,11 @@ export default function Home() {
         }
 
         .heartbeat-icon {
-          animation: heartbeat-pulse 4s ease-in-out infinite;
+          animation: heartbeat-pulse 2.5s ease-in-out infinite;
         }
 
         .heartbeat-line {
-          animation: line-flicker 4s ease-in-out infinite;
+          animation: line-flicker 2.5s ease-in-out infinite;
         }
 
         .heartbeat-link:hover .heartbeat-icon,

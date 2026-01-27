@@ -48,20 +48,20 @@
     }
     
     .core { 
-      animation: heartbeat 4s ease-in-out infinite;
+      animation: heartbeat 2.5s ease-in-out infinite;
       transform-origin: center center;
       transform-box: fill-box;
     }
     .breathe-up {
-      animation: breathe-out 4s ease-in-out infinite;
+      animation: breathe-out 2.5s ease-in-out infinite;
       transform-origin: center bottom;
     }
     .breathe-down {
-      animation: breathe-in 4s ease-in-out infinite;
+      animation: breathe-in 2.5s ease-in-out infinite;
       transform-origin: center top;
     }
     .fade-band {
-      animation: fade-pulse 4s ease-in-out infinite;
+      animation: fade-pulse 2.5s ease-in-out infinite;
     }
   </style>
   
