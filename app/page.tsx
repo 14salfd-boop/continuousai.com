@@ -258,7 +258,7 @@ export default function Home() {
           </p>
           <h1
             id="manifesto-heading"
-            className="text-[clamp(2rem,8vw,4.5rem)] font-bold leading-[1.1] mb-6 md:mb-8 pr-1 font-['Space_Grotesk',sans-serif] tracking-tight"
+            className="text-[clamp(2.5rem,10vw,5.5rem)] font-extrabold leading-[1.05] mb-6 md:mb-8 pr-1 font-['Outfit',sans-serif] tracking-[-0.02em]"
             style={{ animation: "fadeInUp 0.8s ease 0.2s forwards", opacity: 0 }}
           >
             <span className="text-[var(--accent)]">Continuous</span> AI
@@ -338,7 +338,7 @@ export default function Home() {
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-4 md:mb-8" aria-hidden="true">
             The Ecosystem
           </p>
-          <h2 id="ecosystem-heading" className="text-[clamp(2rem,8vw,4.5rem)] font-bold leading-[1.1] mb-6 md:mb-8 font-['Space_Grotesk',sans-serif] tracking-tight">
+          <h2 id="ecosystem-heading" className="text-[clamp(2.5rem,10vw,5.5rem)] font-extrabold leading-[1.05] mb-6 md:mb-8 font-['Outfit',sans-serif] tracking-[-0.02em]">
             Building <span className="text-[var(--accent)]">Together</span>
           </h2>
           <p className="text-[clamp(1rem,3vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] mb-4 md:mb-8">
@@ -393,13 +393,13 @@ export default function Home() {
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-4" aria-hidden="true">
             The Vision
           </p>
-          <h2 id="vision-heading" className="text-[clamp(1.75rem,7vw,4.5rem)] font-bold leading-[1.1] mb-4 font-['Space_Grotesk',sans-serif] tracking-tight">
+          <h2 id="vision-heading" className="text-[clamp(2rem,8vw,5rem)] font-extrabold leading-[1.05] mb-4 font-['Outfit',sans-serif] tracking-[-0.02em]">
             Ship as Fast as <span className="text-[var(--accent)]">You Code</span>
           </h2>
           <p className="text-[clamp(1rem,3vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px]">
             AI made your engineers 10x faster at writing code. Now they&apos;re drowning in the stuff that isn&apos;t code. Continuous AI closes that gap.
           </p>
-          <p className="text-[clamp(1rem,3.5vw,2.5rem)] font-semibold text-[var(--fg)] mt-4 leading-[1.2] font-['Space_Grotesk',sans-serif] tracking-tight">
+          <p className="text-[clamp(1.1rem,4vw,2.75rem)] font-bold text-[var(--fg)] mt-4 leading-[1.15] font-['Outfit',sans-serif] tracking-[-0.01em]">
             Your best engineers&apos; standards,<br />
             <span className="text-[var(--accent)]">now the whole team&apos;s.</span>
           </p>

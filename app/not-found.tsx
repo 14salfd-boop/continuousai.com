@@ -34,7 +34,7 @@ export default function NotFound() {
         <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#c8ff00] mb-6" aria-hidden="true">
           404 Error
         </p>
-        <h1 id="error-heading" className="text-[clamp(3rem,15vw,10rem)] font-bold leading-[1] mb-4 text-[#f5f5f5] font-['Space_Grotesk',sans-serif] tracking-tight">
+        <h1 id="error-heading" className="text-[clamp(4rem,18vw,12rem)] font-extrabold leading-[0.9] mb-4 text-[#f5f5f5] font-['Outfit',sans-serif] tracking-[-0.02em]">
           <span className="sr-only">Error </span>4<span className="text-[#c8ff00]">0</span>4<span className="sr-only"> - Page not found</span>
         </h1>
         <p className="text-[clamp(1rem,3vw,1.35rem)] leading-[1.6] text-[rgba(245,245,245,0.85)] max-w-[500px] mb-8">
