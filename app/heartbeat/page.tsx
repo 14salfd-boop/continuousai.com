@@ -2,7 +2,12 @@
 
 export default function Heartbeat() {
   return (
-    <div style={{ margin: 0, padding: 0, width: '100vw', height: '100vh', overflow: 'hidden', background: '#0a0a0b' }}>
+    <main
+      id="main-content"
+      role="main"
+      aria-label="Heartbeat visualization - an animated representation of continuous AI workflow"
+      style={{ margin: 0, padding: 0, width: '100vw', height: '100vh', overflow: 'hidden', background: '#0a0a0b' }}
+    >
       <style jsx global>{`
         @keyframes heartbeat {
           0%, 100% { transform: scaleY(1); }
@@ -65,7 +70,7 @@ export default function Heartbeat() {
         }
       `}</style>
       
-      <svg width="100%" height="100%" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="100%" height="100%" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstract heartbeat visualization with pulsing horizontal lines converging to a bright green core line">
         <defs>
           <filter id="grain" x="0%" y="0%" width="100%" height="100%">
             <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="4" result="noise"/>
@@ -266,6 +271,6 @@ export default function Heartbeat() {
         <rect width="1200" height="630" filter="url(#grain)" fill="#808080" opacity="0.025" style={{ pointerEvents: 'none' }}/>
         
       </svg>
-    </div>
+    </main>
   );
 }

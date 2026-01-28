@@ -7,6 +7,8 @@ export default function NotFound() {
       style={{
         background: "linear-gradient(135deg, #0a0a0a 0%, #151515 100%)",
       }}
+      role="main"
+      id="main-content"
     >
       {/* Background glow */}
       <div
@@ -17,22 +19,23 @@ export default function NotFound() {
       />
 
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 p-4 px-6 md:p-6 md:px-16 z-50 flex justify-between items-center">
+      <header className="fixed top-0 left-0 right-0 p-4 px-6 md:p-6 md:px-16 z-50 flex justify-between items-center" role="banner">
         <Link
           href="/"
           className="font-mono text-xs md:text-sm tracking-[0.15em] uppercase text-[#f5f5f5] no-underline"
+          aria-label="Continuous AI - Home"
         >
           Continuous AI
         </Link>
       </header>
 
       {/* Content */}
-      <div className="text-center z-10">
-        <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#c8ff00] mb-6">
+      <article className="text-center z-10" aria-labelledby="error-heading">
+        <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#c8ff00] mb-6" aria-hidden="true">
           404 Error
         </p>
-        <h1 className="text-[clamp(3rem,15vw,10rem)] font-extrabold leading-[1] mb-4 text-[#f5f5f5]">
-          4<span className="text-[#c8ff00]">0</span>4
+        <h1 id="error-heading" className="text-[clamp(3rem,15vw,10rem)] font-extrabold leading-[1] mb-4 text-[#f5f5f5]">
+          <span className="sr-only">Error </span>4<span className="text-[#c8ff00]">0</span>4<span className="sr-only"> - Page not found</span>
         </h1>
         <p className="text-[clamp(1rem,3vw,1.35rem)] leading-[1.6] text-[rgba(245,245,245,0.85)] max-w-[500px] mb-8">
           This page got lost in the continuous flow of AI. Let&apos;s get you back on track.
@@ -49,15 +52,16 @@ export default function NotFound() {
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth="2"
+            aria-hidden="true"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
         </Link>
-      </div>
+      </article>
 
       {/* Footer */}
-      <footer className="absolute bottom-4 md:bottom-8 left-5 right-5 md:left-[8vw] md:right-[8vw] flex flex-col z-50">
-        <div className="w-full border-t border-[rgba(255,255,255,0.05)]" />
+      <footer className="absolute bottom-4 md:bottom-8 left-5 right-5 md:left-[8vw] md:right-[8vw] flex flex-col z-50" role="contentinfo">
+        <div className="w-full border-t border-[rgba(255,255,255,0.05)]" aria-hidden="true" />
         <div className="flex items-center justify-between w-full mt-3 md:mt-6">
           <div className="flex items-center gap-2 md:gap-3 font-mono text-xs md:text-sm text-[#666]">
             Powered by
@@ -67,7 +71,7 @@ export default function NotFound() {
               rel="noopener noreferrer"
               className="text-[#f5f5f5] no-underline transition-colors duration-300 hover:text-[#c8ff00]"
             >
-              Continue
+              Continue<span className="sr-only"> (opens in new tab)</span>
             </a>
           </div>
           <a
@@ -76,7 +80,7 @@ export default function NotFound() {
             rel="noopener noreferrer"
             className="font-mono text-xs md:text-sm text-[#666] no-underline transition-colors duration-300 hover:text-[#c8ff00]"
           >
-            GitHub
+            GitHub<span className="sr-only"> repository (opens in new tab)</span>
           </a>
         </div>
       </footer>

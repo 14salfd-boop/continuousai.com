@@ -53,7 +53,12 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-['Syne',sans-serif]">{children}</body>
+      <body className="font-['Syne',sans-serif]">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#c8ff00] focus:text-black focus:rounded">
+          Skip to main content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }
