@@ -422,8 +422,8 @@ export default function Home() {
           </a>
         </div>
 
-        {/* Footer - pinned to bottom */}
-        <footer className="absolute bottom-4 md:bottom-8 left-5 right-5 md:left-[8vw] md:right-[8vw] flex flex-col z-50" role="contentinfo">
+        {/* Footer - pinned to bottom, above heartbeat animation */}
+        <footer className="absolute bottom-[70px] md:bottom-[76px] left-5 right-5 md:left-[8vw] md:right-[8vw] flex flex-col z-50" role="contentinfo">
           <div className="w-full border-t border-[rgba(255,255,255,0.05)]" aria-hidden="true" />
           <div className="flex items-center justify-between w-full mt-3 md:mt-6">
             <div className="flex items-center gap-2 md:gap-3 font-mono text-xs md:text-sm text-[var(--muted)]">
