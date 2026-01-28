@@ -258,7 +258,7 @@ export default function Home() {
           </p>
           <h1
             id="manifesto-heading"
-            className="text-[clamp(2.5rem,10vw,5.5rem)] font-extrabold leading-[1.05] mb-6 md:mb-8 pr-1 font-['Outfit',sans-serif] tracking-[-0.02em]"
+            className="text-[clamp(2.5rem,10vw,5.5rem)] font-bold leading-[1.05] mb-6 md:mb-8 pr-1 font-['Outfit',sans-serif] tracking-[-0.02em]"
             style={{ animation: "fadeInUp 0.8s ease 0.2s forwards", opacity: 0 }}
           >
             <span className="text-[var(--accent)]">Continuous</span> AI
@@ -338,7 +338,7 @@ export default function Home() {
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-4 md:mb-8" aria-hidden="true">
             The Ecosystem
           </p>
-          <h2 id="ecosystem-heading" className="text-[clamp(2.5rem,10vw,5.5rem)] font-extrabold leading-[1.05] mb-6 md:mb-8 font-['Outfit',sans-serif] tracking-[-0.02em]">
+          <h2 id="ecosystem-heading" className="text-[clamp(2.5rem,10vw,5.5rem)] font-bold leading-[1.05] mb-6 md:mb-8 font-['Outfit',sans-serif] tracking-[-0.02em]">
             Building <span className="text-[var(--accent)]">Together</span>
           </h2>
           <p className="text-[clamp(1rem,3vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] mb-4 md:mb-8">
@@ -393,7 +393,7 @@ export default function Home() {
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-4" aria-hidden="true">
             The Vision
           </p>
-          <h2 id="vision-heading" className="text-[clamp(2rem,8vw,5rem)] font-extrabold leading-[1.05] mb-4 font-['Outfit',sans-serif] tracking-[-0.02em]">
+          <h2 id="vision-heading" className="text-[clamp(2rem,8vw,5rem)] font-bold leading-[1.05] mb-4 font-['Outfit',sans-serif] tracking-[-0.02em]">
             Ship as Fast as <span className="text-[var(--accent)]">You Code</span>
           </h2>
           <p className="text-[clamp(1rem,3vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px]">
