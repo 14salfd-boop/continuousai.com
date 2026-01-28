@@ -13,27 +13,27 @@ export default function Heartbeat() {
         }
         
         @keyframes breathe-out {
-          0%, 100% { transform: translateY(0) scaleY(1); opacity: 0.5; }
-          7% { transform: translateY(-5px) scaleY(1.05); opacity: 0.65; }
-          14% { transform: translateY(0) scaleY(1); opacity: 0.5; }
-          21% { transform: translateY(-12px) scaleY(1.12); opacity: 0.8; }
-          35% { transform: translateY(0) scaleY(1); opacity: 0.5; }
+          0%, 100% { transform: translateY(0) scaleY(1); opacity: 0.85; }
+          7% { transform: translateY(-5px) scaleY(1.05); opacity: 0.92; }
+          14% { transform: translateY(0) scaleY(1); opacity: 0.85; }
+          21% { transform: translateY(-12px) scaleY(1.12); opacity: 1; }
+          35% { transform: translateY(0) scaleY(1); opacity: 0.85; }
         }
         
         @keyframes breathe-in {
-          0%, 100% { transform: translateY(0) scaleY(1); opacity: 0.5; }
-          7% { transform: translateY(5px) scaleY(1.05); opacity: 0.65; }
-          14% { transform: translateY(0) scaleY(1); opacity: 0.5; }
-          21% { transform: translateY(12px) scaleY(1.12); opacity: 0.8; }
-          35% { transform: translateY(0) scaleY(1); opacity: 0.5; }
+          0%, 100% { transform: translateY(0) scaleY(1); opacity: 0.85; }
+          7% { transform: translateY(5px) scaleY(1.05); opacity: 0.92; }
+          14% { transform: translateY(0) scaleY(1); opacity: 0.85; }
+          21% { transform: translateY(12px) scaleY(1.12); opacity: 1; }
+          35% { transform: translateY(0) scaleY(1); opacity: 0.85; }
         }
         
         @keyframes fade-pulse {
-          0%, 100% { opacity: 0.15; }
-          7% { opacity: 0.25; }
-          14% { opacity: 0.15; }
-          21% { opacity: 0.4; }
-          35% { opacity: 0.15; }
+          0%, 100% { opacity: 0.7; }
+          7% { opacity: 0.85; }
+          14% { opacity: 0.7; }
+          21% { opacity: 1; }
+          35% { opacity: 0.7; }
         }
         
         .core { 
