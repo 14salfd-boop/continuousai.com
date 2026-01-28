@@ -399,7 +399,7 @@ export default function Home() {
           <p className="text-[clamp(1rem,3vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px]">
             AI made your engineers 10x faster at writing code. Now they&apos;re drowning in the stuff that isn&apos;t code. Continuous AI closes that gap.
           </p>
-          <p className="text-[clamp(1.1rem,4vw,2.75rem)] font-bold text-[var(--fg)] mt-4 leading-[1.15] font-['Outfit',sans-serif] tracking-[-0.01em]">
+          <p className="text-[clamp(1.1rem,4vw,2.75rem)] font-bold text-[var(--fg)] mt-4 leading-[1.15]">
             Your best engineers&apos; standards,<br />
             <span className="text-[var(--accent)]">now the whole team&apos;s.</span>
           </p>
