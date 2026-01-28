@@ -212,7 +212,7 @@ export default function Home() {
       </nav>
 
       {/* Navigation Dots - Mobile */}
-      <nav className="fixed right-5 bottom-[130px] z-[100] flex flex-col gap-2.5 md:hidden" aria-label="Page sections">
+      <nav className="fixed right-5 top-20 z-[100] flex flex-col gap-2.5 md:hidden" aria-label="Page sections">
         {[
           { id: "manifesto", label: "The Manifesto" },
           { id: "ecosystem", label: "The Ecosystem" },
