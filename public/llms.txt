@@ -11,7 +11,7 @@ Powered by [Continue](https://continue.dev), which enables developers to 'ship a
 ## Pages
 
 - [Home](https://continuousai.com/): Main manifesto page
-- [Jan 2025 Dinner](https://continuousai.com/jan2025): Gathering of AI coding tools
+- [Jan 2026 Dinner](https://continuousai.com/jan2026): Gathering of AI coding tools
 
 ## Contact
 

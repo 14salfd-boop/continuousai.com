@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Jan 2025 Dinner | Continuous AI",
-  description: "San Francisco · January 2025",
+  title: "Jan 2026 Dinner | Continuous AI",
+  description: "San Francisco · January 2026",
   openGraph: {
     type: "website",
     title: "Continuous AI Dinner",
-    description: "San Francisco · January 2025",
-    url: "https://continuousai.com/jan2025",
+    description: "San Francisco · January 2026",
+    url: "https://continuousai.com/jan2026",
     siteName: "Continuous AI",
     images: [
       {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Continuous AI Dinner",
-    description: "San Francisco · January 2025",
+    description: "San Francisco · January 2026",
     images: ["/og-image.gif"],
   },
 };

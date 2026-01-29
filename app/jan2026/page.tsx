@@ -680,74 +680,74 @@ What's your take? Search the web for recent developments if helpful. I'll bring 
         <header className="header" role="banner">
           <div className="header-eyebrow">You&apos;re Invited</div>
           <h1 id="page-heading">Continuous AI<br/><em>January Dinner</em></h1>
-          <p className="header-meta">San Francisco · January 2025</p>
+          <p className="header-meta">San Francisco · January 2026</p>
         </header>
 
         <section className="section" aria-labelledby="tools-label">
           <div className="section-label" id="tools-label">Which tools do you use?</div>
           <div className="tools-grid" role="group" aria-label="Select the tools you use">
             <button className="tool-btn" data-tool="continue" aria-pressed="false">
-              <img src="/jan2025/icons/continue.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/continue.svg" alt="" width={16} height={16} aria-hidden="true" />
               Continue
             </button>
             <button className="tool-btn" data-tool="github" aria-pressed="false">
-              <img src="/jan2025/icons/github.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/github.svg" alt="" width={16} height={16} aria-hidden="true" />
               GitHub
             </button>
             <button className="tool-btn" data-tool="snyk" aria-pressed="false">
-              <img src="/jan2025/icons/snyk.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/snyk.svg" alt="" width={16} height={16} aria-hidden="true" />
               Snyk
             </button>
             <button className="tool-btn" data-tool="jules" aria-pressed="false">
-              <img src="/jan2025/icons/jules.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/jules.svg" alt="" width={16} height={16} aria-hidden="true" />
               Jules
             </button>
             <button className="tool-btn" data-tool="launchdarkly" aria-pressed="false">
-              <img src="/jan2025/icons/launchdarkly.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/launchdarkly.svg" alt="" width={16} height={16} aria-hidden="true" />
               LaunchDarkly
             </button>
             <button className="tool-btn" data-tool="linear" aria-pressed="false">
-              <img src="/jan2025/icons/linear.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/linear.svg" alt="" width={16} height={16} aria-hidden="true" />
               Linear
             </button>
             <button className="tool-btn" data-tool="devin" aria-pressed="false">
-              <img src="/jan2025/icons/devin.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/devin.svg" alt="" width={16} height={16} aria-hidden="true" />
               Devin
             </button>
             <button className="tool-btn" data-tool="confluent" aria-pressed="false">
-              <img src="/jan2025/icons/confluent.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/confluent.svg" alt="" width={16} height={16} aria-hidden="true" />
               Confluent
             </button>
             <button className="tool-btn" data-tool="datadog" aria-pressed="false">
-              <img src="/jan2025/icons/datadog.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/datadog.svg" alt="" width={16} height={16} aria-hidden="true" />
               Datadog
             </button>
             <button className="tool-btn" data-tool="vercel" aria-pressed="false">
-              <img src="/jan2025/icons/vercel.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/vercel.svg" alt="" width={16} height={16} aria-hidden="true" />
               Vercel
             </button>
             <button className="tool-btn" data-tool="cognee" aria-pressed="false">
-              <img src="/jan2025/icons/cognee.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/cognee.svg" alt="" width={16} height={16} aria-hidden="true" />
               Cognee
             </button>
             <button className="tool-btn" data-tool="graphene" aria-pressed="false">
-              <img src="/jan2025/icons/graphene.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/graphene.svg" alt="" width={16} height={16} aria-hidden="true" />
               Graphene
             </button>
             <button className="tool-btn" data-tool="posthog" aria-pressed="false">
-              <img src="/jan2025/icons/posthog.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/posthog.svg" alt="" width={16} height={16} aria-hidden="true" />
               PostHog
             </button>
             <button className="tool-btn" data-tool="notion" aria-pressed="false">
-              <img src="/jan2025/icons/notion.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/notion.svg" alt="" width={16} height={16} aria-hidden="true" />
               Notion
             </button>
             <button className="tool-btn" data-tool="sentry" aria-pressed="false">
-              <img src="/jan2025/icons/sentry.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/sentry.svg" alt="" width={16} height={16} aria-hidden="true" />
               Sentry
             </button>
             <button className="tool-btn" data-tool="dlthub" aria-pressed="false">
-              <img src="/jan2025/icons/dlthub.svg" alt="" width={16} height={16} aria-hidden="true" />
+              <img src="/jan2026/icons/dlthub.svg" alt="" width={16} height={16} aria-hidden="true" />
               dltHub
             </button>
           </div>
