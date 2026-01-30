@@ -342,7 +342,7 @@ export default function Home() {
             Building <span className="text-[var(--accent)]">Together</span>
           </h2>
           <p className="text-[clamp(1rem,3vw,1.35rem)] leading-[1.6] md:leading-[1.8] text-[rgba(245,245,245,0.85)] max-w-[700px] mb-4 md:mb-8">
-            The best developer tools are converging around a shared goal: agents that keep pace with code generation, catch issues before they ship, and give every engineer the guardrails to move fast with confidence.
+            The best developer tools are converging around a shared goal: agents that keep pace with code generation, catch issues before and after they ship, and give every engineer the guardrails to move fast with confidence.
           </p>
           <ul className="flex flex-wrap gap-1 md:gap-3 my-3 md:my-10 list-none p-0" aria-label="Partner tools and integrations">
             {[
